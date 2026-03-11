@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-03-11 | Total links: 51 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-03-11 | Total links: 57 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -111,3 +111,16 @@
 | [BLOG] | The Practical Linux Hardening Guide — GitHub | https://github.com/trimstray/the-practical-linux-hardening-guide | Deep-dive guide referencing OpenSCAP, CIS, and STIG standards. |
 | [BLOG] | Linux Server Hardening: Most Important Steps — Linux Audit | https://linux-audit.com/linux-server-hardening-most-important-steps-to-secure-systems/ | Prioritised checklist from a dedicated Linux security auditing site. |
 | [VIDEO] | Linux Server Security Hardening 2025 | https://www.youtube.com/results?search_query=linux+server+security+hardening+tutorial+2025 | YouTube search for current Linux server hardening video tutorials. |
+
+---
+
+## 9. Certifications & Call Center Tech (Chapter 4)
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | CompTIA A+ Certification — CompTIA | https://www.comptia.org/en-us/certifications/a/ | Official CompTIA page: exam objectives, exam codes (220-1101/1102), pricing, and study tools. |
+| [TUTORIAL] | Free Study Guide for CompTIA A+ Core Series (Updated 2026) | https://uniontestprep.com/comptia-a-core-series-exam/study-guide | Free, beginner-friendly study guide covering all exam domains — no cost to access. |
+| [OFFICIAL] | Microsoft Credentials — All Certifications | https://learn.microsoft.com/en-us/credentials/ | Microsoft Learn's central hub for all role-based certs including Azure and the MCT path. |
+| [OFFICIAL] | MCT Renewal and Reinstatement — Microsoft Learn | https://learn.microsoft.com/en-us/credentials/certifications/mct-renewal-reinstatement | Official requirements and steps to become or renew as a Microsoft Certified Trainer (MCT). |
+| [BLOG] | Giving Inmates a Second Chance as Prison Call Center Agents — TechTarget | https://www.techtarget.com/searchcustomerexperience/feature/Giving-inmates-a-second-chance-as-prison-call-center-agents | In-depth feature on prison call center programs, skills gained, and reentry outcomes. |
+| [TUTORIAL] | CompTIA A+ Study Tips for Working Professionals | https://prepsaret.com/comptia/comptia-a-study-tips-for-working-professionals | Targeted advice for studying while working a demanding job — scheduling, pacing, burnout avoidance. |
