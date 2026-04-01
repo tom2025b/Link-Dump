@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-01 | Total links: 85 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-01 | Total links: 90 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -187,3 +187,15 @@
 | [TUTORIAL] | Creating Application Launchers on Linux — MakeUseOf | https://www.makeuseof.com/how-to-create-desktop-entry-file-linux/ | Step-by-step: write, place, chmod, and verify a .desktop file on Linux Mint/Ubuntu. |
 | [BLOG] | XDG Base Directory Spec — ArchWiki | https://wiki.archlinux.org/title/XDG_Base_Directory | Explains ~/.local/share/applications and the full XDG directory layout. |
 | [Q&A] | .desktop File Not Showing in Menu — Ask Ubuntu | https://askubuntu.com/questions/306748/how-do-i-add-application-to-app-menu | Common fixes: wrong location, missing chmod +x, update-desktop-database command. |
+
+---
+
+## 15. Rust TUI / ratatui
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | ratatui docs | https://ratatui.rs | Widgets, layout, TableState, Sparkline API reference |
+| [OFFICIAL] | ratatui 0.26 crate | https://docs.rs/ratatui/0.26.3 | Version-specific API — check here when docs.rs shows newer version |
+| [OFFICIAL] | sysinfo crate | https://docs.rs/sysinfo/0.30 | CPU/RAM/disk/net/process APIs for system monitoring |
+| [TUTORIAL] | ratatui book | https://ratatui.rs/tutorials/ | Step-by-step tutorials including counter app and JSON editor |
+| [BLOG] | ratatui GitHub examples | https://github.com/ratatui/ratatui/tree/main/examples | Practical widget usage examples |
