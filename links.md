@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-03-11 | Total links: 57 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-01 | Total links: 85 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -124,3 +124,66 @@
 | [OFFICIAL] | MCT Renewal and Reinstatement — Microsoft Learn | https://learn.microsoft.com/en-us/credentials/certifications/mct-renewal-reinstatement | Official requirements and steps to become or renew as a Microsoft Certified Trainer (MCT). |
 | [BLOG] | Giving Inmates a Second Chance as Prison Call Center Agents — TechTarget | https://www.techtarget.com/searchcustomerexperience/feature/Giving-inmates-a-second-chance-as-prison-call-center-agents | In-depth feature on prison call center programs, skills gained, and reentry outcomes. |
 | [TUTORIAL] | CompTIA A+ Study Tips for Working Professionals | https://prepsaret.com/comptia/comptia-a-study-tips-for-working-professionals | Targeted advice for studying while working a demanding job — scheduling, pacing, burnout avoidance. |
+
+---
+
+## 10. Rust TUI — crossterm, Terminal Animation
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | crossterm — Rust API Docs | https://docs.rs/crossterm | Full API reference for crossterm: raw mode, alternate screen, cursor, colors, events. |
+| [OFFICIAL] | crossterm GitHub — Crossterm.rs | https://github.com/crossterm-rs/crossterm | Source, examples, and CHANGELOG — essential for checking syntax changes between versions. |
+| [TUTORIAL] | Building a Terminal UI in Rust with crossterm — Ratatui Guide | https://ratatui.rs/concepts/backends/crossterm/ | Explains the crossterm backend model and how raw mode + alternate screen work together. |
+| [BLOG] | Rust Terminal Animation with crossterm — LogRocket | https://blog.logrocket.com/rust-and-tui-building-a-command-line-interface/ | Practical guide to building interactive terminal UIs with Rust and crossterm. |
+| [Q&A] | crossterm Color::Rgb Syntax — Rust Users Forum | https://users.rust-lang.org/t/crossterm-color-rgb/92777 | Community thread on struct vs tuple syntax for Color::Rgb — a common gotcha. |
+| [OFFICIAL] | clap — Command Line Argument Parser for Rust | https://docs.rs/clap | API docs for clap with derive macros — how to add CLI flags with #[derive(Parser)]. |
+
+---
+
+## 11. Rust GUI — egui & eframe
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | egui — Immediate Mode GUI for Rust | https://docs.rs/egui | Full egui API reference: widgets, Painter, Color32, Layout, Key, input handling. |
+| [OFFICIAL] | eframe — egui App Framework | https://docs.rs/eframe | eframe API: how to set up a native window, the App trait, and run_native. |
+| [OFFICIAL] | egui GitHub — emilk/egui | https://github.com/emilk/egui | Source and demos — best place to see how widgets are built and what changed between versions. |
+| [TUTORIAL] | Writing a GUI app in Rust with egui — LogRocket | https://blog.logrocket.com/build-desktop-app-rust-egui/ | Step-by-step intro to building a real egui app from scratch. |
+| [BLOG] | Immediate Mode vs Retained Mode GUI — egui Docs | https://github.com/emilk/egui?tab=readme-ov-file#why-immediate-mode | egui author's explanation of why immediate mode is simpler for animation-heavy apps. |
+| [Q&A] | egui Painter and 2D Drawing — egui Discussions | https://github.com/emilk/egui/discussions/categories/q-a | Search for "Painter" here — community Q&A on custom drawing with egui's Painter API. |
+
+---
+
+## 12. Rust JSON — serde & serde_json
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | serde — Rust Serialization Framework | https://docs.rs/serde | API docs for serde: Serialize, Deserialize, derive macros, field attributes. |
+| [OFFICIAL] | serde_json — Rust API Docs | https://docs.rs/serde_json | Full serde_json reference: from_str, from_reader, Value, error types. |
+| [OFFICIAL] | Serde Guide — serde.rs | https://serde.rs/ | The official serde book: getting started, derive macros, custom serializers. |
+| [TUTORIAL] | Working with JSON in Rust — LogRocket | https://blog.logrocket.com/json-and-rust-why-serde_json-is-the-top-choice/ | Practical guide to parsing and generating JSON with serde_json. |
+| [BLOG] | Deserializing JSON in Rust — Zero to Production | https://www.lpalmieri.com/posts/serde-in-rust/ | Deep dive into serde's derive macros and handling optional/nested fields. |
+
+---
+
+## 13. Bash — rsync, Backup Scripts, notify-send
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | rsync Man Page — linux.die.net | https://linux.die.net/man/1/rsync | Complete rsync flag reference — -a, -A, -X, --delete, --backup-dir all explained. |
+| [TUTORIAL] | rsync Backup Script on Linux — DigitalOcean | https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories | Most-cited rsync tutorial: flags, exclude patterns, dry-run, and incremental backups. |
+| [TUTORIAL] | How to Use notify-send on Linux — LinuxHandbook | https://linuxhandbook.com/notify-send/ | Practical guide to desktop notifications from bash, including urgency and icons. |
+| [BLOG] | Cron-Safe Bash Scripts — Bash Hackers Wiki | https://bash.cyberciti.biz/guide/Main_Page | Reference for bash scripting patterns including TTY detection and stdin handling. |
+| [Q&A] | Detect If Script Is Running in Cron — Stack Overflow | https://stackoverflow.com/questions/3214935/detect-if-script-is-running-in-cron | Community answers on `[[ -t 0 ]]` and other cron-detection idioms. |
+| [BLOG] | Using findmnt to Find Real Mountpoints — nixCraft | https://www.cyberciti.biz/tips/howto-find-linux-mount-point.html | How findmnt --target walks up the path to find the actual mountpoint. |
+
+---
+
+## 14. Linux Desktop — XDG .desktop Files, Cinnamon Launchers
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Desktop Entry Specification — freedesktop.org | https://specifications.freedesktop.org/desktop-entry-spec/latest/ | The authoritative XDG spec: every valid key, category, and type for .desktop files. |
+| [OFFICIAL] | Desktop Files: A How-To — GNOME Developer Docs | https://developer.gnome.org/documentation/guidelines/maintainer/integrating.html | GNOME's practical guide to integrating an app with the DE via a .desktop file. |
+| [TUTORIAL] | Creating Application Launchers on Linux — MakeUseOf | https://www.makeuseof.com/how-to-create-desktop-entry-file-linux/ | Step-by-step: write, place, chmod, and verify a .desktop file on Linux Mint/Ubuntu. |
+| [BLOG] | XDG Base Directory Spec — ArchWiki | https://wiki.archlinux.org/title/XDG_Base_Directory | Explains ~/.local/share/applications and the full XDG directory layout. |
+| [Q&A] | .desktop File Not Showing in Menu — Ask Ubuntu | https://askubuntu.com/questions/306748/how-do-i-add-application-to-app-menu | Common fixes: wrong location, missing chmod +x, update-desktop-database command. |
