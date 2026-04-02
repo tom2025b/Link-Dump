@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-02 | Total links: 96 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-02 | Total links: 108 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -210,3 +210,31 @@
 | [OFFICIAL] | sysinfo 0.30 Docs | https://docs.rs/sysinfo/0.30/ | CPU/RAM/disk/net system metrics in Rust — process disk_usage() for I/O rates |
 | [OFFICIAL] | crossterm Docs | https://docs.rs/crossterm/ | Cross-platform terminal control for raw mode, events, alternate screen |
 | [BLOG] | Tokio spawn_blocking guide | https://tokio.rs/tokio/topics/bridging | Bridging sync/blocking code (TUI loops, raw terminal) in async Tokio apps |
+
+---
+
+## 17. Linux Server Hardening — sysctl, UFW, Tailscale, Kernel Lockdown
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | sysctl man page | https://man7.org/linux/man-pages/man8/sysctl.8.html | Full reference for sysctl — flags, file format, --system behavior |
+| [OFFICIAL] | sysctl.d man page | https://www.man7.org/linux/man-pages/man5/sysctl.d.5.html | How /etc/sysctl.d/ files are loaded and in what order |
+| [OFFICIAL] | kernel.modules_disabled — Linux kernel docs | https://www.kernel.org/doc/html/latest/admin-guide/sysctl/kernel.html | Official docs on kernel.modules_disabled — what it does, when it takes effect |
+| [OFFICIAL] | UFW man page | https://manpages.ubuntu.com/manpages/focal/man8/ufw.8.html | Full UFW command reference — rules, interface-specific allow, default policies |
+| [OFFICIAL] | Linux sysfs network interface operstate | https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net | Explains /sys/class/net/<iface>/operstate values (up/down/unknown/dormant) |
+| [OFFICIAL] | Tailscale docs — Linux installation | https://tailscale.com/kb/1031/install-linux | Official Tailscale setup on Linux, interface naming, subnet routing |
+| [BLOG] | Linux Hardening Guide — madaidans-insecurities | https://madaidans-insecurities.github.io/guides/linux-hardening.html | Comprehensive hardening guide — sysctl, kernel modules, filesystem hardening |
+| [BLOG] | ArchWiki — Security — Kernel hardening | https://wiki.archlinux.org/title/Security#Kernel_hardening | Practical sysctl settings with explanations, including net.ipv4 and kernel params |
+| [DOCS] | UFW — community help | https://help.ubuntu.com/community/UFW | Ubuntu's UFW guide — interface rules, app profiles, logging |
+| [Q&A] | net.ipv4.conf.all vs .default — what's the difference | https://serverfault.com/questions/431593/difference-between-sysctl-net-ipv4-conf-all-and-default | Explains why both all and default must be set for complete sysctl coverage |
+| [BLOG] | Tailscale + UFW — locking down with Tailscale | https://tailscale.com/kb/1077/secure-server-ubuntu-18-04 | Official Tailscale guide for locking a server to Tailscale-only access via UFW |
+
+---
+
+## 18. Rust — Security Scripting Patterns
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | std::process::Command — Rust docs | https://doc.rust-lang.org/std/process/struct.Command.html | Full API for spawning processes — status(), output(), ExitStatus |
+| [OFFICIAL] | std::process::ExitStatus | https://doc.rust-lang.org/std/process/struct.ExitStatus.html | How to check success() vs raw exit codes in Rust |
+| [BLOG] | Rust sysfs reading patterns | https://doc.rust-lang.org/std/fs/fn.read_to_string.html | std::fs::read_to_string — simplest way to read /sys/ virtual files |
