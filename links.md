@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-01 | Total links: 90 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-02 | Total links: 96 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -199,3 +199,14 @@
 | [OFFICIAL] | sysinfo crate | https://docs.rs/sysinfo/0.30 | CPU/RAM/disk/net/process APIs for system monitoring |
 | [TUTORIAL] | ratatui book | https://ratatui.rs/tutorials/ | Step-by-step tutorials including counter app and JSON editor |
 | [BLOG] | ratatui GitHub examples | https://github.com/ratatui/ratatui/tree/main/examples | Practical widget usage examples |
+
+## 16. Rust — Axum HTTP Server & Shared State
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Axum 0.7 Docs | https://docs.rs/axum/0.7/ | Axum 0.7 router, handlers, JSON extractors — breaking changes from 0.6 |
+| [OFFICIAL] | tokio::sync::watch | https://docs.rs/tokio/latest/tokio/sync/watch/ | Watch channel for broadcasting latest value to multiple receivers — zero-copy borrow() |
+| [OFFICIAL] | ratatui Book | https://ratatui.rs/introduction/ | Official Ratatui guide for TUI apps |
+| [OFFICIAL] | sysinfo 0.30 Docs | https://docs.rs/sysinfo/0.30/ | CPU/RAM/disk/net system metrics in Rust — process disk_usage() for I/O rates |
+| [OFFICIAL] | crossterm Docs | https://docs.rs/crossterm/ | Cross-platform terminal control for raw mode, events, alternate screen |
+| [BLOG] | Tokio spawn_blocking guide | https://tokio.rs/tokio/topics/bridging | Bridging sync/blocking code (TUI loops, raw terminal) in async Tokio apps |
