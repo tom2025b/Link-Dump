@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-02 | Total links: 108 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-03 | Total links: 130 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -238,3 +238,42 @@
 | [OFFICIAL] | std::process::Command — Rust docs | https://doc.rust-lang.org/std/process/struct.Command.html | Full API for spawning processes — status(), output(), ExitStatus |
 | [OFFICIAL] | std::process::ExitStatus | https://doc.rust-lang.org/std/process/struct.ExitStatus.html | How to check success() vs raw exit codes in Rust |
 | [BLOG] | Rust sysfs reading patterns | https://doc.rust-lang.org/std/fs/fn.read_to_string.html | std::fs::read_to_string — simplest way to read /sys/ virtual files |
+
+---
+
+## 19. Local AI — Ollama, Phi-3, Self-Hosted LLMs
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Ollama — GitHub | https://github.com/ollama/ollama | Main repo: install, model library, API docs, Docker usage |
+| [OFFICIAL] | Ollama REST API reference | https://github.com/ollama/ollama/blob/main/docs/api.md | Full /api/generate, /api/chat, streaming, logprobs params |
+| [OFFICIAL] | Ollama Python library | https://github.com/ollama/ollama-python | Official Python client — chat(), generate(), streaming examples |
+| [OFFICIAL] | Phi-3 Mini on Ollama | https://ollama.com/library/phi3 | Model card: context window, GGUF variants, memory requirements |
+| [BLOG] | Running LLMs locally with Ollama | https://ollama.com/blog | Ollama blog — model releases, performance tips, hardware guides |
+| [DOCS] | Gemma 2B model card | https://ollama.com/library/gemma | Alternative to Phi-3 for 8GB RAM — tradeoffs vs phi3:mini |
+
+---
+
+## 20. PyQt6 — GUI Development
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | PyQt6 documentation | https://www.riverbankcomputing.com/static/Docs/PyQt6/ | Full API reference — all widgets, signals, slots, threading |
+| [OFFICIAL] | Qt6 QThread docs | https://doc.qt.io/qt-6/qthread.html | Official QThread API — worker pattern, signals, safe UI updates from threads |
+| [OFFICIAL] | Qt6 QTextBrowser | https://doc.qt.io/qt-6/qtextbrowser.html | Rich text display widget — setHtml(), scrolling, cursor control |
+| [OFFICIAL] | Qt6 QPalette / Fusion dark theme | https://doc.qt.io/qt-6/qpalette.html | How to build a dark palette with ColorRole — the right way |
+| [TUTORIAL] | PyQt6 threading — worker pattern | https://www.pythonguis.com/tutorials/multithreading-pyqt6-applications-qthreadpool/ | QThread worker pattern for non-blocking UI — pyqtSignal, run(), emit() |
+| [BLOG] | QApplication.setFont() cascade | https://doc.qt.io/qt-6/qapplication.html#setFont | How app-level font changes propagate to all widgets that don't override |
+
+---
+
+## 21. Hybrid Python + Rust Architecture
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Axum web framework | https://docs.rs/axum/latest/axum/ | Rust HTTP server used as sidecar — Router, handlers, State extractor |
+| [OFFICIAL] | reqwest — Rust HTTP client | https://docs.rs/reqwest/latest/reqwest/ | Async HTTP with streaming body support — used to proxy Ollama |
+| [OFFICIAL] | sha2 crate | https://docs.rs/sha2/latest/sha2/ | SHA-256 hashing in Rust — used for response cache keys |
+| [BLOG] | Python subprocess vs localhost HTTP for Rust sidecars | https://pythonspeed.com/articles/faster-python-subprocess/ | When to use subprocess vs HTTP for calling native binaries from Python |
+| [DOCS] | Docker multi-stage builds | https://docs.docker.com/build/building/multi-stage/ | How to build a Rust binary and copy it into a Python image cleanly |
+| [DOCS] | Running PyQt6 GUI in Docker with X11 | https://wiki.ros.org/docker/Tutorials/GUI | xhost +local:docker, DISPLAY forwarding, /tmp/.X11-unix volume pattern |
