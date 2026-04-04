@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-03 | Total links: 142 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-03 | Total links: 149 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -303,3 +303,17 @@
 | [OFFICIAL] | sort.Slice | https://pkg.go.dev/sort#Slice | Sort any slice with a custom comparator — no need to implement sort interfaces |
 | [BLOG] | Go struct tags explained | https://www.digitalocean.com/community/tutorials/how-to-use-struct-tags-in-go | What backtick annotations do and how json/db/yaml tags work |
 | [OFFICIAL] | time.Time.Format reference | https://pkg.go.dev/time#Time.Format | Go's unusual reference time (Mon Jan 2 15:04:05 2006) — why it works this way |
+
+---
+
+## 24. Go — Project Layout, context, Channels, flag.Value
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Standard Go project layout | https://github.com/golang-standards/project-layout | The cmd/ + internal/ directory convention — explains every folder's purpose |
+| [OFFICIAL] | internal/ packages (Go spec) | https://pkg.go.dev/cmd/go#hdr-Internal_Directories | Why internal/ is enforced by the toolchain and when to use it |
+| [OFFICIAL] | context package | https://pkg.go.dev/context | context.WithCancel, ctx.Done(), ctx.Err() — the standard way to cancel goroutines |
+| [OFFICIAL] | flag.Value interface | https://pkg.go.dev/flag#Value | Implement String() + Set() to make custom flag types — used to detect "was this flag set?" |
+| [BLOG] | Go channels explained | https://go.dev/tour/concurrency/2 | Tour of Go — buffered vs unbuffered channels, range over channel, close() |
+| [BLOG] | Separation of concerns in Go | https://threedots.tech/post/introducing-clean-architecture-in-go/ | How to structure Go apps with clean layers — the pattern used in countdown-timer |
+| [OFFICIAL] | io.Writer interface | https://pkg.go.dev/io#Writer | Why functions should accept io.Writer instead of writing to os.Stdout directly — testability |
