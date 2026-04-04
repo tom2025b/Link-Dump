@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-03 | Total links: 149 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-03 | Total links: 156 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -317,3 +317,17 @@
 | [BLOG] | Go channels explained | https://go.dev/tour/concurrency/2 | Tour of Go — buffered vs unbuffered channels, range over channel, close() |
 | [BLOG] | Separation of concerns in Go | https://threedots.tech/post/introducing-clean-architecture-in-go/ | How to structure Go apps with clean layers — the pattern used in countdown-timer |
 | [OFFICIAL] | io.Writer interface | https://pkg.go.dev/io#Writer | Why functions should accept io.Writer instead of writing to os.Stdout directly — testability |
+
+---
+
+## 25. Go — WebSocket, Goroutines, Multiplayer Games
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | gorilla/websocket | https://pkg.go.dev/github.com/gorilla/websocket | The standard Go WebSocket library — Upgrader, ReadMessage, WriteMessage, concurrent-write safety |
+| [OFFICIAL] | sync.RWMutex | https://pkg.go.dev/sync#RWMutex | Read-write mutex for leaderboard — multiple readers OK, one writer at a time |
+| [OFFICIAL] | sync.Once | https://pkg.go.dev/sync#Once | Safe one-time execution — used to prevent double-close panic on done channel |
+| [OFFICIAL] | go:embed directive | https://pkg.go.dev/embed | Embed static files into the binary at compile time — one self-contained executable |
+| [BLOG] | Server-authoritative game loop in Go | https://gafferongames.com/post/fix_your_timestep/ | Fixed timestep game loop — why 1/60s dt is correct and drift-free |
+| [DOCS] | HTML5 Canvas 2D API | https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D | ctx.arc, ctx.fillRect, shadowBlur, setLineDash — everything used in the Pong renderer |
+| [BLOG] | WebSocket protocol explained | https://developer.mozilla.org/en-US/docs/Web/API/WebSocket | Browser WebSocket API — onopen, onmessage, send, readyState |
