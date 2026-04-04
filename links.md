@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-03 | Total links: 135 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-03 | Total links: 142 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -289,3 +289,17 @@
 | [OFFICIAL] | os/signal — Notify | https://pkg.go.dev/os/signal#Notify | How to catch SIGINT/SIGTERM in Go for graceful Ctrl+C handling |
 | [OFFICIAL] | Go modules — go mod init | https://go.dev/ref/mod | Module system basics — go.mod, go mod init, go build without external deps |
 | [DOCS] | ANSI escape codes — cursor & colour | https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797 | \033[?25l hide cursor, \033[K erase line, \033[1;32m colour — all used in countdown |
+
+---
+
+## 23. Go — JSON, File I/O, Structs, os.Args
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | encoding/json package | https://pkg.go.dev/encoding/json | Marshal/Unmarshal, struct tags (`json:"key"`), MarshalIndent for pretty output |
+| [OFFICIAL] | os.ReadFile / os.WriteFile | https://pkg.go.dev/os#ReadFile | Simple file read/write — no need to open/close handles for basic use cases |
+| [OFFICIAL] | os.UserHomeDir | https://pkg.go.dev/os#UserHomeDir | Cross-platform home directory — better than $HOME env var |
+| [OFFICIAL] | strconv.Atoi | https://pkg.go.dev/strconv#Atoi | Convert string → int with error handling — the standard way to parse CLI number args |
+| [OFFICIAL] | sort.Slice | https://pkg.go.dev/sort#Slice | Sort any slice with a custom comparator — no need to implement sort interfaces |
+| [BLOG] | Go struct tags explained | https://www.digitalocean.com/community/tutorials/how-to-use-struct-tags-in-go | What backtick annotations do and how json/db/yaml tags work |
+| [OFFICIAL] | time.Time.Format reference | https://pkg.go.dev/time#Time.Format | Go's unusual reference time (Mon Jan 2 15:04:05 2006) — why it works this way |
