@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-03 | Total links: 130 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-03 | Total links: 135 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -277,3 +277,15 @@
 | [BLOG] | Python subprocess vs localhost HTTP for Rust sidecars | https://pythonspeed.com/articles/faster-python-subprocess/ | When to use subprocess vs HTTP for calling native binaries from Python |
 | [DOCS] | Docker multi-stage builds | https://docs.docker.com/build/building/multi-stage/ | How to build a Rust binary and copy it into a Python image cleanly |
 | [DOCS] | Running PyQt6 GUI in Docker with X11 | https://wiki.ros.org/docker/Tutorials/GUI | xhost +local:docker, DISPLAY forwarding, /tmp/.X11-unix volume pattern |
+
+---
+
+## 22. Go — CLI Tools, Flags, Signal Handling
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Go flag package | https://pkg.go.dev/flag | Standard library flag parsing — StringVar, BoolVar, custom Usage, -flag and --flag both work |
+| [OFFICIAL] | Go time.Duration | https://pkg.go.dev/time#Duration | ParseDuration syntax reference — 30s, 5m, 2m30s, 1h15m and how to handle bare integers |
+| [OFFICIAL] | os/signal — Notify | https://pkg.go.dev/os/signal#Notify | How to catch SIGINT/SIGTERM in Go for graceful Ctrl+C handling |
+| [OFFICIAL] | Go modules — go mod init | https://go.dev/ref/mod | Module system basics — go.mod, go mod init, go build without external deps |
+| [DOCS] | ANSI escape codes — cursor & colour | https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797 | \033[?25l hide cursor, \033[K erase line, \033[1;32m colour — all used in countdown |
