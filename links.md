@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-03 | Total links: 156 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-08 | Total links: 160 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -331,3 +331,14 @@
 | [BLOG] | Server-authoritative game loop in Go | https://gafferongames.com/post/fix_your_timestep/ | Fixed timestep game loop — why 1/60s dt is correct and drift-free |
 | [DOCS] | HTML5 Canvas 2D API | https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D | ctx.arc, ctx.fillRect, shadowBlur, setLineDash — everything used in the Pong renderer |
 | [BLOG] | WebSocket protocol explained | https://developer.mozilla.org/en-US/docs/Web/API/WebSocket | Browser WebSocket API — onopen, onmessage, send, readyState |
+
+---
+
+## 26. Bash Scripting & Linux
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [DOCS] | rsync man page | https://linux.die.net/man/1/rsync | Full rsync flag reference — -a, -A, -X, --delete explained |
+| [DOCS] | Crontab syntax reference | https://crontab.guru | Interactive cron expression builder and reference |
+| [DOCS] | Bash set -euo pipefail | https://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin | Official bash manual for the set builtin |
+| [TUTORIAL] | Safe crontab editing pattern | https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor | The (crontab -l; echo ...) | crontab - pattern explained |
