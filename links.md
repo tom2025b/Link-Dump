@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-08 | Total links: 170 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-08 | Total links: 179 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -359,3 +359,19 @@
 | [DOCS] | Python threading module | https://docs.python.org/3/library/threading.html | Thread + daemon threads for background key reading and backup execution |
 | [DOCS] | Python queue.Queue | https://docs.python.org/3/library/queue.html | Thread-safe queue for passing keystrokes from reader thread to main loop |
 | [BLOG] | Matrix digital rain in Python | https://realpython.com/python-rich/ | Real Python's rich library overview — styling, tables, live display |
+
+---
+
+## 28. Rust — Archive Streaming, zstd, tar, SQLite FTS5
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | zstd crate — docs.rs | https://docs.rs/zstd | Rust zstd bindings — Decoder for streaming decompression, Encoder for compression |
+| [OFFICIAL] | tar crate — docs.rs | https://docs.rs/tar | TAR archive reading/writing in Rust — Archive::entries(), Entry::path(), streaming read |
+| [OFFICIAL] | rusqlite — bundled + FTS5 | https://docs.rs/rusqlite | SQLite Rust bindings — bundled feature compiles SQLite with FTS5 included |
+| [OFFICIAL] | SQLite FTS5 documentation | https://www.sqlite.org/fts5.html | Official FTS5 docs: virtual tables, tokenisers, auxiliary functions (highlight, snippet, bm25) |
+| [OFFICIAL] | indicatif — wrap_read / ProgressBar | https://docs.rs/indicatif | Progress bars in Rust CLIs — wrap_read() transparently tracks bytes through any io::Read |
+| [OFFICIAL] | comfy-table — dynamic tables | https://docs.rs/comfy-table | Terminal table rendering in Rust — auto-sizing columns, colours, alignment |
+| [BLOG] | SQLite FTS5 contentless tables | https://www.sqlite.org/fts5.html#contentless_tables | When to use content="" — saves space by storing only the index, not the original text |
+| [TUTORIAL] | Rust I/O traits: Read, Write, BufRead | https://doc.rust-lang.org/std/io/index.html | How Rust's composable I/O adapters work — the foundation of zero-copy streaming pipelines |
+| [BLOG] | SQLite bulk insert performance (transactions) | https://avi.im/blag/2021/fast-sqlite-inserts/ | Why batched transactions are 500× faster than auto-commit — the definitive benchmark |
