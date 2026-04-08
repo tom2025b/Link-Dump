@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-08 | Total links: 160 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-08 | Total links: 170 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -342,3 +342,20 @@
 | [DOCS] | Crontab syntax reference | https://crontab.guru | Interactive cron expression builder and reference |
 | [DOCS] | Bash set -euo pipefail | https://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin | Official bash manual for the set builtin |
 | [TUTORIAL] | Safe crontab editing pattern | https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor | The (crontab -l; echo ...) | crontab - pattern explained |
+| [DOCS] | mountpoint man page | https://linux.die.net/man/1/mountpoint | Check if a path is a mountpoint — used as backup drive guard before rsync |
+| [TUTORIAL] | realpath for cron-safe paths | https://man7.org/linux/man-pages/man1/realpath.1.html | Resolves ~ to absolute path so cron can find your script |
+
+---
+
+## 27. Python / Terminal UI / rich
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | rich library docs | https://rich.readthedocs.io/en/stable/ | Full reference for rich Text, Live, Layout, Panel, markup |
+| [OFFICIAL] | rich.live.Live | https://rich.readthedocs.io/en/stable/live.html | Live display class — screen=True uses alternate buffer, refresh_per_second |
+| [OFFICIAL] | rich.text.Text | https://rich.readthedocs.io/en/stable/text.html | Text class with inline styles — used to layer Matrix rain with panel |
+| [DOCS] | Python tty module | https://docs.python.org/3/library/tty.html | tty.setraw() for non-blocking single-keypress terminal input |
+| [DOCS] | Python termios module | https://docs.python.org/3/library/termios.html | Save/restore terminal settings around setraw — essential for cleanup |
+| [DOCS] | Python threading module | https://docs.python.org/3/library/threading.html | Thread + daemon threads for background key reading and backup execution |
+| [DOCS] | Python queue.Queue | https://docs.python.org/3/library/queue.html | Thread-safe queue for passing keystrokes from reader thread to main loop |
+| [BLOG] | Matrix digital rain in Python | https://realpython.com/python-rich/ | Real Python's rich library overview — styling, tables, live display |
