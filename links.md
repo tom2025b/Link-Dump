@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-08 | Total links: 179 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-08 | Total links: 203 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -375,3 +375,33 @@
 | [BLOG] | SQLite FTS5 contentless tables | https://www.sqlite.org/fts5.html#contentless_tables | When to use content="" — saves space by storing only the index, not the original text |
 | [TUTORIAL] | Rust I/O traits: Read, Write, BufRead | https://doc.rust-lang.org/std/io/index.html | How Rust's composable I/O adapters work — the foundation of zero-copy streaming pipelines |
 | [BLOG] | SQLite bulk insert performance (transactions) | https://avi.im/blag/2021/fast-sqlite-inserts/ | Why batched transactions are 500× faster than auto-commit — the definitive benchmark |
+
+---
+
+## 29. Rust — Data Fortress: Full-Stack Personal File Management System
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | blake3 crate — docs.rs | https://docs.rs/blake3 | BLAKE3 hashing in Rust — streaming API, par_iter hashing, 64-char hex output |
+| [OFFICIAL] | walkdir crate — docs.rs | https://docs.rs/walkdir | Recursive directory traversal — filter_entry pruning, same_file_system, follow_links |
+| [OFFICIAL] | infer crate — docs.rs | https://docs.rs/infer | Magic-byte file type detection for 150+ formats — no system deps, pure Rust |
+| [OFFICIAL] | mime_guess crate — docs.rs | https://docs.rs/mime_guess | Extension-to-MIME fallback when magic bytes are inconclusive |
+| [OFFICIAL] | kamadak-exif crate — docs.rs | https://docs.rs/kamadak-exif | Pure-Rust EXIF reader — GPS DMS→decimal, camera make/model, date taken |
+| [OFFICIAL] | pdf-extract crate — docs.rs | https://docs.rs/pdf-extract | Extract plain text from PDFs in pure Rust — no poppler/ghostscript required |
+| [OFFICIAL] | calamine crate — docs.rs | https://docs.rs/calamine | Read Excel/XLSX/ODS files in pure Rust — iterate sheets and cells |
+| [OFFICIAL] | quick-xml crate — docs.rs | https://docs.rs/quick-xml | Fast streaming XML parser — used to extract text from DOCX/PPTX ZIP internals |
+| [OFFICIAL] | rayon crate — docs.rs | https://docs.rs/rayon | Work-stealing parallel iterators — par_iter() is drop-in for iter() |
+| [OFFICIAL] | indicatif crate — docs.rs | https://docs.rs/indicatif | Progress bars and spinners for Rust CLIs |
+| [OFFICIAL] | Streamlit multi-page apps | https://docs.streamlit.io/develop/concepts/multipage-apps/overview | Auto-discovering pages/ from numeric filename prefixes |
+| [OFFICIAL] | st.cache_data — Streamlit docs | https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data | Memoising DB query results in Streamlit with TTL |
+| [OFFICIAL] | assert_cmd crate — docs.rs | https://docs.rs/assert_cmd | Black-box CLI testing — cargo_bin(), .assert().success(), stdout inspection |
+| [OFFICIAL] | SQLite WAL mode | https://www.sqlite.org/wal.html | How WAL allows concurrent readers while a writer is active |
+| [OFFICIAL] | SQLite URI filenames | https://www.sqlite.org/uri.html | Open SQLite in read-only mode with file:path?mode=ro |
+| [BLOG] | BLAKE3 — much faster than MD5/SHA | https://github.com/BLAKE3-team/BLAKE3 | BLAKE3 design paper and benchmarks — why it's ideal for dedup hashing |
+| [BLOG] | Two-phase scan pattern for deleted file detection | https://www.sqlite.org/lang_update.html | mark_all_absent → walk → mark_present — elegant pattern using SQL UPDATE |
+| [TUTORIAL] | Plotly Express in Python | https://plotly.com/python/plotly-express/ | High-level Plotly API — pie, bar, scatter, area charts with one function call |
+| [DOCS] | humanize Python library | https://python-humanize.readthedocs.io/ | naturalsize(), naturaltime() — bytes and timestamps to human-readable strings |
+| [DOCS] | subprocess.run — Python docs | https://docs.python.org/3/library/subprocess.html#subprocess.run | capture_output, text=True, timeout — the right way to shell out from Python |
+| [OFFICIAL] | XDG Base Directory Specification | https://specifications.freedesktop.org/basedir-spec/latest/ | Where Linux apps should store data, config, and cache files |
+| [OFFICIAL] | dirs crate — docs.rs | https://docs.rs/dirs | Rust crate for XDG_DATA_HOME, XDG_CONFIG_HOME resolution |
+| [TUTORIAL] | Rust integration tests with assert_cmd | https://rust-cli.github.io/book/tutorial/testing.html | Black-box binary testing — TempDir, assert_cmd, predicates patterns |
