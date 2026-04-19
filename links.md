@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-18 | Total links: 211 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-18 | Total links: 221 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -405,6 +405,25 @@
 | [OFFICIAL] | XDG Base Directory Specification | https://specifications.freedesktop.org/basedir-spec/latest/ | Where Linux apps should store data, config, and cache files |
 | [OFFICIAL] | dirs crate — docs.rs | https://docs.rs/dirs | Rust crate for XDG_DATA_HOME, XDG_CONFIG_HOME resolution |
 | [TUTORIAL] | Rust integration tests with assert_cmd | https://rust-cli.github.io/book/tutorial/testing.html | Black-box binary testing — TempDir, assert_cmd, predicates patterns |
+
+---
+
+## Dotfiles & virtiofs — Shared Folders Between Mint Host and Arch VM
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | libvirt Filesystem Devices (virtiofs) | https://libvirt.org/formatdomain.html#filesystems | How to add a `<filesystem type="mount" driver type="virtiofs">` device to a libvirt domain XML |
+| [DOCS] | QEMU virtiofs docs | https://qemu.readthedocs.io/en/latest/tools/virtiofsd.html | How virtiofsd works, memfd shared memory backing, and performance tuning options |
+| [TUTORIAL] | Arch Wiki — virtiofs | https://wiki.archlinux.org/title/Virtio#Mounting_a_host_directory | Arch-specific: fstab entry format, mounting virtiofs shares in the guest |
+| [TUTORIAL] | Dotfiles Management with GNU Stow | https://www.gnu.org/software/stow/manual/stow.html | Alternative to manual symlinks — stow handles the linking automatically |
+| [BLOG] | GitHub does dotfiles | https://dotfiles.github.io/ | Community guide: patterns, tools, and examples for dotfiles repos |
+| [TUTORIAL] | virt-xml — modify libvirt domains non-interactively | https://manpages.ubuntu.com/manpages/noble/man1/virt-xml.1.html | CLI tool for patching libvirt domain XML without editing by hand |
+| [OFFICIAL] | systemd.mount — virtiofs fstab options | https://systemd.io/MOUNT_REQUIREMENTS/ | How systemd processes fstab at boot, relevant to virtiofs mount timing |
+| [BLOG] | ~/.local/bin — XDG user executables | https://specifications.freedesktop.org/basedir-spec/latest/ | Why ~/.local/bin is the right place for per-user scripts (XDG standard) |
+| [TUTORIAL] | Idempotent shell scripts with ln -sf | https://www.gnu.org/software/coreutils/manual/coreutils.html#ln-invocation | How ln -sf safely overwrites existing symlinks — key for re-runnable install scripts |
+| [BLOG] | Managing dotfiles with symlinks (no frameworks) | https://alexpearce.me/2016/02/managing-dotfiles/ | Clean walkthrough of the manual symlink approach — mirrors this session's install.sh design |
+
+---
 
 ## 30. Go — driftwatch: YAML Config Drift Detection CLI
 
