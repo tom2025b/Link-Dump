@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-08 | Total links: 203 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-18 | Total links: 211 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -405,3 +405,16 @@
 | [OFFICIAL] | XDG Base Directory Specification | https://specifications.freedesktop.org/basedir-spec/latest/ | Where Linux apps should store data, config, and cache files |
 | [OFFICIAL] | dirs crate — docs.rs | https://docs.rs/dirs | Rust crate for XDG_DATA_HOME, XDG_CONFIG_HOME resolution |
 | [TUTORIAL] | Rust integration tests with assert_cmd | https://rust-cli.github.io/book/tutorial/testing.html | Black-box binary testing — TempDir, assert_cmd, predicates patterns |
+
+## 30. Go — driftwatch: YAML Config Drift Detection CLI
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | gopkg.in/yaml.v3 — Go YAML library | https://pkg.go.dev/gopkg.in/yaml.v3 | Standard Go YAML parser — Unmarshal into typed structs with yaml tags |
+| [OFFICIAL] | github.com/spf13/cobra — CLI framework | https://pkg.go.dev/github.com/spf13/cobra | The standard Go CLI framework — flags, subcommands, help generation |
+| [OFFICIAL] | github.com/fatih/color — terminal colors | https://pkg.go.dev/github.com/fatih/color | Cross-platform ANSI color output for Go CLIs — NoColor flag for non-TTY |
+| [OFFICIAL] | os.LookPath — exec.LookPath docs | https://pkg.go.dev/os/exec#LookPath | Searches PATH for a binary — the right way to check command availability |
+| [BLOG] | Go project layout — Standard Go Project Layout | https://github.com/golang-standards/project-layout | cmd/ + internal/ convention — why and how to separate CLI from library code |
+| [OFFICIAL] | regexp.Compile vs MustCompile | https://pkg.go.dev/regexp#Compile | Compile returns error (safe for user input); MustCompile panics (use for literals) |
+| [TUTORIAL] | Go testing package — table-driven tests | https://go.dev/doc/faq#testing | Standard Go testing patterns — subtests, t.TempDir(), t.Cleanup() |
+| [DOCS] | Cobra — RunE vs Run | https://pkg.go.dev/github.com/spf13/cobra#Command | RunE lets you return errors; Run silences them — always use RunE for CLIs |
