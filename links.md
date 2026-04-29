@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-04-18 | Total links: 221 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-04-28 | Total links: 228 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -437,3 +437,17 @@
 | [OFFICIAL] | regexp.Compile vs MustCompile | https://pkg.go.dev/regexp#Compile | Compile returns error (safe for user input); MustCompile panics (use for literals) |
 | [TUTORIAL] | Go testing package — table-driven tests | https://go.dev/doc/faq#testing | Standard Go testing patterns — subtests, t.TempDir(), t.Cleanup() |
 | [DOCS] | Cobra — RunE vs Run | https://pkg.go.dev/github.com/spf13/cobra#Command | RunE lets you return errors; Run silences them — always use RunE for CLIs |
+
+---
+
+## 31. Python — ollama-me: Multi-Backend LLM Chat with Rich TUI
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Ollama API docs | https://github.com/ollama/ollama/blob/main/docs/api.md | Full REST API reference — /api/chat, /api/generate, /api/tags endpoints and streaming format |
+| [OFFICIAL] | Rich — Python terminal formatting | https://rich.readthedocs.io/en/latest/ | Console, Panel, Markdown, Live display — everything used in the TUI |
+| [DOCS] | Rich Live display | https://rich.readthedocs.io/en/latest/live.html | How Live() context manager redraws terminal regions — key for streaming LLM output |
+| [DOCS] | Rich Markdown rendering | https://rich.readthedocs.io/en/latest/markdown.html | Render markdown (bold, code blocks, lists) directly in the terminal |
+| [OFFICIAL] | requests — streaming responses | https://docs.python-requests.org/en/latest/user/advanced/#streaming-requests | How stream=True + iter_lines() enables incremental HTTP response processing |
+| [TUTORIAL] | Python generators (yield) | https://docs.python.org/3/howto/functional.html#generators | Why generators are perfect for streaming — lazy evaluation, no buffering |
+| [OFFICIAL] | Ollama model library | https://ollama.com/library | Browse and pull models — llama3, phi3, mistral, tinyllama, etc. |
