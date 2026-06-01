@@ -451,3 +451,20 @@
 | [OFFICIAL] | requests — streaming responses | https://docs.python-requests.org/en/latest/user/advanced/#streaming-requests | How stream=True + iter_lines() enables incremental HTTP response processing |
 | [TUTORIAL] | Python generators (yield) | https://docs.python.org/3/howto/functional.html#generators | Why generators are perfect for streaming — lazy evaluation, no buffering |
 | [OFFICIAL] | Ollama model library | https://ollama.com/library | Browse and pull models — llama3, phi3, mistral, tinyllama, etc. |
+
+---
+
+## 32. Rust TUI + Hexagonal Architecture (ScriptVault)
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | ratatui — Rust TUI framework | https://ratatui.rs/ | The widget/layout library behind ScriptVault's terminal UI; great tutorials + recipes. |
+| [DOCS] | ratatui — Layout & Constraints | https://docs.rs/ratatui/latest/ratatui/layout/index.html | How the vertical/horizontal split + `.areas()` destructuring works (compile-checked region counts). |
+| [DOCS] | ratatui TestBackend | https://docs.rs/ratatui/latest/ratatui/backend/struct.TestBackend.html | Render a TUI to an in-memory buffer and assert on cells — how we unit-test rendering with no real terminal. |
+| [OFFICIAL] | crossterm — terminal backend | https://docs.rs/crossterm/latest/crossterm/ | Raw mode, key events, alternate screen — the layer ratatui sits on. |
+| [OFFICIAL] | syntect — syntax highlighting | https://docs.rs/syntect/latest/syntect/ | Sublime-grammar lexer; we use the low-level ParseState/ScopeStack to classify scopes and re-style through our own theme. |
+| [DOCS] | fuzzy-matcher (SkimMatcherV2) | https://docs.rs/fuzzy-matcher/latest/fuzzy_matcher/ | The fuzzy scorer; `fuzzy_indices` returns CHARACTER positions of the match (verified empirically — not bytes). |
+| [OFFICIAL] | NO_COLOR convention | https://no-color.org/ | The cross-tool standard for disabling colour; ScriptVault routes ALL colour through one Theme gate to honour it. |
+| [BLOG] | Hexagonal Architecture (Ports & Adapters) | https://alistair.cockburn.us/hexagonal-architecture/ | Cockburn's original — the pattern ScriptVault uses: UI-free core + a facade port, frontends are adapters. |
+| [DOCS] | Rust API Guidelines | https://rust-lang.github.io/api-guidelines/ | The idioms behind ScriptVault's facade design (naming, error types, ownership at boundaries). |
+| [DOCS] | dirs crate (cross-platform paths) | https://docs.rs/dirs/latest/dirs/ | Why we use `data_dir()` not `state_dir()` for state.json (the latter is None on macOS/Windows). |
