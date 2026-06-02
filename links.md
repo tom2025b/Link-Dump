@@ -1,4 +1,4 @@
-<!-- Last updated: 2026-06-01 | Total links: 238 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
+<!-- Last updated: 2026-06-02 | Total links: 480 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
 
 # Link Dump — Everything Tom Is Learning
 *Curated by ResearchBuddy. Every link tied to a real session topic.*
@@ -468,3 +468,37 @@
 | [BLOG] | Hexagonal Architecture (Ports & Adapters) | https://alistair.cockburn.us/hexagonal-architecture/ | Cockburn's original — the pattern ScriptVault uses: UI-free core + a facade port, frontends are adapters. |
 | [DOCS] | Rust API Guidelines | https://rust-lang.github.io/api-guidelines/ | The idioms behind ScriptVault's facade design (naming, error types, ownership at boundaries). |
 | [DOCS] | dirs crate (cross-platform paths) | https://docs.rs/dirs/latest/dirs/ | Why we use `data_dir()` not `state_dir()` for state.json (the latter is None on macOS/Windows). |
+
+---
+
+## 33. Rust — Synchronous CLI Adapters & Typed Errors (thiserror, std::process, no async)
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | std::process::Command | https://doc.rust-lang.org/std/process/struct.Command.html | Core API for spawning external binaries synchronously from Rust — .output(), .status(), stdout/stderr capture, exit codes. |
+| [OFFICIAL] | thiserror | https://docs.rs/thiserror | The standard derive macro for library-friendly typed errors with #[from], #[source], and custom Display. |
+| [OFFICIAL] | Serde field attributes — default | https://serde.rs/field-attrs.html#default | #[serde(default)] (and default functions) to handle absent fields like empty vectors when parsing tool JSON output. |
+| [TUTORIAL] | Rust error handling | https://doc.rust-lang.org/book/ch09-00-error-handling.html | Official Rust Book chapter on Result, the ? operator, and defining your own error types. |
+| [BLOG] | thiserror vs anyhow | https://www.shuttle.rs/blog/2023/10/04/error-handling-rust | Clear comparison: use thiserror for your public error API, anyhow for applications. |
+
+---
+
+## 34. GitHub CLI (gh) & Repository Automation
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | gh repo create | https://cli.github.com/manual/gh_repo_create | The exact command used: gh repo create ... --private --source=. --remote=origin --push. |
+| [OFFICIAL] | gh repo edit | https://cli.github.com/manual/gh_repo_edit | Changing visibility (private → public), description, and other repo metadata from the CLI. |
+| [OFFICIAL] | GitHub CLI manual | https://cli.github.com/manual/ | Complete reference for auth, repo, issue, PR, and other gh subcommands. |
+| [TUTORIAL] | GitHub CLI quickstart | https://docs.github.com/en/github-cli/github-cli/quickstart | Getting started with gh, including creating your first repo from the terminal. |
+
+---
+
+## 35. SMTP & Reporting — msmtp, Gmail App Passwords, passwordeval
+
+| Type | Title | URL | Why It's Useful |
+|------|-------|-----|-----------------|
+| [OFFICIAL] | Create an app password | https://support.google.com/accounts/answer/185833 | Google’s official guide for generating 16-character app passwords (required with 2FA). |
+| [DOCS] | msmtp user manual | https://marlam.de/msmtp/msmtp.html | Full configuration reference, including the passwordeval directive and account sections. |
+| [TUTORIAL] | msmtp setup (Arch Wiki) | https://wiki.archlinux.org/title/Msmtp | Practical examples of msmtprc, testing with -a, and integrating into scripts. |
+| [BLOG] | Using passwordeval for secrets | https://www.cyberciti.biz/faq/linux-unix-bsd-msmtp-gmail/ | Why and how to keep passwords out of .msmtprc using external eval commands or files (with 0600 perms). |
