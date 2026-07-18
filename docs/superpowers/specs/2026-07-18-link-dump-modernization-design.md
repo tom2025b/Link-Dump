@@ -35,6 +35,7 @@ The repository currently contains:
 8. Record what was removed and added, with a reason for each decision.
 9. Update the README so it accurately explains the document and its coverage.
 10. When a relevant concept lacks a strong durable resource, add a concise explanatory note rather than selecting a weak link merely to fill the gap.
+11. Inspect all 102 repositories owned by `tom2025b`, including private repositories and forks, and account for the languages, libraries, frameworks, architecture patterns, tools, and operational concepts they use.
 
 ## Non-Goals
 
@@ -130,6 +131,25 @@ The exact subsection names may be refined during curation, but the finished stru
 16. **Career and Certification Resources**
     - Current official certification objectives and high-quality study material, clearly separated from software-engineering paths.
 
+## Repository-Wide Concept Inventory
+
+The audit will enumerate repositories through the authenticated GitHub account rather than the search API, because search can omit private repositories, forks, or paginated results. The expected live inventory is 102 owned repositories. If the authenticated API returns a different current total, the audit will record the returned count and reconcile the difference instead of silently dropping or inventing repositories.
+
+For every repository, inspect:
+
+- Repository name, visibility, fork status, archive status, description, topics, primary languages, and default branch.
+- README and root project manifests such as `Cargo.toml`, `go.mod`, `pyproject.toml`, `requirements*.txt`, `package.json`, container files, and CI workflow files when present.
+- Direct dependencies, frameworks, storage engines, protocols, interface technologies, architecture patterns, testing tools, security concerns, deployment tools, and operating-system integrations that imply learning material.
+- Upstream metadata for a fork when the fork contains no Tom-specific changes or useful local documentation.
+
+The durable inventory will record each repository and map its discovered concepts to:
+
+1. A specific learning-path section with one or more selected resources.
+2. A concise missing-concept note when no resource clears the quality bar.
+3. An explanation that no new concept was introduced when the repository duplicates concepts already represented elsewhere.
+
+Empty repositories, archived experiments, and forks are still counted and explicitly classified; they are not skipped.
+
 ## Resource Selection Policy
 
 Resources will be ranked using this order:
@@ -194,6 +214,9 @@ Missing concepts without a resource that clears the quality bar will also receiv
   - Contains all retained and added resources, metadata, navigation, and audit appendices.
 - `README.md`
   - Explains the repository, major learning paths, metadata fields, audit date, and how to use `links.md`.
+- `repository-concepts.md`
+  - Durable evidence that every authenticated owned repository was reviewed.
+  - Records repository metadata, detected technologies and concepts, and the corresponding learning-path section or missing-concept note.
 - `docs/superpowers/specs/2026-07-18-link-dump-modernization-design.md`
   - Records this approved design.
 - `docs/superpowers/plans/2026-07-18-link-dump-modernization.md`
@@ -213,6 +236,10 @@ The modernization is complete only when:
 - Official resources are labeled accurately.
 - Dead, irrelevant, and low-quality resources are absent from the curated sections.
 - Important concepts in the existing 35 topics are either represented in the new structure or recorded as intentionally removed.
+- Every authenticated owned repository is present exactly once in `repository-concepts.md`, including private repositories, forks, archived repositories, and empty repositories.
+- Repository concepts are derived from metadata plus README/manifests where available, not inferred from repository names alone.
+- Every discovered material concept maps to a selected learning-path resource or a missing-concept note.
+- The repository total reported in the audit matches the authenticated GitHub inventory; any difference from the expected 102 is explained.
 - Each major section reads in a sensible beginner-to-advanced order.
 - The removal and addition appendices explain every material curation decision.
 - The reported resource totals match the actual document.

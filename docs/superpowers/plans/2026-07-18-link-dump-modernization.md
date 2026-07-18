@@ -4,7 +4,7 @@
 
 **Goal:** Replace the current chronological Link Dump with a verified, expanded, detailed learning path and a complete record of removals, replacements, and additions.
 
-**Architecture:** Build an immutable inventory of the 250 original rows, attach a curation decision and reachability evidence to every row, research missing concepts in independent domain batches, and then integrate the approved resources into one canonical `links.md`. Keep temporary audit evidence under `/tmp/link-dump-audit`; commit only the finished learning path, README, specification, and plan.
+**Architecture:** Build an immutable inventory of the 250 original rows, attach a curation decision and reachability evidence to every row, inspect all 102 authenticated owned GitHub repositories for concepts, research missing concepts in independent domain batches, and then integrate the approved resources into one canonical `links.md`. Keep temporary audit evidence under `/tmp/link-dump-audit`; commit the finished learning path, repository concept inventory, README, specification, and plan.
 
 **Tech Stack:** Markdown, Git, Python 3 standard library, `rg`, `awk`, `sort`, `curl`, shell utilities, browser research, and official project documentation.
 
@@ -22,6 +22,8 @@
 - When a relevant concept lacks a strong durable resource, add a concise explanatory note in its learning-path section and record the gap under Future Educational Gaps instead of selecting a weak link.
 - A 403, 429, or bot challenge is ambiguous until manually reviewed; HTTP 200 alone does not prove relevance.
 - Keep `links.md` as the canonical learning path and `README.md` as the concise repository guide.
+- Enumerate all 102 authenticated repositories owned by `tom2025b`, including private repositories, forks, archived repositories, and empty repositories; do not rely on GitHub search counts.
+- Map every material repository concept to a selected learning-path resource or a missing-concept note.
 - Codex commits must use `claude_2010 <262510778+tom2025b@users.noreply.github.com>`.
 - Copy the completed-task summary to `/home/tom/projects/_claude-outputs/2026-07-18_link-dump-modernization_summary.md`.
 
@@ -33,6 +35,8 @@
   - Final learning path, resource metadata, navigation, removed/replaced resources, added resources, future gaps, and audit notes.
 - Modify: `README.md`
   - Accurate overview, learning routes, field definitions, audit status, and usage instructions.
+- Create: `repository-concepts.md`
+  - Durable one-row-per-repository evidence of languages, dependencies, frameworks, architecture patterns, tools, concepts, and learning-path coverage.
 - Existing: `docs/superpowers/specs/2026-07-18-link-dump-modernization-design.md`
   - Approved design and acceptance criteria.
 - Create: `docs/superpowers/plans/2026-07-18-link-dump-modernization.md`
@@ -49,6 +53,12 @@
   - One keep, update, replace, consolidate, or remove decision for every original row.
 - Temporary: `/tmp/link-dump-audit/candidates-*.md`
   - Domain-specific research notes using the final six-field schema.
+- Temporary: `/tmp/link-dump-audit/repositories.json`
+  - Complete authenticated inventory of repositories owned by `tom2025b`.
+- Temporary: `/tmp/link-dump-audit/repository-evidence/`
+  - Per-repository metadata, README, manifest, language, topic, and workflow evidence fetched through the GitHub API.
+- Temporary: `/tmp/link-dump-audit/repo-concepts.tsv`
+  - One reviewed concept-mapping row per authenticated repository.
 - Create outside repository: `/home/tom/projects/_claude-outputs/2026-07-18_link-dump-modernization_summary.md`
   - Tom's durable completion record.
 
@@ -399,23 +409,6 @@ cut -f7 /tmp/link-dump-audit/http-status.tsv | sort | uniq -c
 
 Expected: The line-count assertion exits 0 and the class summary accounts for all 250 original rows.
 
-- [ ] **Step 2: Map reachability results back to every row**
-
-Write `/tmp/link-dump-audit/http-status.tsv` with:
-
-```text
-row_id	requested_url	http_code	final_url	content_type	curl_exit	result_class	note
-```
-
-Use these result classes:
-
-- `healthy`: 200–299 with a relevant-looking document response.
-- `redirected`: successful response at a materially different canonical URL.
-- `ambiguous`: 401, 403, 405, 429, bot challenge, JavaScript shell, or unexpected content type.
-- `dead`: 404, 410, repeated 5xx, DNS failure, TLS failure, or connection failure after retry.
-
-Expected: 251 lines including the header and exactly one record for every `LD-*` ID.
-
 - [ ] **Step 3: Review ambiguous and dead classifications**
 
 Open every `ambiguous` result in a browser and manually retry representative `dead` groups by host. Reclassify a row only after confirming whether it is bot-protected, moved, login-gated, or genuinely unavailable.
@@ -443,17 +436,146 @@ Expected: Every provisional decision includes a concrete reason; no decision is 
 
 ---
 
-### Task 3: Curate Core Languages, Error Handling, Testing, and Concurrency
+### Task 3: Inventory Concepts Across All 102 Owned Repositories
+
+**Files:**
+- Create: `repository-concepts.md`
+- Create: `/tmp/link-dump-audit/repo-pages.json`
+- Create: `/tmp/link-dump-audit/repositories.json`
+- Create: `/tmp/link-dump-audit/repository-evidence/`
+- Create: `/tmp/link-dump-audit/repo-concepts.tsv`
+- Read: Authenticated GitHub repository metadata and default-branch contents
+
+**Interfaces:**
+- Consumes: The authenticated `tom2025b` GitHub account inventory, including private repositories, forks, archived repositories, and empty repositories.
+- Produces: One durable row per repository with evidence-backed languages, dependencies, frameworks, architecture patterns, tools, concepts, and a mapping to a learning-path section or missing-concept note.
+
+- [ ] **Step 1: Enumerate owned repositories through the authenticated account endpoint**
+
+Load Tom's existing GitHub token only into the process environment, never command output or a repository file:
+
+```bash
+token=$(tr -d '[:space:]' < /home/tom/.config/Claude/secrets/github-token)
+GH_TOKEN="$token" gh api \
+  --paginate \
+  --slurp \
+  -H 'Accept: application/vnd.github+json' \
+  -H 'X-GitHub-Api-Version: 2022-11-28' \
+  '/user/repos?affiliation=owner&per_page=100&sort=full_name&direction=asc' \
+  > /tmp/link-dump-audit/repo-pages.json
+status=$?
+unset token GH_TOKEN
+exit "$status"
+```
+
+Flatten the page arrays, sort by case-insensitive `full_name`, and write `/tmp/link-dump-audit/repositories.json`. Preserve at least:
+
+```text
+id, name, full_name, private, fork, archived, disabled, visibility,
+description, topics, language, default_branch, empty-size indicator,
+html_url, updated_at, pushed_at, parent or source metadata when returned
+```
+
+Expected: The authenticated inventory contains 102 distinct owned repositories. If the live count differs, record the actual count and identify the discrepancy before continuing; never force the total to 102.
+
+- [ ] **Step 2: Fetch default-branch evidence for every repository**
+
+For each repository, create `/tmp/link-dump-audit/repository-evidence/<repo-name>/` and store:
+
+- `metadata.json` from the inventory.
+- `languages.json` from `GET /repos/{owner}/{repo}/languages`.
+- `tree.json` from the recursive default-branch Git tree when a default branch exists.
+- The root README, when present.
+- Every relevant manifest found in the tree, including nested workspace manifests:
+  `Cargo.toml`, `go.mod`, `go.work`, `pyproject.toml`, `requirements*.txt`,
+  `package.json`, `deno.json*`, `pom.xml`, `build.gradle*`, `Gemfile`,
+  `composer.json`, `Dockerfile*`, `compose*.yml`, `compose*.yaml`,
+  `docker-compose*`, `Makefile`, `justfile`, `flake.nix`, and CI workflow
+  YAML under `.github/workflows/`.
+
+Use bounded concurrency of at most four repositories. Record 404 responses for missing README/manifests as absence, not failure. Record tree truncation, empty repositories, disabled repositories, and API errors explicitly.
+
+Expected: Every repository has a metadata evidence directory, and every non-empty repository with a readable default branch has language and tree evidence.
+
+- [ ] **Step 3: Review technologies and concepts repository by repository**
+
+Create `/tmp/link-dump-audit/repo-concepts.tsv` with exactly these columns:
+
+```text
+repository	visibility	fork	archived	empty	languages	manifests	dependencies_and_frameworks	concepts	learning_path_sections	disposition	evidence
+```
+
+Review metadata, README, manifests, languages, topics, and workflows rather than inferring from repository names. Capture:
+
+- Languages and shell environments.
+- Direct libraries and frameworks.
+- CLI, TUI, GUI, web, data, protocol, storage, and local-AI technologies.
+- Architecture and design patterns described or clearly implemented.
+- Testing, CI, packaging, deployment, security, virtualization, and Linux-operation concepts.
+- Whether a fork introduces Tom-specific concepts or only duplicates its upstream.
+
+Use one disposition:
+
+- `covered`: all material concepts map to existing or planned learning-path resources.
+- `add-resource`: at least one material concept needs a high-quality resource.
+- `add-note`: no available resource clears the quality bar, so a concise concept note is required.
+- `no-new-concepts`: empty, metadata-only, or duplicates concepts already accounted for elsewhere.
+
+Expected: One row per authenticated repository, with evidence paths and no blank disposition.
+
+- [ ] **Step 4: Write the durable repository concept inventory**
+
+Create `repository-concepts.md` with:
+
+- Audit date and authenticated enumeration method.
+- Actual repository count and reconciliation with the expected 102.
+- Scope definitions for private repositories, forks, archived repositories, empty repositories, and inaccessible default branches.
+- A table with one row per repository: Repository, Visibility/Status, Languages, Libraries/Frameworks, Concepts, Learning-Path Mapping, and Notes/Disposition.
+- A concept-frequency summary that helps the domain curation tasks prioritize resources.
+- A missing-concept queue listing every `add-resource` and `add-note` disposition.
+
+Do not expose private source content, secrets, or full private manifest bodies. Technology names and high-level concepts are sufficient evidence.
+
+- [ ] **Step 5: Validate exact repository coverage**
+
+Run checks that assert:
+
+- Inventory IDs/full names are unique.
+- `repositories.json`, `repo-concepts.tsv`, and `repository-concepts.md` contain the same repository set.
+- Every repository has one and only one durable table row.
+- Every non-empty repository has metadata plus either default-branch evidence or an explicit API/access limitation.
+- Every material concept maps to a learning-path section, `add-resource`, or `add-note`.
+- Forks, private repositories, archived repositories, and empty repositories are present rather than filtered.
+
+Expected: All checks exit 0. If the live authenticated count is 102, all three artifacts contain exactly 102 repositories.
+
+- [ ] **Step 6: Commit the repository concept inventory**
+
+Run:
+
+```bash
+git diff --check
+git add repository-concepts.md
+git -c user.name=claude_2010 -c user.email=262510778+tom2025b@users.noreply.github.com commit -m "docs: inventory concepts across owned repositories"
+```
+
+Expected: The commit contains only `repository-concepts.md`; private evidence remains under `/tmp`.
+
+---
+
+### Task 4: Curate Core Languages, Error Handling, Testing, and Concurrency
 
 **Files:**
 - Read: `links.md`
+- Read: `repository-concepts.md`
+- Read: `/tmp/link-dump-audit/repo-concepts.tsv`
 - Read: `/tmp/link-dump-audit/original-resources.tsv`
 - Read: `/tmp/link-dump-audit/http-status.tsv`
 - Update: `/tmp/link-dump-audit/decisions.tsv`
 - Create: `/tmp/link-dump-audit/candidates-core-languages.md`
 
 **Interfaces:**
-- Consumes: Original Rust, Go, Python, Bash, error-handling, testing, async, and concurrency resources.
+- Consumes: Original Rust, Go, Python, Bash, error-handling, testing, async, and concurrency resources plus every matching concept discovered across the owned-repository inventory.
 - Produces: Fully sourced candidate rows for the Core Language Fundamentals, Error Handling and Reliability, Testing and Code Quality, and Async Programming and Concurrency sections.
 
 - [ ] **Step 1: Audit the original language resources**
@@ -470,6 +592,8 @@ Research durable sources for:
 - Go packages, interfaces, errors and wrapping, `context`, testing and fuzzing, goroutines, channels, synchronization, and graceful shutdown.
 - Python language reference, typing, exceptions, generators, subprocesses, threading, queues, testing, and packaging.
 - Bash quoting, pipelines, `set -e` caveats, traps, cleanup, ShellCheck, and portable scripting.
+
+Start with every matching `add-resource` or `add-note` item in `repo-concepts.tsv`. Resolve each with a selected candidate or a concrete missing-concept note.
 
 Use official language books and references first. Add a community explanation only when it supplies a clearer practical path or a distinct advanced treatment.
 
@@ -493,17 +617,19 @@ Expected: Every candidate has a reachability result and a content-quality justif
 
 ---
 
-### Task 4: Curate Libraries, Frameworks, CLI/TUI, GUI/Web, and Architecture
+### Task 5: Curate Libraries, Frameworks, CLI/TUI, GUI/Web, and Architecture
 
 **Files:**
 - Read: `links.md`
+- Read: `repository-concepts.md`
+- Read: `/tmp/link-dump-audit/repo-concepts.tsv`
 - Read: `/tmp/link-dump-audit/original-resources.tsv`
 - Read: `/tmp/link-dump-audit/http-status.tsv`
 - Update: `/tmp/link-dump-audit/decisions.tsv`
 - Create: `/tmp/link-dump-audit/candidates-app-development.md`
 
 **Interfaces:**
-- Consumes: Original resources for project libraries, terminal interfaces, GUI/web systems, and architecture.
+- Consumes: Original resources and all matching owned-repository concepts for project libraries, terminal interfaces, GUI/web systems, and architecture.
 - Produces: Candidate rows for Libraries and Frameworks, CLI and TUI Development, GUI/Web/Interactive Development, and Architecture and Design Patterns.
 
 - [ ] **Step 1: Audit every matching original row**
@@ -522,6 +648,8 @@ Expected: Each replacement decision names its replacement title and direct URL.
 
 Research command semantics, standard streams, exit status, terminal lifecycle cleanup, accessibility, `NO_COLOR`, snapshot/TestBackend testing, event loops, UI state, server state, embedded assets, WebSocket lifecycle, dependency direction, ports and adapters, and public API boundaries.
 
+Resolve every matching `add-resource` or `add-note` item from `repo-concepts.tsv`; do not leave a repository-derived concept unmapped.
+
 - [ ] **Step 4: Write and verify complete candidate rows**
 
 Use the six-field schema and the Task 2 verification rules.
@@ -530,17 +658,19 @@ Expected: Every candidate is direct, alive or manually confirmed, accurately typ
 
 ---
 
-### Task 5: Curate Data, File Processing, Performance, and Advanced Topics
+### Task 6: Curate Data, File Processing, Performance, and Advanced Topics
 
 **Files:**
 - Read: `links.md`
+- Read: `repository-concepts.md`
+- Read: `/tmp/link-dump-audit/repo-concepts.tsv`
 - Read: `/tmp/link-dump-audit/original-resources.tsv`
 - Read: `/tmp/link-dump-audit/http-status.tsv`
 - Update: `/tmp/link-dump-audit/decisions.tsv`
 - Create: `/tmp/link-dump-audit/candidates-data-performance.md`
 
 **Interfaces:**
-- Consumes: Original storage, archive, search, hashing, file metadata, and performance resources.
+- Consumes: Original resources and all matching owned-repository concepts for storage, archives, search, hashing, file metadata, performance, and advanced systems work.
 - Produces: Candidate rows for Data/Storage/Search/File Processing, Performance and Resource Efficiency, and Advanced and Cross-Cutting Topics.
 
 - [ ] **Step 1: Audit matching original resources**
@@ -559,6 +689,8 @@ Expected: Community performance articles remain only when their measurements or 
 
 Research profiling, criterion-style benchmarking, buffered I/O, zero-copy trade-offs, batching, backpressure, transaction boundaries, full-text search design, resource limits, compatibility, and observability.
 
+Resolve every matching `add-resource` or `add-note` item from `repo-concepts.tsv`; use a missing-concept note when no durable source clears the quality bar.
+
 - [ ] **Step 4: Write and verify complete candidate rows**
 
 Use the six-field schema and Task 2 verification rules.
@@ -567,17 +699,19 @@ Expected: Every candidate explains whether it is meant for learning, implementat
 
 ---
 
-### Task 6: Curate Security, Linux Operations, Tooling, Local AI, and Career Material
+### Task 7: Curate Security, Linux Operations, Tooling, Local AI, and Career Material
 
 **Files:**
 - Read: `links.md`
+- Read: `repository-concepts.md`
+- Read: `/tmp/link-dump-audit/repo-concepts.tsv`
 - Read: `/tmp/link-dump-audit/original-resources.tsv`
 - Read: `/tmp/link-dump-audit/http-status.tsv`
 - Update: `/tmp/link-dump-audit/decisions.tsv`
 - Create: `/tmp/link-dump-audit/candidates-operations-tools.md`
 
 **Interfaces:**
-- Consumes: Original Git/GitHub, UFW, SSH, sysctl, Tailscale, hardening, backup, desktop, virtualization, SMTP, local AI, and certification resources.
+- Consumes: Original resources and all matching owned-repository concepts for Git/GitHub, UFW, SSH, sysctl, Tailscale, hardening, backup, desktop, virtualization, SMTP, local AI, and certification material.
 - Produces: Candidate rows for Security and Linux Operations, Git/GitHub/Automation/Developer Tooling, Local AI and Related Tools, and Career and Certification Resources.
 
 - [ ] **Step 1: Audit matching original resources**
@@ -592,6 +726,8 @@ Distinguish official manuals and specifications from community wikis and commerc
 
 Research least privilege, secret storage, rollback-safe firewall/SSH changes, backup verification, cron versus systemd timers, safe network defaults, Git credential safety, repository automation, local model limitations, and responsible local-AI integration.
 
+Resolve every matching `add-resource` or `add-note` item from `repo-concepts.tsv`; do not omit concepts merely because they came from an archived repository or fork.
+
 - [ ] **Step 4: Write and verify complete candidate rows**
 
 Use the six-field schema and Task 2 verification rules.
@@ -600,7 +736,7 @@ Expected: Security value statements include important safety context and do not 
 
 ---
 
-### Task 7: Complete the Decision Ledger
+### Task 8: Complete the Decision Ledger
 
 **Files:**
 - Read: `/tmp/link-dump-audit/candidates-core-languages.md`
@@ -617,7 +753,7 @@ Expected: Security value statements include important safety context and do not 
 
 Run a TSV-aware check for missing `decision` or `reason`.
 
-Expected: The first run lists any rows not finalized during Tasks 2–6.
+Expected: The first run lists any rows not finalized during Tasks 2 and 4–7.
 
 - [ ] **Step 2: Resolve every incomplete decision**
 
@@ -638,10 +774,12 @@ Expected: Every check exits 0 and prints no invalid rows.
 
 ---
 
-### Task 8: Rewrite `links.md` as the Detailed Learning Path
+### Task 9: Rewrite `links.md` as the Detailed Learning Path
 
 **Files:**
 - Modify: `links.md`
+- Read: `repository-concepts.md`
+- Read: `/tmp/link-dump-audit/repo-concepts.tsv`
 - Read: All `/tmp/link-dump-audit/candidates-*.md`
 - Read: `/tmp/link-dump-audit/decisions.tsv`
 
@@ -660,6 +798,7 @@ Create:
 - Linked table of contents.
 - Suggested learning routes for Linux operations, Rust systems work, Go CLI work, Python tooling, and application architecture.
 - The 15 technical sections plus Career and Certification Resources defined in the design.
+- A repository-coverage link to `repository-concepts.md`.
 
 Expected: Every design section has a destination heading before resource rows are inserted.
 
@@ -701,7 +840,7 @@ Expected: Commit succeeds with only `links.md` staged for this commit.
 
 ---
 
-### Task 9: Add the Curation Audit Appendices
+### Task 10: Add the Curation Audit Appendices
 
 **Files:**
 - Modify: `links.md`
@@ -732,6 +871,8 @@ Report:
 - Original row and unique-URL counts.
 - Final curated resource and unique-URL counts.
 - Counts kept, updated, replaced, consolidated, removed, and added.
+- Authenticated repository count, including private, forked, archived, and empty classifications.
+- Count of repository concepts mapped to resources versus missing-concept notes.
 - Automated and manual verification method.
 - Known limitations such as bot-protected resources that required browser confirmation.
 
@@ -749,11 +890,12 @@ Expected: Commit succeeds and the end of `links.md` contains all four required a
 
 ---
 
-### Task 10: Rewrite the README
+### Task 11: Rewrite the README
 
 **Files:**
 - Modify: `README.md`
 - Read: `links.md`
+- Read: `repository-concepts.md`
 
 **Interfaces:**
 - Consumes: The final section structure, audit date, and metadata definitions.
@@ -771,6 +913,8 @@ Document Type, Title, URL, Why this is valuable, Difficulty, and Estimated time.
 
 State the last audit date, how dead or ambiguous links are treated, and where readers can see removals and additions.
 
+Link to `repository-concepts.md` and explain that all authenticated owned repositories were inspected for concepts rather than sampled through GitHub search.
+
 - [ ] **Step 4: Commit the README**
 
 Run:
@@ -785,11 +929,12 @@ Expected: README accurately matches `links.md` and contains no stale link-count 
 
 ---
 
-### Task 11: Validate the Finished Repository
+### Task 12: Validate the Finished Repository
 
 **Files:**
 - Verify: `links.md`
 - Verify: `README.md`
+- Verify: `repository-concepts.md`
 - Verify: `docs/superpowers/specs/2026-07-18-link-dump-modernization-design.md`
 - Verify: `docs/superpowers/plans/2026-07-18-link-dump-modernization.md`
 
@@ -843,7 +988,13 @@ Independently count final rows, unique normalized URLs, and each decision class;
 
 Expected: Every reported count matches the generated count.
 
-- [ ] **Step 6: Check design coverage**
+- [ ] **Step 6: Validate repository concept coverage**
+
+Independently compare the authenticated repository inventory with `repository-concepts.md` and `/tmp/link-dump-audit/repo-concepts.tsv`.
+
+Expected: Every authenticated owned repository appears exactly once, including private repositories, forks, archived repositories, and empty repositories; every material concept maps to a resource or missing-concept note.
+
+- [ ] **Step 7: Check design coverage**
 
 Compare the final document with every goal and acceptance criterion in `docs/superpowers/specs/2026-07-18-link-dump-modernization-design.md`.
 
@@ -851,11 +1002,12 @@ Expected: Every criterion is satisfied or a concrete limitation is recorded unde
 
 ---
 
-### Task 12: Independent Review, Completion Summary, and Local Handoff
+### Task 13: Independent Review, Completion Summary, and Local Handoff
 
 **Files:**
 - Review: `links.md`
 - Review: `README.md`
+- Review: `repository-concepts.md`
 - Create: `/home/tom/projects/_claude-outputs/2026-07-18_link-dump-modernization_summary.md`
 
 **Interfaces:**
@@ -869,6 +1021,7 @@ Use `superpowers:requesting-code-review` to review:
 - Compliance with the approved design.
 - Resource quality and official-first policy.
 - Learning-path progression.
+- Complete 102-repository concept coverage and evidence.
 - Audit traceability.
 - Metadata consistency.
 - Any unsupported claims or obviously weak additions.
@@ -877,11 +1030,11 @@ Expected: Reviewer findings are concrete and prioritized.
 
 - [ ] **Step 2: Resolve all material findings**
 
-Apply corrections, re-run the affected checks from Task 11, and commit with the required Codex author identity.
+Apply corrections, re-run the affected checks from Task 12, and commit with the required Codex author identity.
 
 - [ ] **Step 3: Use verification-before-completion**
 
-Run the complete Task 11 validation suite on the final commit and capture fresh output before claiming completion.
+Run the complete Task 12 validation suite on the final commit and capture fresh output before claiming completion.
 
 - [ ] **Step 4: Create Tom's dated summary**
 
