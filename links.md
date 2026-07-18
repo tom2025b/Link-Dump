@@ -12,6 +12,10 @@ Every external resource was checked for reachability and manually assessed for t
 
 Do not read this document from top to bottom unless you are deliberately surveying the whole stack. Pick a route below, read the section introduction, take the beginner resources in order, and move to intermediate or advanced material when a real project gives the details somewhere to attach.
 
+### Companion teaching repository
+
+[teacher-thing](https://github.com/tom2025b/teacher-thing) is the project-derived lesson log paired with this document: dated lessons written from Tom's own repositories, plus the book-style [BackupSage Teacher Guide](https://github.com/tom2025b/teacher-thing/blob/main/backupsage-teacher-guide.md), the deep companion for the BackupSage-related sections (architecture contracts, frozen perceptual hashing, Multi-Index Hashing search, staleness models, and testing-as-proof). This links.md remains the canonical curated path; teacher-thing supplies the project-grounded practice that anchors it.
+
 ### Metadata legend
 
 | Field | Meaning |
@@ -579,7 +583,7 @@ Study the contracts that span several layers: observability, provenance, protoco
 
 ### Project-derived concept notes
 
-- The Multi-Index Hashing paper is rigorous but not a complete implementation curriculum. teacher-thing should keep versioned golden vectors, exact-radius tests, bucket invariants, migration fixtures, and brute-force comparison tests as its educational specification.
+- The Multi-Index Hashing paper is rigorous but not a complete implementation curriculum. teacher-thing's [backupsage-teacher-guide.md](https://github.com/tom2025b/teacher-thing/blob/main/backupsage-teacher-guide.md) now documents exactly that discipline as its educational specification: versioned golden vectors (frozen sage-dct-v1), exact-radius pigeonhole tests, bucket invariants, migration fixtures (phash_algo versioning and the sage-dct-v2 capstone), and brute-force comparison tests against the O(n²) oracle.
 - Provenance, freshness, dropped-record accounting, and privacy-minimizing compiled state are covered in fragments across standards. workstate should retain a project-specific exercise that models stale, missing, failed, and unknown evidence independently.
 
 | Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
@@ -993,20 +997,20 @@ These final resources were not present among the original inventory's 243 exact 
 
 ## Future Educational Gaps
 
-The audit does not use a weak bookmark merely to make every topic look complete. The following concepts still deserve stronger, durable teaching material; matching concept notes appear in their learning-path sections.
+The audit does not use a weak bookmark merely to make every topic look complete. The following concepts still deserve stronger, durable teaching material; matching concept notes appear in their learning-path sections. Project-grounded teaching for these gaps is tracked in teacher-thing's [2026-07-18_link-dump-gap-concepts.md](https://github.com/tom2025b/teacher-thing/blob/main/2026-07-18_link-dump-gap-concepts.md), with this links.md remaining the canonical gap register.
 
 | Gap | Why better material is still needed | Where the current path helps |
 |---|---|---|
 | Full-screen TUI accessibility | Existing resources separately cover color, Unicode width, terminal behavior, and web accessibility, but not a repeatable screen-reader and resize test curriculum across TUIs. | CLI and TUI Development; Testing and Code Quality |
 | Windows ConPTY lifecycle | POSIX PTYs are documented well; Windows resize, signal, process-tree, and teardown behavior still needs an equally durable hands-on lab. | CLI and TUI Development; Error Handling and Reliability |
-| Cross-agent handoff records | Conductor's append/replace record and review gates are a local heterogeneous-agent protocol rather than an established standard. | Architecture and Design Patterns; Testing and Code Quality |
+| Cross-agent handoff records | Conductor's append/replace record and review gates are a local heterogeneous-agent protocol rather than an established standard. | Architecture and Design Patterns; Testing and Code Quality; now partially addressed by teacher-thing's [backupsage-teacher-guide.md](https://github.com/tom2025b/teacher-thing/blob/main/backupsage-teacher-guide.md) (the verbatim-preserved Merge Prompt as a durable handoff record, the spec-vs-shipped audit table, append-only twin-commit history); remaining: conductor's actual append/replace protocol mechanics and review-gate grammar |
 | Cross-stack agent and MCP testing | No single source combines tool approval, cancellation, malformed streams, PTYs, browser origins, retries, and terminal restoration in one test methodology. | Local AI and Related Tools; Testing and Code Quality |
 | Timeshift discovery and retention | Stable upstream material does not currently explain the exact on-disk and command contracts well enough for deletion automation. | Data, Storage, Search, and File Processing; Security and Linux Operations |
 | Safe removable-media lab | Authoritative references cover signatures, block identity, mounts, and I/O separately; learners still need one recovery-aware destructive-write exercise. | Security and Linux Operations |
 | Provider privacy classification | API documentation changes and cannot decide which local data Tom permits each provider to receive or retain. | Local AI and Related Tools; Security and Linux Operations |
 | Secure localhost AI bridges | Material on MCP and prompt injection exists, but a practical browser-origin, DNS-rebinding, approval, cancellation, and idempotency lab is still fragmented. | Local AI and Related Tools |
-| Multi-Index Hashing implementation tests | The primary paper gives the algorithm, not a versioned Rust migration and golden-vector curriculum for perceptual-hash indexes. | Advanced and Cross-Cutting Topics; Testing and Code Quality |
-| Provenance and freshness state models | Standards define provenance vocabulary, but partial failure, staleness, loss accounting, privacy allowlists, and compiled snapshots still need a project-grounded exercise. | Advanced and Cross-Cutting Topics; Data, Storage, Search, and File Processing |
+| Multi-Index Hashing implementation tests | The primary paper gives the algorithm, not a versioned Rust migration and golden-vector curriculum for perceptual-hash indexes. | Advanced and Cross-Cutting Topics; Testing and Code Quality; now substantially addressed by teacher-thing's [backupsage-teacher-guide.md](https://github.com/tom2025b/teacher-thing/blob/main/backupsage-teacher-guide.md) (frozen sage-dct-v1 golden vectors, pigeonhole exact-radius tests, brute-force oracle comparison, bucket invariants, phash_algo migration fixtures and the sage-dct-v2 capstone) |
+| Provenance and freshness state models | Standards define provenance vocabulary, but partial failure, staleness, loss accounting, privacy allowlists, and compiled snapshots still need a project-grounded exercise. | Advanced and Cross-Cutting Topics; Data, Storage, Search, and File Processing; now largely addressed by teacher-thing's [backupsage-teacher-guide.md](https://github.com/tom2025b/teacher-thing/blob/main/backupsage-teacher-guide.md) (two-layer staleness, adversarial deep-verify testing, timestamp provenance, loss accounting, the status state machine); remaining: explicit privacy allowlists and workstate's compiled-snapshot exercise modeling stale, missing, failed, and unknown evidence |
 
 ## Audit Notes
 
@@ -1024,3 +1028,4 @@ The audit does not use a weak bookmark merely to make every topic look complete.
 - **Duplicate integration:** 10 cross-fragment occurrences were consolidated so each normalized URL appears once in its strongest primary section.
 - **Verification method:** direct HTTPS URLs, bounded curl redirects and timeouts, GET fallback for HEAD failures, title/content review, manual browser inspection for ambiguous responses, exact table parsing, normalized duplicate detection, and reconciliation against the immutable 250-row decision ledger.
 - **Scope limitation:** private repository source is not reproduced here. [repository-concepts.md](repository-concepts.md) records only repository metadata, technologies, high-level concepts, evidence categories, and learning-path mappings.
+- **Integration update (2026-07-18):** linked the [teacher-thing](https://github.com/tom2025b/teacher-thing) companion repository and its BackupSage Teacher Guide, and annotated the Future Educational Gaps table with the coverage that guide now provides. No external resource rows were added or removed; all resource and URL counts above are unchanged.
