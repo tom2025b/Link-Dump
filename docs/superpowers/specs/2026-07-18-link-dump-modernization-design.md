@@ -34,6 +34,7 @@ The repository currently contains:
 7. Give every resource a title, direct URL, detailed value statement, difficulty, estimated reading or viewing time, and content type.
 8. Record what was removed and added, with a reason for each decision.
 9. Update the README so it accurately explains the document and its coverage.
+10. When a relevant concept lacks a strong durable resource, add a concise explanatory note rather than selecting a weak link merely to fill the gap.
 
 ## Non-Goals
 
@@ -183,6 +184,8 @@ The end of `links.md` will contain:
 2. **Resources Added** — new title and URL, target section, and why it was selected.
 3. **Future Educational Gaps** — concepts for which existing material remains weak, fragmented, overly version-specific, or insufficiently practical.
 4. **Audit Notes** — audit date, methodology, counts, and limitations.
+
+Missing concepts without a resource that clears the quality bar will also receive a short note in the relevant learning-path section. The note will identify what the concept is, why it matters to Tom's projects, and why no resource was selected yet.
 
 ## Files and Responsibilities
 

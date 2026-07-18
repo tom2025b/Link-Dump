@@ -19,6 +19,7 @@
 - Retain community resources only when they add teaching value not supplied by an official source.
 - Do not retain generic search-result pages, dead links, misleading labels, redundant entries, or low-quality SEO material.
 - Do not target an arbitrary resource count at the expense of quality.
+- When a relevant concept lacks a strong durable resource, add a concise explanatory note in its learning-path section and record the gap under Future Educational Gaps instead of selecting a weak link.
 - A 403, 429, or bot challenge is ambiguous until manually reviewed; HTTP 200 alone does not prove relevance.
 - Keep `links.md` as the canonical learning path and `README.md` as the concise repository guide.
 - Codex commits must use `claude_2010 <262510778+tom2025b@users.noreply.github.com>`.
@@ -77,7 +78,7 @@ rg -o 'https?://[^ |)]+' links.md | sort -u | wc -l
 
 Expected:
 
-- The branch is `main`.
+- The branch is `docs/link-dump-modernization`.
 - The worktree is clean; the local branch is ahead of `origin/main` only by the approved design and plan commits.
 - Resource rows: `250`.
 - URL occurrences: `250`.
@@ -670,6 +671,7 @@ For each section, write:
 - Useful prerequisites.
 - Which of Tom's project themes use the concept.
 - A suggested beginner-to-advanced reading order.
+- A concise concept note wherever no available resource clears the quality bar.
 
 Expected: The document reads as a learning path even before individual links are followed.
 
@@ -720,7 +722,7 @@ List every URL not present in the normalized original inventory. Include its tit
 
 - [ ] **Step 3: Add Future Educational Gaps**
 
-Document concepts where the best available material remains fragmented, overly version-specific, insufficiently practical, or absent. Do not manufacture gaps merely to populate the section.
+Document concepts where the best available material remains fragmented, overly version-specific, insufficiently practical, or absent. Match each gap to the concise note placed in its relevant learning-path section. Do not manufacture gaps merely to populate the section.
 
 - [ ] **Step 4: Add Audit Notes and exact counts**
 
