@@ -4,7 +4,7 @@ A detailed, curated learning path built from a complete audit of the original
 Link Dump and the concepts used across all 102 authenticated repositories owned
 by `tom2025b`.
 
-Start with [links.md](links.md). It contains **293** reviewed
+Start with [links.md](links.md). It contains **294** reviewed
 resources, each with a unique normalized URL, organized from foundations
 through advanced cross-cutting topics—not a chronological bookmark list.
 
@@ -47,7 +47,7 @@ The last complete audit was **2026-07-18**:
   48 consolidate, and 14 remove.
 - Dead, obsolete, generic-search, misleading, redundant, and low-quality entries
   were removed or replaced.
-- The final integrated probe returned 288 healthy results; five DNS, bot-protection,
+- The final integrated probe returned 289 healthy results; five DNS, bot-protection,
   or help-center exceptions were manually confirmed in a browser. HTTP 200 alone
   was not treated as proof of relevance.
 - [Resources removed or replaced](links.md#resources-removed-replaced-updated-or-consolidated),
