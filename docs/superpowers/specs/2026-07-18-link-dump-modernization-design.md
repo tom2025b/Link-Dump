@@ -1,7 +1,7 @@
 # Link Dump Audit and Modernization Design
 
-**Date:** 2026-07-18  
-**Repository:** `tom2025b/Link-Dump`  
+**Date:** 2026-07-18
+**Repository:** `tom2025b/Link-Dump`
 **Primary document:** `links.md`
 
 ## Purpose
