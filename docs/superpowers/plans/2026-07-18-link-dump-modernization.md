@@ -6,7 +6,7 @@
 
 **Architecture:** Build an immutable inventory of the 250 original rows, attach a curation decision and reachability evidence to every row, research missing concepts in independent domain batches, and then integrate the approved resources into one canonical `links.md`. Keep temporary audit evidence under `/tmp/link-dump-audit`; commit only the finished learning path, README, specification, and plan.
 
-**Tech Stack:** Markdown, Git, `rg`, `awk`, `sort`, `curl`, shell utilities, browser research, and official project documentation.
+**Tech Stack:** Markdown, Git, Python 3 standard library, `rg`, `awk`, `sort`, `curl`, shell utilities, browser research, and official project documentation.
 
 ## Global Constraints
 
