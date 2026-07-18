@@ -1,504 +1,1026 @@
-<!-- Last updated: 2026-06-02 | Total links: 480 | Pro tip: ctrl+F 'COBOL' for 80s nostalgia or 'sysctl' for firewall wins. -->
-
-# Link Dump — Everything Tom Is Learning
-*Curated by ResearchBuddy. Every link tied to a real session topic.*
-
----
-
-## 1. Git — Remote Setup & Pushing to GitHub
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | About Remote Repositories | https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories | GitHub's own explanation of SSH vs HTTPS remotes and how they work. |
-| [OFFICIAL] | Managing Remote Repositories | https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories | How to add, change, and switch remote URLs with `git remote`. |
-| [OFFICIAL] | Error: Permission denied (publickey) | https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey | Fix the most common SSH push failure — step by step from GitHub. |
-| [TUTORIAL] | Push from Linux to GitHub using SSH Key | https://www.geeksforgeeks.org/git/push-codes-from-linux-ubuntu-to-github-using-ssh-key/ | Linux-specific walkthrough: key generation, GitHub setup, first push. |
-| [TUTORIAL] | How to Use an SSH Key with GitHub | https://www.ionos.com/digitalguide/websites/web-development/ssh-key-with-github/ | Practical SSH key setup guide from zero to first successful push. |
-| [VIDEO] | Git SSH GitHub Push Tutorials | https://www.youtube.com/results?search_query=git+ssh+github+push+tutorial | Search YouTube for visual walkthroughs of SSH + git push. |
-
----
-
-## 2. UFW Firewall — Hardening, Rate Limiting, Tailscale
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Use UFW to Lock Down a Server — Tailscale Docs | https://tailscale.com/kb/1077/secure-server-ubuntu | Official Tailscale guide: block all traffic except through your tailnet. |
-| [OFFICIAL] | UFW Community Help Wiki — Ubuntu | https://help.ubuntu.com/community/UFW | Ubuntu's reference for all UFW syntax and common rules. |
-| [TUTORIAL] | Set Up a Firewall with UFW on Ubuntu — DigitalOcean | https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu | The most widely referenced beginner UFW tutorial. |
-| [TUTORIAL] | UFW Essentials: Common Firewall Rules — DigitalOcean | https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands | Reference for `ufw limit`, rate limiting, interface-specific rules. |
-| [BLOG] | VPS Fortress with Tailscale and UFW — DEV Community | https://dev.to/binsarjr/turn-your-vps-into-an-impenetrable-fortress-how-to-make-your-public-server-private-using-tailscale-and-ufw-3841 | Hands-on: make a server reachable only through Tailscale using UFW. |
-| [BLOG] | Restrict SSH Access Using Tailscale and UFW | https://supun.io/tailscale-ssh-restrict | Real-world tutorial with caveats to avoid getting locked out. |
-| [VIDEO] | UFW Complete Guide — HackerSploit | https://www.youtube.com/results?search_query=UFW+complete+guide+hackersploit+linux+firewall | HackerSploit's widely recommended UFW series on YouTube. |
-
----
-
-## 3. sysctl — Kernel Hardening
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | sysctl.conf Security Hardening — nixCraft | https://www.cyberciti.biz/faq/linux-kernel-etcsysctl-conf-security-hardening/ | Comprehensive list of kernel parameters for network, fs, and memory hardening. |
-| [TUTORIAL] | Hardening the Linux Kernel with Sysctl — Reintech | https://reintech.io/blog/hardening-linux-kernel-sysctl-debian-12 | Step-by-step tutorial applying sysctl hardening on a Debian 12 server. |
-| [TUTORIAL] | Linux Hardening with Sysctl Settings — Linux Audit | https://linux-audit.com/system-hardening/linux-hardening-with-sysctl/ | Explains what each setting protects against in plain English. |
-| [BLOG] | Advanced Sysctl Security Techniques — CalCom | https://calcomsoftware.com/sysctl-configuration-hardening/ | Covers kernel pointers, IPv6, ASLR and advanced parameters. |
-| [BLOG] | How-To-Secure-A-Linux-Server: sysctl Reference — GitHub | https://github.com/imthenachoman/How-To-Secure-A-Linux-Server/blob/master/linux-kernel-sysctl-hardening.md | Community-maintained annotated sysctl parameter reference. |
-| [VIDEO] | Linux Kernel sysctl Hardening Tutorials | https://www.youtube.com/results?search_query=linux+sysctl+kernel+hardening+security+tutorial | YouTube search for sysctl hardening video walkthroughs. |
-
----
-
-## 4. SSH Daemon Hardening — sshd_config, Key-Only Auth
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | sshd_config(5) — Linux Man Page | https://man7.org/linux/man-pages/man5/sshd_config.5.html | Every sshd_config directive explained — the authoritative reference. |
-| [OFFICIAL] | SSH Hardening Guides — ssh-audit.com | https://www.sshaudit.com/hardening_guides.html | Tool-backed hardening with exact config lines per distro. |
-| [TUTORIAL] | Harden OpenSSH on Ubuntu — DigitalOcean | https://www.digitalocean.com/community/tutorials/how-to-harden-openssh-on-ubuntu-20-04 | Step-by-step: disable passwords, restrict root, enable key-only. |
-| [TUTORIAL] | SSH Hardening Best Practices — Linuxize | https://linuxize.com/post/ssh-hardening-best-practices/ | Concise, practical guide — the most impactful sshd_config changes. |
-| [BLOG] | OpenSSH Security and Hardening — Linux Audit | https://linux-audit.com/ssh/audit-and-harden-your-ssh-configuration/ | Auditing an existing SSH config for weaknesses, then fixing them. |
-| [BLOG] | Disable SSH Password Login on Linux — nixCraft | https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/ | Focused tutorial: `PasswordAuthentication no` without locking yourself out. |
-| [VIDEO] | SSH Hardening sshd_config Tutorials | https://www.youtube.com/results?search_query=ssh+hardening+sshd_config+linux+tutorial | YouTube search for SSH hardening video tutorials. |
-
----
-
-## 5. Bash Scripting — Best Practices & Error Handling
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [TUTORIAL] | How to Use set and pipefail in Bash — How-To Geek | https://www.howtogeek.com/782514/how-to-use-set-and-pipefail-in-bash-scripts-on-linux/ | Beginner-friendly breakdown of every flag in `set -euo pipefail`. |
-| [TUTORIAL] | Writing Safe Shell Scripts — MIT SIPB | https://sipb.mit.edu/doc/safe-shell/ | MIT's concise authoritative guide on defensive Bash scripting. |
-| [BLOG] | Safer Bash Scripts with set -euxo pipefail — vaneyckt.io | https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/ | Walk-through of every flag, caveats, and `|| true` patterns. |
-| [BLOG] | Make Bash Safe with set -euxo pipefail — LinuxTect | https://linuxtect.com/make-bash-shell-safe-with-set-euxo-pipefail/ | Annotated code examples showing each flag's real-world effect. |
-| [Q&A] | set -e -u -o -x pipefail Explained — GitHub Gist | https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425 | Highly referenced community gist — all flags, concise explanations. |
-| [VIDEO] | Bash Error Handling set -euo pipefail | https://www.youtube.com/results?search_query=bash+scripting+set+euo+pipefail+error+handling | YouTube search for bash error handling tutorials. |
-
----
-
-## 6. Rust — Async Programming with Tokio & reqwest
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Tokio Tutorial — tokio.rs | https://tokio.rs/tokio/tutorial | The official Tokio tutorial: spawning, async/await, channels, I/O. |
-| [OFFICIAL] | tokio — Rust API Docs | https://docs.rs/tokio | Official API reference for every Tokio crate, macro, and module. |
-| [OFFICIAL] | Async and Await — Rust Async Book | https://rust-lang.github.io/async-book/part-guide/async-await.html | How async/await works and how runtimes like Tokio plug in. |
-| [TUTORIAL] | Making HTTP Requests in Rust with reqwest — LogRocket | https://blog.logrocket.com/making-http-requests-rust-reqwest/ | Practical: Tokio + reqwest for async HTTP calls in Rust. |
-| [BLOG] | Practical Guide to Async Rust and Tokio — Medium | https://medium.com/@OlegKubrakov/practical-guide-to-async-rust-and-tokio-99e818c11965 | Real-world async patterns with Tokio and proper error handling. |
-| [Q&A] | Async/await and Multi-thread Tokio Runtime — Rust Forum | https://users.rust-lang.org/t/async-await-and-multi-thread-tokio-runtime/110107 | Community Q&A on runtime config and multi-threading in Tokio. |
-| [VIDEO] | Rust Tokio Async Programming Tutorials | https://www.youtube.com/results?search_query=rust+tokio+async+await+programming+tutorial | YouTube search for Rust async Tokio tutorials. |
-
----
-
-## 7. Tailscale — Setup & Configuration on Linux
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Install Tailscale on Linux — Tailscale Docs | https://tailscale.com/docs/install/linux | Official per-distro install instructions and one-line install script. |
-| [OFFICIAL] | Tailscale Quickstart — Tailscale Docs | https://tailscale.com/kb/1017/install | Quickstart: install, `tailscale up`, verify device in tailnet. |
-| [OFFICIAL] | Tailscale CLI Reference | https://tailscale.com/docs/reference/tailscale-cli | All `tailscale` CLI commands for managing connections on Linux. |
-| [TUTORIAL] | How to Use Tailscale: Step-by-Step for Beginners — LearnLinux.tv | https://www.learnlinux.tv/how-to-use-tailscale-step-by-step-setup-guide-for-beginners/ | Beginner-friendly written guide with accompanying YouTube video. |
-| [TUTORIAL] | Setting Up Tailscale on Ubuntu — Pi My Life Up | https://pimylifeup.com/ubuntu-tailscale/ | Practical Ubuntu walkthrough from install through connecting devices. |
-| [BLOG] | Tailscale — ArchWiki | https://wiki.archlinux.org/title/Tailscale | Install, systemd service setup, and subnet routing on Arch/Linux. |
-| [VIDEO] | Tailscale Setup Linux Tutorials | https://www.youtube.com/results?search_query=tailscale+setup+linux+tutorial+beginners | YouTube search for Tailscale Linux setup tutorials. |
-
----
-
-## 8. Linux Server Security — General Hardening
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Linux Server Hardening Best Practices — Netwrix | https://netwrix.com/en/resources/guides/linux-hardening-security-best-practices/ | Enterprise reference: access control, auditing, patch management, CIS. |
-| [TUTORIAL] | 40 Linux Server Hardening Tips — nixCraft | https://www.cyberciti.biz/tips/linux-security.html | The classic 40-step checklist with real commands for each step. |
-| [TUTORIAL] | Linux System Hardening: Top 10 Tips — TuxCare | https://tuxcare.com/blog/linux-hardening/ | Modern 2025-focused overview: SSH, UFW, sysctl, and monitoring. |
-| [BLOG] | How-To-Secure-A-Linux-Server — GitHub | https://github.com/imthenachoman/How-To-Secure-A-Linux-Server | One of the most referenced Linux hardening guides anywhere. |
-| [BLOG] | The Practical Linux Hardening Guide — GitHub | https://github.com/trimstray/the-practical-linux-hardening-guide | Deep-dive guide referencing OpenSCAP, CIS, and STIG standards. |
-| [BLOG] | Linux Server Hardening: Most Important Steps — Linux Audit | https://linux-audit.com/linux-server-hardening-most-important-steps-to-secure-systems/ | Prioritised checklist from a dedicated Linux security auditing site. |
-| [VIDEO] | Linux Server Security Hardening 2025 | https://www.youtube.com/results?search_query=linux+server+security+hardening+tutorial+2025 | YouTube search for current Linux server hardening video tutorials. |
-
----
-
-## 9. Certifications & Call Center Tech (Chapter 4)
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | CompTIA A+ Certification — CompTIA | https://www.comptia.org/en-us/certifications/a/ | Official CompTIA page: exam objectives, exam codes (220-1101/1102), pricing, and study tools. |
-| [TUTORIAL] | Free Study Guide for CompTIA A+ Core Series (Updated 2026) | https://uniontestprep.com/comptia-a-core-series-exam/study-guide | Free, beginner-friendly study guide covering all exam domains — no cost to access. |
-| [OFFICIAL] | Microsoft Credentials — All Certifications | https://learn.microsoft.com/en-us/credentials/ | Microsoft Learn's central hub for all role-based certs including Azure and the MCT path. |
-| [OFFICIAL] | MCT Renewal and Reinstatement — Microsoft Learn | https://learn.microsoft.com/en-us/credentials/certifications/mct-renewal-reinstatement | Official requirements and steps to become or renew as a Microsoft Certified Trainer (MCT). |
-| [BLOG] | Giving Inmates a Second Chance as Prison Call Center Agents — TechTarget | https://www.techtarget.com/searchcustomerexperience/feature/Giving-inmates-a-second-chance-as-prison-call-center-agents | In-depth feature on prison call center programs, skills gained, and reentry outcomes. |
-| [TUTORIAL] | CompTIA A+ Study Tips for Working Professionals | https://prepsaret.com/comptia/comptia-a-study-tips-for-working-professionals | Targeted advice for studying while working a demanding job — scheduling, pacing, burnout avoidance. |
-
----
-
-## 10. Rust TUI — crossterm, Terminal Animation
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | crossterm — Rust API Docs | https://docs.rs/crossterm | Full API reference for crossterm: raw mode, alternate screen, cursor, colors, events. |
-| [OFFICIAL] | crossterm GitHub — Crossterm.rs | https://github.com/crossterm-rs/crossterm | Source, examples, and CHANGELOG — essential for checking syntax changes between versions. |
-| [TUTORIAL] | Building a Terminal UI in Rust with crossterm — Ratatui Guide | https://ratatui.rs/concepts/backends/crossterm/ | Explains the crossterm backend model and how raw mode + alternate screen work together. |
-| [BLOG] | Rust Terminal Animation with crossterm — LogRocket | https://blog.logrocket.com/rust-and-tui-building-a-command-line-interface/ | Practical guide to building interactive terminal UIs with Rust and crossterm. |
-| [Q&A] | crossterm Color::Rgb Syntax — Rust Users Forum | https://users.rust-lang.org/t/crossterm-color-rgb/92777 | Community thread on struct vs tuple syntax for Color::Rgb — a common gotcha. |
-| [OFFICIAL] | clap — Command Line Argument Parser for Rust | https://docs.rs/clap | API docs for clap with derive macros — how to add CLI flags with #[derive(Parser)]. |
-
----
-
-## 11. Rust GUI — egui & eframe
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | egui — Immediate Mode GUI for Rust | https://docs.rs/egui | Full egui API reference: widgets, Painter, Color32, Layout, Key, input handling. |
-| [OFFICIAL] | eframe — egui App Framework | https://docs.rs/eframe | eframe API: how to set up a native window, the App trait, and run_native. |
-| [OFFICIAL] | egui GitHub — emilk/egui | https://github.com/emilk/egui | Source and demos — best place to see how widgets are built and what changed between versions. |
-| [TUTORIAL] | Writing a GUI app in Rust with egui — LogRocket | https://blog.logrocket.com/build-desktop-app-rust-egui/ | Step-by-step intro to building a real egui app from scratch. |
-| [BLOG] | Immediate Mode vs Retained Mode GUI — egui Docs | https://github.com/emilk/egui?tab=readme-ov-file#why-immediate-mode | egui author's explanation of why immediate mode is simpler for animation-heavy apps. |
-| [Q&A] | egui Painter and 2D Drawing — egui Discussions | https://github.com/emilk/egui/discussions/categories/q-a | Search for "Painter" here — community Q&A on custom drawing with egui's Painter API. |
-
----
-
-## 12. Rust JSON — serde & serde_json
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | serde — Rust Serialization Framework | https://docs.rs/serde | API docs for serde: Serialize, Deserialize, derive macros, field attributes. |
-| [OFFICIAL] | serde_json — Rust API Docs | https://docs.rs/serde_json | Full serde_json reference: from_str, from_reader, Value, error types. |
-| [OFFICIAL] | Serde Guide — serde.rs | https://serde.rs/ | The official serde book: getting started, derive macros, custom serializers. |
-| [TUTORIAL] | Working with JSON in Rust — LogRocket | https://blog.logrocket.com/json-and-rust-why-serde_json-is-the-top-choice/ | Practical guide to parsing and generating JSON with serde_json. |
-| [BLOG] | Deserializing JSON in Rust — Zero to Production | https://www.lpalmieri.com/posts/serde-in-rust/ | Deep dive into serde's derive macros and handling optional/nested fields. |
-
----
-
-## 13. Bash — rsync, Backup Scripts, notify-send
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | rsync Man Page — linux.die.net | https://linux.die.net/man/1/rsync | Complete rsync flag reference — -a, -A, -X, --delete, --backup-dir all explained. |
-| [TUTORIAL] | rsync Backup Script on Linux — DigitalOcean | https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories | Most-cited rsync tutorial: flags, exclude patterns, dry-run, and incremental backups. |
-| [TUTORIAL] | How to Use notify-send on Linux — LinuxHandbook | https://linuxhandbook.com/notify-send/ | Practical guide to desktop notifications from bash, including urgency and icons. |
-| [BLOG] | Cron-Safe Bash Scripts — Bash Hackers Wiki | https://bash.cyberciti.biz/guide/Main_Page | Reference for bash scripting patterns including TTY detection and stdin handling. |
-| [Q&A] | Detect If Script Is Running in Cron — Stack Overflow | https://stackoverflow.com/questions/3214935/detect-if-script-is-running-in-cron | Community answers on `[[ -t 0 ]]` and other cron-detection idioms. |
-| [BLOG] | Using findmnt to Find Real Mountpoints — nixCraft | https://www.cyberciti.biz/tips/howto-find-linux-mount-point.html | How findmnt --target walks up the path to find the actual mountpoint. |
-
----
-
-## 14. Linux Desktop — XDG .desktop Files, Cinnamon Launchers
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Desktop Entry Specification — freedesktop.org | https://specifications.freedesktop.org/desktop-entry-spec/latest/ | The authoritative XDG spec: every valid key, category, and type for .desktop files. |
-| [OFFICIAL] | Desktop Files: A How-To — GNOME Developer Docs | https://developer.gnome.org/documentation/guidelines/maintainer/integrating.html | GNOME's practical guide to integrating an app with the DE via a .desktop file. |
-| [TUTORIAL] | Creating Application Launchers on Linux — MakeUseOf | https://www.makeuseof.com/how-to-create-desktop-entry-file-linux/ | Step-by-step: write, place, chmod, and verify a .desktop file on Linux Mint/Ubuntu. |
-| [BLOG] | XDG Base Directory Spec — ArchWiki | https://wiki.archlinux.org/title/XDG_Base_Directory | Explains ~/.local/share/applications and the full XDG directory layout. |
-| [Q&A] | .desktop File Not Showing in Menu — Ask Ubuntu | https://askubuntu.com/questions/306748/how-do-i-add-application-to-app-menu | Common fixes: wrong location, missing chmod +x, update-desktop-database command. |
-
----
-
-## 15. Rust TUI / ratatui
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | ratatui docs | https://ratatui.rs | Widgets, layout, TableState, Sparkline API reference |
-| [OFFICIAL] | ratatui 0.26 crate | https://docs.rs/ratatui/0.26.3 | Version-specific API — check here when docs.rs shows newer version |
-| [OFFICIAL] | sysinfo crate | https://docs.rs/sysinfo/0.30 | CPU/RAM/disk/net/process APIs for system monitoring |
-| [TUTORIAL] | ratatui book | https://ratatui.rs/tutorials/ | Step-by-step tutorials including counter app and JSON editor |
-| [BLOG] | ratatui GitHub examples | https://github.com/ratatui/ratatui/tree/main/examples | Practical widget usage examples |
-
-## 16. Rust — Axum HTTP Server & Shared State
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Axum 0.7 Docs | https://docs.rs/axum/0.7/ | Axum 0.7 router, handlers, JSON extractors — breaking changes from 0.6 |
-| [OFFICIAL] | tokio::sync::watch | https://docs.rs/tokio/latest/tokio/sync/watch/ | Watch channel for broadcasting latest value to multiple receivers — zero-copy borrow() |
-| [OFFICIAL] | ratatui Book | https://ratatui.rs/introduction/ | Official Ratatui guide for TUI apps |
-| [OFFICIAL] | sysinfo 0.30 Docs | https://docs.rs/sysinfo/0.30/ | CPU/RAM/disk/net system metrics in Rust — process disk_usage() for I/O rates |
-| [OFFICIAL] | crossterm Docs | https://docs.rs/crossterm/ | Cross-platform terminal control for raw mode, events, alternate screen |
-| [BLOG] | Tokio spawn_blocking guide | https://tokio.rs/tokio/topics/bridging | Bridging sync/blocking code (TUI loops, raw terminal) in async Tokio apps |
-
----
-
-## 17. Linux Server Hardening — sysctl, UFW, Tailscale, Kernel Lockdown
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | sysctl man page | https://man7.org/linux/man-pages/man8/sysctl.8.html | Full reference for sysctl — flags, file format, --system behavior |
-| [OFFICIAL] | sysctl.d man page | https://www.man7.org/linux/man-pages/man5/sysctl.d.5.html | How /etc/sysctl.d/ files are loaded and in what order |
-| [OFFICIAL] | kernel.modules_disabled — Linux kernel docs | https://www.kernel.org/doc/html/latest/admin-guide/sysctl/kernel.html | Official docs on kernel.modules_disabled — what it does, when it takes effect |
-| [OFFICIAL] | UFW man page | https://manpages.ubuntu.com/manpages/focal/man8/ufw.8.html | Full UFW command reference — rules, interface-specific allow, default policies |
-| [OFFICIAL] | Linux sysfs network interface operstate | https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net | Explains /sys/class/net/<iface>/operstate values (up/down/unknown/dormant) |
-| [OFFICIAL] | Tailscale docs — Linux installation | https://tailscale.com/kb/1031/install-linux | Official Tailscale setup on Linux, interface naming, subnet routing |
-| [BLOG] | Linux Hardening Guide — madaidans-insecurities | https://madaidans-insecurities.github.io/guides/linux-hardening.html | Comprehensive hardening guide — sysctl, kernel modules, filesystem hardening |
-| [BLOG] | ArchWiki — Security — Kernel hardening | https://wiki.archlinux.org/title/Security#Kernel_hardening | Practical sysctl settings with explanations, including net.ipv4 and kernel params |
-| [DOCS] | UFW — community help | https://help.ubuntu.com/community/UFW | Ubuntu's UFW guide — interface rules, app profiles, logging |
-| [Q&A] | net.ipv4.conf.all vs .default — what's the difference | https://serverfault.com/questions/431593/difference-between-sysctl-net-ipv4-conf-all-and-default | Explains why both all and default must be set for complete sysctl coverage |
-| [BLOG] | Tailscale + UFW — locking down with Tailscale | https://tailscale.com/kb/1077/secure-server-ubuntu-18-04 | Official Tailscale guide for locking a server to Tailscale-only access via UFW |
-
----
-
-## 18. Rust — Security Scripting Patterns
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | std::process::Command — Rust docs | https://doc.rust-lang.org/std/process/struct.Command.html | Full API for spawning processes — status(), output(), ExitStatus |
-| [OFFICIAL] | std::process::ExitStatus | https://doc.rust-lang.org/std/process/struct.ExitStatus.html | How to check success() vs raw exit codes in Rust |
-| [BLOG] | Rust sysfs reading patterns | https://doc.rust-lang.org/std/fs/fn.read_to_string.html | std::fs::read_to_string — simplest way to read /sys/ virtual files |
-
----
-
-## 19. Local AI — Ollama, Phi-3, Self-Hosted LLMs
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Ollama — GitHub | https://github.com/ollama/ollama | Main repo: install, model library, API docs, Docker usage |
-| [OFFICIAL] | Ollama REST API reference | https://github.com/ollama/ollama/blob/main/docs/api.md | Full /api/generate, /api/chat, streaming, logprobs params |
-| [OFFICIAL] | Ollama Python library | https://github.com/ollama/ollama-python | Official Python client — chat(), generate(), streaming examples |
-| [OFFICIAL] | Phi-3 Mini on Ollama | https://ollama.com/library/phi3 | Model card: context window, GGUF variants, memory requirements |
-| [BLOG] | Running LLMs locally with Ollama | https://ollama.com/blog | Ollama blog — model releases, performance tips, hardware guides |
-| [DOCS] | Gemma 2B model card | https://ollama.com/library/gemma | Alternative to Phi-3 for 8GB RAM — tradeoffs vs phi3:mini |
-
----
-
-## 20. PyQt6 — GUI Development
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | PyQt6 documentation | https://www.riverbankcomputing.com/static/Docs/PyQt6/ | Full API reference — all widgets, signals, slots, threading |
-| [OFFICIAL] | Qt6 QThread docs | https://doc.qt.io/qt-6/qthread.html | Official QThread API — worker pattern, signals, safe UI updates from threads |
-| [OFFICIAL] | Qt6 QTextBrowser | https://doc.qt.io/qt-6/qtextbrowser.html | Rich text display widget — setHtml(), scrolling, cursor control |
-| [OFFICIAL] | Qt6 QPalette / Fusion dark theme | https://doc.qt.io/qt-6/qpalette.html | How to build a dark palette with ColorRole — the right way |
-| [TUTORIAL] | PyQt6 threading — worker pattern | https://www.pythonguis.com/tutorials/multithreading-pyqt6-applications-qthreadpool/ | QThread worker pattern for non-blocking UI — pyqtSignal, run(), emit() |
-| [BLOG] | QApplication.setFont() cascade | https://doc.qt.io/qt-6/qapplication.html#setFont | How app-level font changes propagate to all widgets that don't override |
-
----
-
-## 21. Hybrid Python + Rust Architecture
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Axum web framework | https://docs.rs/axum/latest/axum/ | Rust HTTP server used as sidecar — Router, handlers, State extractor |
-| [OFFICIAL] | reqwest — Rust HTTP client | https://docs.rs/reqwest/latest/reqwest/ | Async HTTP with streaming body support — used to proxy Ollama |
-| [OFFICIAL] | sha2 crate | https://docs.rs/sha2/latest/sha2/ | SHA-256 hashing in Rust — used for response cache keys |
-| [BLOG] | Python subprocess vs localhost HTTP for Rust sidecars | https://pythonspeed.com/articles/faster-python-subprocess/ | When to use subprocess vs HTTP for calling native binaries from Python |
-| [DOCS] | Docker multi-stage builds | https://docs.docker.com/build/building/multi-stage/ | How to build a Rust binary and copy it into a Python image cleanly |
-| [DOCS] | Running PyQt6 GUI in Docker with X11 | https://wiki.ros.org/docker/Tutorials/GUI | xhost +local:docker, DISPLAY forwarding, /tmp/.X11-unix volume pattern |
-
----
-
-## 22. Go — CLI Tools, Flags, Signal Handling
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Go flag package | https://pkg.go.dev/flag | Standard library flag parsing — StringVar, BoolVar, custom Usage, -flag and --flag both work |
-| [OFFICIAL] | Go time.Duration | https://pkg.go.dev/time#Duration | ParseDuration syntax reference — 30s, 5m, 2m30s, 1h15m and how to handle bare integers |
-| [OFFICIAL] | os/signal — Notify | https://pkg.go.dev/os/signal#Notify | How to catch SIGINT/SIGTERM in Go for graceful Ctrl+C handling |
-| [OFFICIAL] | Go modules — go mod init | https://go.dev/ref/mod | Module system basics — go.mod, go mod init, go build without external deps |
-| [DOCS] | ANSI escape codes — cursor & colour | https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797 | \033[?25l hide cursor, \033[K erase line, \033[1;32m colour — all used in countdown |
-
----
-
-## 23. Go — JSON, File I/O, Structs, os.Args
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | encoding/json package | https://pkg.go.dev/encoding/json | Marshal/Unmarshal, struct tags (`json:"key"`), MarshalIndent for pretty output |
-| [OFFICIAL] | os.ReadFile / os.WriteFile | https://pkg.go.dev/os#ReadFile | Simple file read/write — no need to open/close handles for basic use cases |
-| [OFFICIAL] | os.UserHomeDir | https://pkg.go.dev/os#UserHomeDir | Cross-platform home directory — better than $HOME env var |
-| [OFFICIAL] | strconv.Atoi | https://pkg.go.dev/strconv#Atoi | Convert string → int with error handling — the standard way to parse CLI number args |
-| [OFFICIAL] | sort.Slice | https://pkg.go.dev/sort#Slice | Sort any slice with a custom comparator — no need to implement sort interfaces |
-| [BLOG] | Go struct tags explained | https://www.digitalocean.com/community/tutorials/how-to-use-struct-tags-in-go | What backtick annotations do and how json/db/yaml tags work |
-| [OFFICIAL] | time.Time.Format reference | https://pkg.go.dev/time#Time.Format | Go's unusual reference time (Mon Jan 2 15:04:05 2006) — why it works this way |
-
----
-
-## 24. Go — Project Layout, context, Channels, flag.Value
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Standard Go project layout | https://github.com/golang-standards/project-layout | The cmd/ + internal/ directory convention — explains every folder's purpose |
-| [OFFICIAL] | internal/ packages (Go spec) | https://pkg.go.dev/cmd/go#hdr-Internal_Directories | Why internal/ is enforced by the toolchain and when to use it |
-| [OFFICIAL] | context package | https://pkg.go.dev/context | context.WithCancel, ctx.Done(), ctx.Err() — the standard way to cancel goroutines |
-| [OFFICIAL] | flag.Value interface | https://pkg.go.dev/flag#Value | Implement String() + Set() to make custom flag types — used to detect "was this flag set?" |
-| [BLOG] | Go channels explained | https://go.dev/tour/concurrency/2 | Tour of Go — buffered vs unbuffered channels, range over channel, close() |
-| [BLOG] | Separation of concerns in Go | https://threedots.tech/post/introducing-clean-architecture-in-go/ | How to structure Go apps with clean layers — the pattern used in countdown-timer |
-| [OFFICIAL] | io.Writer interface | https://pkg.go.dev/io#Writer | Why functions should accept io.Writer instead of writing to os.Stdout directly — testability |
-
----
-
-## 25. Go — WebSocket, Goroutines, Multiplayer Games
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | gorilla/websocket | https://pkg.go.dev/github.com/gorilla/websocket | The standard Go WebSocket library — Upgrader, ReadMessage, WriteMessage, concurrent-write safety |
-| [OFFICIAL] | sync.RWMutex | https://pkg.go.dev/sync#RWMutex | Read-write mutex for leaderboard — multiple readers OK, one writer at a time |
-| [OFFICIAL] | sync.Once | https://pkg.go.dev/sync#Once | Safe one-time execution — used to prevent double-close panic on done channel |
-| [OFFICIAL] | go:embed directive | https://pkg.go.dev/embed | Embed static files into the binary at compile time — one self-contained executable |
-| [BLOG] | Server-authoritative game loop in Go | https://gafferongames.com/post/fix_your_timestep/ | Fixed timestep game loop — why 1/60s dt is correct and drift-free |
-| [DOCS] | HTML5 Canvas 2D API | https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D | ctx.arc, ctx.fillRect, shadowBlur, setLineDash — everything used in the Pong renderer |
-| [BLOG] | WebSocket protocol explained | https://developer.mozilla.org/en-US/docs/Web/API/WebSocket | Browser WebSocket API — onopen, onmessage, send, readyState |
-
----
-
-## 26. Bash Scripting & Linux
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [DOCS] | rsync man page | https://linux.die.net/man/1/rsync | Full rsync flag reference — -a, -A, -X, --delete explained |
-| [DOCS] | Crontab syntax reference | https://crontab.guru | Interactive cron expression builder and reference |
-| [DOCS] | Bash set -euo pipefail | https://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin | Official bash manual for the set builtin |
-| [TUTORIAL] | Safe crontab editing pattern | https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor | The (crontab -l; echo ...) | crontab - pattern explained |
-| [DOCS] | mountpoint man page | https://linux.die.net/man/1/mountpoint | Check if a path is a mountpoint — used as backup drive guard before rsync |
-| [TUTORIAL] | realpath for cron-safe paths | https://man7.org/linux/man-pages/man1/realpath.1.html | Resolves ~ to absolute path so cron can find your script |
-
----
-
-## 27. Python / Terminal UI / rich
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | rich library docs | https://rich.readthedocs.io/en/stable/ | Full reference for rich Text, Live, Layout, Panel, markup |
-| [OFFICIAL] | rich.live.Live | https://rich.readthedocs.io/en/stable/live.html | Live display class — screen=True uses alternate buffer, refresh_per_second |
-| [OFFICIAL] | rich.text.Text | https://rich.readthedocs.io/en/stable/text.html | Text class with inline styles — used to layer Matrix rain with panel |
-| [DOCS] | Python tty module | https://docs.python.org/3/library/tty.html | tty.setraw() for non-blocking single-keypress terminal input |
-| [DOCS] | Python termios module | https://docs.python.org/3/library/termios.html | Save/restore terminal settings around setraw — essential for cleanup |
-| [DOCS] | Python threading module | https://docs.python.org/3/library/threading.html | Thread + daemon threads for background key reading and backup execution |
-| [DOCS] | Python queue.Queue | https://docs.python.org/3/library/queue.html | Thread-safe queue for passing keystrokes from reader thread to main loop |
-| [BLOG] | Matrix digital rain in Python | https://realpython.com/python-rich/ | Real Python's rich library overview — styling, tables, live display |
-
----
-
-## 28. Rust — Archive Streaming, zstd, tar, SQLite FTS5
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | zstd crate — docs.rs | https://docs.rs/zstd | Rust zstd bindings — Decoder for streaming decompression, Encoder for compression |
-| [OFFICIAL] | tar crate — docs.rs | https://docs.rs/tar | TAR archive reading/writing in Rust — Archive::entries(), Entry::path(), streaming read |
-| [OFFICIAL] | rusqlite — bundled + FTS5 | https://docs.rs/rusqlite | SQLite Rust bindings — bundled feature compiles SQLite with FTS5 included |
-| [OFFICIAL] | SQLite FTS5 documentation | https://www.sqlite.org/fts5.html | Official FTS5 docs: virtual tables, tokenisers, auxiliary functions (highlight, snippet, bm25) |
-| [OFFICIAL] | indicatif — wrap_read / ProgressBar | https://docs.rs/indicatif | Progress bars in Rust CLIs — wrap_read() transparently tracks bytes through any io::Read |
-| [OFFICIAL] | comfy-table — dynamic tables | https://docs.rs/comfy-table | Terminal table rendering in Rust — auto-sizing columns, colours, alignment |
-| [BLOG] | SQLite FTS5 contentless tables | https://www.sqlite.org/fts5.html#contentless_tables | When to use content="" — saves space by storing only the index, not the original text |
-| [TUTORIAL] | Rust I/O traits: Read, Write, BufRead | https://doc.rust-lang.org/std/io/index.html | How Rust's composable I/O adapters work — the foundation of zero-copy streaming pipelines |
-| [BLOG] | SQLite bulk insert performance (transactions) | https://avi.im/blag/2021/fast-sqlite-inserts/ | Why batched transactions are 500× faster than auto-commit — the definitive benchmark |
-
----
-
-## 29. Rust — Data Fortress: Full-Stack Personal File Management System
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | blake3 crate — docs.rs | https://docs.rs/blake3 | BLAKE3 hashing in Rust — streaming API, par_iter hashing, 64-char hex output |
-| [OFFICIAL] | walkdir crate — docs.rs | https://docs.rs/walkdir | Recursive directory traversal — filter_entry pruning, same_file_system, follow_links |
-| [OFFICIAL] | infer crate — docs.rs | https://docs.rs/infer | Magic-byte file type detection for 150+ formats — no system deps, pure Rust |
-| [OFFICIAL] | mime_guess crate — docs.rs | https://docs.rs/mime_guess | Extension-to-MIME fallback when magic bytes are inconclusive |
-| [OFFICIAL] | kamadak-exif crate — docs.rs | https://docs.rs/kamadak-exif | Pure-Rust EXIF reader — GPS DMS→decimal, camera make/model, date taken |
-| [OFFICIAL] | pdf-extract crate — docs.rs | https://docs.rs/pdf-extract | Extract plain text from PDFs in pure Rust — no poppler/ghostscript required |
-| [OFFICIAL] | calamine crate — docs.rs | https://docs.rs/calamine | Read Excel/XLSX/ODS files in pure Rust — iterate sheets and cells |
-| [OFFICIAL] | quick-xml crate — docs.rs | https://docs.rs/quick-xml | Fast streaming XML parser — used to extract text from DOCX/PPTX ZIP internals |
-| [OFFICIAL] | rayon crate — docs.rs | https://docs.rs/rayon | Work-stealing parallel iterators — par_iter() is drop-in for iter() |
-| [OFFICIAL] | indicatif crate — docs.rs | https://docs.rs/indicatif | Progress bars and spinners for Rust CLIs |
-| [OFFICIAL] | Streamlit multi-page apps | https://docs.streamlit.io/develop/concepts/multipage-apps/overview | Auto-discovering pages/ from numeric filename prefixes |
-| [OFFICIAL] | st.cache_data — Streamlit docs | https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data | Memoising DB query results in Streamlit with TTL |
-| [OFFICIAL] | assert_cmd crate — docs.rs | https://docs.rs/assert_cmd | Black-box CLI testing — cargo_bin(), .assert().success(), stdout inspection |
-| [OFFICIAL] | SQLite WAL mode | https://www.sqlite.org/wal.html | How WAL allows concurrent readers while a writer is active |
-| [OFFICIAL] | SQLite URI filenames | https://www.sqlite.org/uri.html | Open SQLite in read-only mode with file:path?mode=ro |
-| [BLOG] | BLAKE3 — much faster than MD5/SHA | https://github.com/BLAKE3-team/BLAKE3 | BLAKE3 design paper and benchmarks — why it's ideal for dedup hashing |
-| [BLOG] | Two-phase scan pattern for deleted file detection | https://www.sqlite.org/lang_update.html | mark_all_absent → walk → mark_present — elegant pattern using SQL UPDATE |
-| [TUTORIAL] | Plotly Express in Python | https://plotly.com/python/plotly-express/ | High-level Plotly API — pie, bar, scatter, area charts with one function call |
-| [DOCS] | humanize Python library | https://python-humanize.readthedocs.io/ | naturalsize(), naturaltime() — bytes and timestamps to human-readable strings |
-| [DOCS] | subprocess.run — Python docs | https://docs.python.org/3/library/subprocess.html#subprocess.run | capture_output, text=True, timeout — the right way to shell out from Python |
-| [OFFICIAL] | XDG Base Directory Specification | https://specifications.freedesktop.org/basedir-spec/latest/ | Where Linux apps should store data, config, and cache files |
-| [OFFICIAL] | dirs crate — docs.rs | https://docs.rs/dirs | Rust crate for XDG_DATA_HOME, XDG_CONFIG_HOME resolution |
-| [TUTORIAL] | Rust integration tests with assert_cmd | https://rust-cli.github.io/book/tutorial/testing.html | Black-box binary testing — TempDir, assert_cmd, predicates patterns |
-
----
-
-## Dotfiles & virtiofs — Shared Folders Between Mint Host and Arch VM
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | libvirt Filesystem Devices (virtiofs) | https://libvirt.org/formatdomain.html#filesystems | How to add a `<filesystem type="mount" driver type="virtiofs">` device to a libvirt domain XML |
-| [DOCS] | QEMU virtiofs docs | https://qemu.readthedocs.io/en/latest/tools/virtiofsd.html | How virtiofsd works, memfd shared memory backing, and performance tuning options |
-| [TUTORIAL] | Arch Wiki — virtiofs | https://wiki.archlinux.org/title/Virtio#Mounting_a_host_directory | Arch-specific: fstab entry format, mounting virtiofs shares in the guest |
-| [TUTORIAL] | Dotfiles Management with GNU Stow | https://www.gnu.org/software/stow/manual/stow.html | Alternative to manual symlinks — stow handles the linking automatically |
-| [BLOG] | GitHub does dotfiles | https://dotfiles.github.io/ | Community guide: patterns, tools, and examples for dotfiles repos |
-| [TUTORIAL] | virt-xml — modify libvirt domains non-interactively | https://manpages.ubuntu.com/manpages/noble/man1/virt-xml.1.html | CLI tool for patching libvirt domain XML without editing by hand |
-| [OFFICIAL] | systemd.mount — virtiofs fstab options | https://systemd.io/MOUNT_REQUIREMENTS/ | How systemd processes fstab at boot, relevant to virtiofs mount timing |
-| [BLOG] | ~/.local/bin — XDG user executables | https://specifications.freedesktop.org/basedir-spec/latest/ | Why ~/.local/bin is the right place for per-user scripts (XDG standard) |
-| [TUTORIAL] | Idempotent shell scripts with ln -sf | https://www.gnu.org/software/coreutils/manual/coreutils.html#ln-invocation | How ln -sf safely overwrites existing symlinks — key for re-runnable install scripts |
-| [BLOG] | Managing dotfiles with symlinks (no frameworks) | https://alexpearce.me/2016/02/managing-dotfiles/ | Clean walkthrough of the manual symlink approach — mirrors this session's install.sh design |
-
----
-
-## 30. Go — driftwatch: YAML Config Drift Detection CLI
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | gopkg.in/yaml.v3 — Go YAML library | https://pkg.go.dev/gopkg.in/yaml.v3 | Standard Go YAML parser — Unmarshal into typed structs with yaml tags |
-| [OFFICIAL] | github.com/spf13/cobra — CLI framework | https://pkg.go.dev/github.com/spf13/cobra | The standard Go CLI framework — flags, subcommands, help generation |
-| [OFFICIAL] | github.com/fatih/color — terminal colors | https://pkg.go.dev/github.com/fatih/color | Cross-platform ANSI color output for Go CLIs — NoColor flag for non-TTY |
-| [OFFICIAL] | os.LookPath — exec.LookPath docs | https://pkg.go.dev/os/exec#LookPath | Searches PATH for a binary — the right way to check command availability |
-| [BLOG] | Go project layout — Standard Go Project Layout | https://github.com/golang-standards/project-layout | cmd/ + internal/ convention — why and how to separate CLI from library code |
-| [OFFICIAL] | regexp.Compile vs MustCompile | https://pkg.go.dev/regexp#Compile | Compile returns error (safe for user input); MustCompile panics (use for literals) |
-| [TUTORIAL] | Go testing package — table-driven tests | https://go.dev/doc/faq#testing | Standard Go testing patterns — subtests, t.TempDir(), t.Cleanup() |
-| [DOCS] | Cobra — RunE vs Run | https://pkg.go.dev/github.com/spf13/cobra#Command | RunE lets you return errors; Run silences them — always use RunE for CLIs |
-
----
-
-## 31. Python — ollama-me: Multi-Backend LLM Chat with Rich TUI
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Ollama API docs | https://github.com/ollama/ollama/blob/main/docs/api.md | Full REST API reference — /api/chat, /api/generate, /api/tags endpoints and streaming format |
-| [OFFICIAL] | Rich — Python terminal formatting | https://rich.readthedocs.io/en/latest/ | Console, Panel, Markdown, Live display — everything used in the TUI |
-| [DOCS] | Rich Live display | https://rich.readthedocs.io/en/latest/live.html | How Live() context manager redraws terminal regions — key for streaming LLM output |
-| [DOCS] | Rich Markdown rendering | https://rich.readthedocs.io/en/latest/markdown.html | Render markdown (bold, code blocks, lists) directly in the terminal |
-| [OFFICIAL] | requests — streaming responses | https://docs.python-requests.org/en/latest/user/advanced/#streaming-requests | How stream=True + iter_lines() enables incremental HTTP response processing |
-| [TUTORIAL] | Python generators (yield) | https://docs.python.org/3/howto/functional.html#generators | Why generators are perfect for streaming — lazy evaluation, no buffering |
-| [OFFICIAL] | Ollama model library | https://ollama.com/library | Browse and pull models — llama3, phi3, mistral, tinyllama, etc. |
-
----
-
-## 32. Rust TUI + Hexagonal Architecture (ScriptVault)
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | ratatui — Rust TUI framework | https://ratatui.rs/ | The widget/layout library behind ScriptVault's terminal UI; great tutorials + recipes. |
-| [DOCS] | ratatui — Layout & Constraints | https://docs.rs/ratatui/latest/ratatui/layout/index.html | How the vertical/horizontal split + `.areas()` destructuring works (compile-checked region counts). |
-| [DOCS] | ratatui TestBackend | https://docs.rs/ratatui/latest/ratatui/backend/struct.TestBackend.html | Render a TUI to an in-memory buffer and assert on cells — how we unit-test rendering with no real terminal. |
-| [OFFICIAL] | crossterm — terminal backend | https://docs.rs/crossterm/latest/crossterm/ | Raw mode, key events, alternate screen — the layer ratatui sits on. |
-| [OFFICIAL] | syntect — syntax highlighting | https://docs.rs/syntect/latest/syntect/ | Sublime-grammar lexer; we use the low-level ParseState/ScopeStack to classify scopes and re-style through our own theme. |
-| [DOCS] | fuzzy-matcher (SkimMatcherV2) | https://docs.rs/fuzzy-matcher/latest/fuzzy_matcher/ | The fuzzy scorer; `fuzzy_indices` returns CHARACTER positions of the match (verified empirically — not bytes). |
-| [OFFICIAL] | NO_COLOR convention | https://no-color.org/ | The cross-tool standard for disabling colour; ScriptVault routes ALL colour through one Theme gate to honour it. |
-| [BLOG] | Hexagonal Architecture (Ports & Adapters) | https://alistair.cockburn.us/hexagonal-architecture/ | Cockburn's original — the pattern ScriptVault uses: UI-free core + a facade port, frontends are adapters. |
-| [DOCS] | Rust API Guidelines | https://rust-lang.github.io/api-guidelines/ | The idioms behind ScriptVault's facade design (naming, error types, ownership at boundaries). |
-| [DOCS] | dirs crate (cross-platform paths) | https://docs.rs/dirs/latest/dirs/ | Why we use `data_dir()` not `state_dir()` for state.json (the latter is None on macOS/Windows). |
-
----
-
-## 33. Rust — Synchronous CLI Adapters & Typed Errors (thiserror, std::process, no async)
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | std::process::Command | https://doc.rust-lang.org/std/process/struct.Command.html | Core API for spawning external binaries synchronously from Rust — .output(), .status(), stdout/stderr capture, exit codes. |
-| [OFFICIAL] | thiserror | https://docs.rs/thiserror | The standard derive macro for library-friendly typed errors with #[from], #[source], and custom Display. |
-| [OFFICIAL] | Serde field attributes — default | https://serde.rs/field-attrs.html#default | #[serde(default)] (and default functions) to handle absent fields like empty vectors when parsing tool JSON output. |
-| [TUTORIAL] | Rust error handling | https://doc.rust-lang.org/book/ch09-00-error-handling.html | Official Rust Book chapter on Result, the ? operator, and defining your own error types. |
-| [BLOG] | thiserror vs anyhow | https://www.shuttle.rs/blog/2023/10/04/error-handling-rust | Clear comparison: use thiserror for your public error API, anyhow for applications. |
-
----
-
-## 34. GitHub CLI (gh) & Repository Automation
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | gh repo create | https://cli.github.com/manual/gh_repo_create | The exact command used: gh repo create ... --private --source=. --remote=origin --push. |
-| [OFFICIAL] | gh repo edit | https://cli.github.com/manual/gh_repo_edit | Changing visibility (private → public), description, and other repo metadata from the CLI. |
-| [OFFICIAL] | GitHub CLI manual | https://cli.github.com/manual/ | Complete reference for auth, repo, issue, PR, and other gh subcommands. |
-| [TUTORIAL] | GitHub CLI quickstart | https://docs.github.com/en/github-cli/github-cli/quickstart | Getting started with gh, including creating your first repo from the terminal. |
-
----
-
-## 35. SMTP & Reporting — msmtp, Gmail App Passwords, passwordeval
-
-| Type | Title | URL | Why It's Useful |
-|------|-------|-----|-----------------|
-| [OFFICIAL] | Create an app password | https://support.google.com/accounts/answer/185833 | Google’s official guide for generating 16-character app passwords (required with 2FA). |
-| [DOCS] | msmtp user manual | https://marlam.de/msmtp/msmtp.html | Full configuration reference, including the passwordeval directive and account sections. |
-| [TUTORIAL] | msmtp setup (Arch Wiki) | https://wiki.archlinux.org/title/Msmtp | Practical examples of msmtprc, testing with -a, and integrating into scripts. |
-| [BLOG] | Using passwordeval for secrets | https://www.cyberciti.biz/faq/linux-unix-bsd-msmtp-gmail/ | Why and how to keep passwords out of .msmtprc using external eval commands or files (with 0600 perms). |
+# Link Dump: Curated Learning Path
+
+**Last complete audit:** 2026-07-18
+
+**Repository evidence:** all 102 authenticated repositories owned by `tom2025b`, including private repositories, forks, the archived repository, and the empty repository
+
+This is a curated path through the languages, libraries, interfaces, architecture, testing, data, performance, security, operations, developer tooling, and local-AI concepts used across Tom's projects. It is intentionally official-first, not official-only: a community resource remains only when it teaches something that the primary reference does not teach as well.
+
+Every external resource was checked for reachability and manually assessed for title, authority, current relevance, and teaching role. A successful status code was not accepted as proof of quality, and bot-protected or unusual responses were reviewed separately.
+
+## How to Use This Learning Path
+
+Do not read this document from top to bottom unless you are deliberately surveying the whole stack. Pick a route below, read the section introduction, take the beginner resources in order, and move to intermediate or advanced material when a real project gives the details somewhere to attach.
+
+### Metadata legend
+
+| Field | Meaning |
+|---|---|
+| Type | `Official documentation`, `Article`, `Blog`, `Book`, `Video`, or `Reference`. Official-first does not mean that a specification is automatically the best first tutorial. |
+| Title | The current resource title, checked against the destination. |
+| URL | A direct HTTPS destination, never a generic search-results page. |
+| Why this is valuable | What the resource uniquely teaches, when to use it, and important limits or safety context. |
+| Difficulty | **Beginner** assumes little prior knowledge; **Intermediate** assumes working familiarity; **Advanced** focuses on internals, trade-offs, protocols, security, or performance. |
+| Estimated time | A useful first pass through the relevant material. `Ongoing reference` means lookup is more appropriate than linear reading. |
+
+### Suggested routes
+
+| Goal | Recommended route |
+|---|---|
+| Linux operations | [Security and Linux Operations](#security-and-linux-operations) → [Git, GitHub, Automation, and Developer Tooling](#git-github-automation-and-developer-tooling) → [Error Handling and Reliability](#error-handling-and-reliability) → [Performance and Resource Efficiency](#performance-and-resource-efficiency) |
+| Rust systems work | [Core Language Fundamentals](#core-language-fundamentals) → [Libraries and Frameworks](#libraries-and-frameworks-used-in-toms-projects) → [Error Handling](#error-handling-and-reliability) → [Testing](#testing-and-code-quality) → [Async](#async-programming-and-concurrency) → [Data](#data-storage-search-and-file-processing) → [Performance](#performance-and-resource-efficiency) |
+| Go CLI and TUI work | [Core Language Fundamentals](#core-language-fundamentals) → [Libraries and Frameworks](#libraries-and-frameworks-used-in-toms-projects) → [CLI and TUI Development](#cli-and-tui-development) → [Testing](#testing-and-code-quality) → [Architecture](#architecture-and-design-patterns) |
+| Python tooling | [Core Language Fundamentals](#core-language-fundamentals) → [Libraries and Frameworks](#libraries-and-frameworks-used-in-toms-projects) → [CLI and TUI Development](#cli-and-tui-development) or [GUI/Web](#gui-web-and-interactive-application-development) → [Data](#data-storage-search-and-file-processing) |
+| Application architecture | [Libraries and Frameworks](#libraries-and-frameworks-used-in-toms-projects) → [GUI/Web](#gui-web-and-interactive-application-development) → [Architecture](#architecture-and-design-patterns) → [Testing](#testing-and-code-quality) → [Security](#security-and-linux-operations) |
+| Local AI and agents | [Local AI and Related Tools](#local-ai-and-related-tools) → [Architecture](#architecture-and-design-patterns) → [Async](#async-programming-and-concurrency) → [Security](#security-and-linux-operations) → [Testing](#testing-and-code-quality) |
+
+### Navigation
+
+- [Core Language Fundamentals](#core-language-fundamentals)
+- [Libraries and Frameworks Used in Tom's Projects](#libraries-and-frameworks-used-in-toms-projects)
+- [CLI and TUI Development](#cli-and-tui-development)
+- [GUI, Web, and Interactive Application Development](#gui-web-and-interactive-application-development)
+- [Architecture and Design Patterns](#architecture-and-design-patterns)
+- [Error Handling and Reliability](#error-handling-and-reliability)
+- [Testing and Code Quality](#testing-and-code-quality)
+- [Async Programming and Concurrency](#async-programming-and-concurrency)
+- [Data, Storage, Search, and File Processing](#data-storage-search-and-file-processing)
+- [Performance and Resource Efficiency](#performance-and-resource-efficiency)
+- [Security and Linux Operations](#security-and-linux-operations)
+- [Git, GitHub, Automation, and Developer Tooling](#git-github-automation-and-developer-tooling)
+- [Local AI and Related Tools](#local-ai-and-related-tools)
+- [Advanced and Cross-Cutting Topics](#advanced-and-cross-cutting-topics)
+- [Career and Certification Resources](#career-and-certification-resources)
+- [Resources Removed, Replaced, Updated, or Consolidated](#resources-removed-replaced-updated-or-consolidated)
+- [Resources Added](#resources-added)
+- [Future Educational Gaps](#future-educational-gaps)
+- [Audit Notes](#audit-notes)
+
+For the repository-by-repository evidence behind this path, see [repository-concepts.md](repository-concepts.md).
+
+## Core Language Fundamentals
+
+Build the language models that every later section assumes: ownership and traits in Rust, interfaces and modules in Go, Python's data model and typing, and precise shell quoting and expansion.
+
+**Useful prerequisites:** Basic comfort editing files and running commands. Start here when a compiler error or shell expansion still feels mysterious.
+
+**Project connection:** The 102-repository inventory found Rust in 37 repositories, Go in 16, Python in 12, and Shell in 27. These foundations feed nearly every CLI, TUI, service, and operations tool in the account.
+
+**Suggested order:** Take one beginner language path first; then use its specification and standard-library references as lookups. Study Bash and POSIX distinctions before maintaining automation that must survive different shells.
+
+**Continue with:** [Error Handling and Reliability](#error-handling-and-reliability), [Testing and Code Quality](#testing-and-code-quality).
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Book | The Rust Programming Language | <https://doc.rust-lang.org/book/> | The canonical first path through ownership, borrowing, traits, iterators, modules, file I/O, and Cargo; it supplies the conceptual spine that API references assume. | Beginner | 12–16 hours |
+| Official documentation | Rust By Example | <https://doc.rust-lang.org/rust-by-example/> | Runnable examples reinforce Rust syntax, ownership, modules, traits, iterators, error handling, and standard-library use after each corresponding Book chapter. | Beginner | 6–8 hours |
+| Official documentation | A Tour of Go | <https://go.dev/tour/list> | The Go team’s interactive sequence introduces packages, methods, interfaces, generics, goroutines, and channels before the denser specification and package references. | Beginner | 4–6 hours |
+| Official documentation | The Python Tutorial | <https://docs.python.org/3/tutorial/index.html> | Python’s own tutorial covers data structures, control flow, modules, classes, exceptions, generators, and standard-library orientation with fewer version-drift risks than third-party primers. | Beginner | 8–12 hours |
+| Reference | std::fs::read_to_string | <https://doc.rust-lang.org/std/fs/fn.read_to_string.html> | The standard helper for bounded small text files such as sysfs attributes, including its UTF-8 and error semantics. Large, binary, changing, or untrusted files need a streaming or explicitly bounded alternative. | Beginner | 10 minutes |
+| Reference | Go Modules Reference | <https://go.dev/ref/mod> | This is the authoritative source for `go.mod`, module paths, versions, workspaces, vendoring, and module-aware commands used across multi-repository Go work. | Intermediate | 2–3 hours |
+| Official documentation | Organizing a Go module | <https://go.dev/doc/modules/layout> | Official, intentionally modest layout guidance replaces the misleading community “standard layout” and explains root packages, commands, and `internal` without prescribing unused folders. | Intermediate | 30 minutes |
+| Reference | Standard library — Go Packages | <https://pkg.go.dev/std> | One maintained index replaces a cluster of tiny links while preserving direct access to `flag`, `time`, `os`, `encoding/json`, `strconv`, `sort`, and the rest of the versioned standard library. | Intermediate | Ongoing reference |
+| Official documentation | Python Tutorial — Generators | <https://docs.python.org/3/tutorial/classes.html#generators> | The focused generator section explains `yield`, saved execution state, and generator expressions, filling a concept that broad Python introductions often mention only briefly. | Intermediate | 30 minutes |
+| Reference | `typing` — Support for type hints | <https://docs.python.org/3/library/typing.html> | The standard-library reference documents protocols, generics, type aliases, narrowing, and gradual typing used to make Python tools maintainable without implying runtime enforcement. | Intermediate | 2–3 hours |
+| Official documentation | Packaging Python Projects | <https://packaging.python.org/en/latest/tutorials/packaging-projects/> | The PyPA tutorial provides the current `pyproject.toml`, build, and publication path and avoids obsolete `setup.py`-first packaging advice. | Intermediate | 1–2 hours |
+| Reference | The Rust Reference | <https://doc.rust-lang.org/reference/> | The primary language reference resolves exact questions about expressions, types, lifetimes, traits, and edition behavior without pretending to be an introductory tutorial. | Advanced | Ongoing reference |
+| Reference | The Go Programming Language Specification | <https://go.dev/ref/spec> | The current normative reference defines Go syntax, types, interfaces, method sets, generics, and concurrency semantics when tutorial shorthand is insufficient. | Advanced | Ongoing reference |
+| Reference | The Python Language Reference | <https://docs.python.org/3/reference/index.html> | The authoritative grammar and data-model reference is the right destination for precise questions about execution, expressions, imports, coroutines, and language semantics. | Advanced | Ongoing reference |
+| Reference | Bash Reference Manual | <https://www.gnu.org/software/bash/manual/bash.html> | GNU’s complete manual is the source of truth for quoting, expansions, pipelines, redirections, functions, traps, options, and Bash-specific behavior. | Advanced | Ongoing reference |
+| Reference | POSIX.1-2024 Shell Command Language | <https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html> | The current POSIX shell specification separates portable `sh` semantics from Bash extensions, especially for quoting, expansion, pipelines, redirection, and exit status. | Advanced | Ongoing reference |
+
+## Libraries and Frameworks Used in Tom's Projects
+
+Move from language syntax to the maintained crates, packages, and frameworks actually present in Tom's repositories, with direct API references and focused maintainer guides.
+
+**Useful prerequisites:** Working familiarity with the relevant language and its package manager.
+
+**Project connection:** The inventory repeatedly found Tokio, reqwest, Serde, clap, Ratatui, egui, Axum, rusqlite, Cobra, Bubble Tea, YAML, Rich, Requests, PyQt6, and related libraries.
+
+**Suggested order:** Read the overview for the library you are about to use, build one small example, and keep the API reference nearby. Continue into architecture before allowing framework types to spread through a shared core.
+
+**Continue with:** [Architecture and Design Patterns](#architecture-and-design-patterns), [Async Programming and Concurrency](#async-programming-and-concurrency).
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Official documentation | Overview — Serde | <https://serde.rs/> | Explains Serde's trait-based data model, derive workflow, attributes, and custom serialization used across Rust applications. | Beginner | 30 min |
+| Official documentation | gopkg.in/yaml.v3 package documentation | <https://pkg.go.dev/gopkg.in/yaml.v3> | Direct reference for typed YAML decoding, field tags, strict-known-field handling, and encoding in Go tools. | Beginner | 25 min |
+| Official documentation | sha2 crate documentation | <https://docs.rs/sha2/latest/sha2/> | Shows the RustCrypto digest API for incremental SHA-2 hashing and safe result handling. | Beginner | 15 min |
+| Official documentation | exec.LookPath documentation | <https://pkg.go.dev/os/exec#LookPath> | Gives the standard contract for executable discovery without invoking a shell. | Beginner | 10 min |
+| Official documentation | regexp.Compile documentation | <https://pkg.go.dev/regexp#Compile> | Shows fallible regular-expression compilation for user input and distinguishes it from panic-oriented MustCompile. | Beginner | 10 min |
+| Official documentation | dirs crate documentation | <https://docs.rs/dirs/latest/dirs/> | Documents platform-specific config, data, cache, and state directory discovery, including optional results. | Beginner | 15 min |
+| Official documentation | Generators — Python Functional Programming HOWTO | <https://docs.python.org/3/howto/functional.html#generators> | Explains lazy yield-based iteration, a core building block for streaming terminal and network output. | Beginner | 20 min |
+| Reference | Ollama model library | <https://ollama.com/library> | Maintained model catalog for discovery without freezing model names or version-sensitive claims into the learning path. | Beginner | 10 min |
+| Official documentation | humanize | <https://humanize.readthedocs.io/en/latest/> | The project reference provides tested size, number, time, and date presentation helpers while keeping human-facing formatting separate from stored machine values. | Beginner | 30 minutes |
+| Official documentation | reqwest crate documentation | <https://docs.rs/reqwest/latest/reqwest/> | Covers async and blocking clients, request builders, streaming bodies, TLS features, and error handling for Rust HTTP adapters. | Intermediate | 45 min |
+| Official documentation | sysinfo crate documentation | <https://docs.rs/sysinfo/latest/sysinfo/> | Current API reference for refreshing and reading system, process, disk, network, CPU, and memory information. | Intermediate | 40 min |
+| Official documentation | sync.RWMutex documentation | <https://pkg.go.dev/sync#RWMutex> | Defines Go's read/write lock semantics, memory-order guarantees, and non-reentrancy constraints. | Intermediate | 15 min |
+| Official documentation | fuzzy-matcher crate documentation | <https://docs.rs/fuzzy-matcher/latest/fuzzy_matcher/> | Documents scoring and match-index APIs while making clear where application-level Unicode tests are still needed. | Intermediate | 20 min |
+| Official documentation | tokio::sync::watch | <https://docs.rs/tokio/latest/tokio/sync/watch/> | Teaches a latest-value broadcast channel suited to server state and UI snapshots without unbounded history. | Intermediate | 30 min |
+| Official documentation | Advanced Usage: Streaming Requests — Requests | <https://docs.python-requests.org/en/latest/user/advanced/#streaming-requests> | Covers stream=True, incremental iteration, and the connection-release obligations easy to miss in clients. | Intermediate | 25 min |
+| Official documentation | syntect crate documentation | <https://docs.rs/syntect/latest/syntect/> | Reference for syntax sets, parsing state, scope stacks, themes, and lower-level highlighting control. | Advanced | 50 min |
+
+## CLI and TUI Development
+
+Design command-line and full-screen terminal programs that are composable, accessible, recover the terminal, emit useful errors, and remain testable without a live TTY.
+
+**Useful prerequisites:** One language foundation plus familiarity with standard input, output, error, processes, and exit status.
+
+**Project connection:** CLI design appeared in 38 repositories and terminal UI or rendering in 26. Ratatui, Crossterm, Bubble Tea, Rich, ANSI width, PTYs, and machine-readable output recur throughout the collection.
+
+**Suggested order:** Start with general CLI conventions, streams, and exit behavior; add parsing and color policy; then study terminal modes, event loops, rendering, PTYs, and deterministic test backends.
+
+**Continue with:** [Testing and Code Quality](#testing-and-code-quality), [Error Handling and Reliability](#error-handling-and-reliability).
+
+### Project-derived concept notes
+
+- No single durable primary guide yet covers screen-reader behavior across full-screen TUIs. Treat accessibility as a project-owned test matrix spanning keyboard-only use, reduced color, `NO_COLOR`, Unicode width, resize behavior, and at least one screen reader.
+- POSIX PTY references cover the Linux model, but a comparable hands-on Windows ConPTY lifecycle, resize, signal, and teardown lab remains missing.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Article | Command Line Interface Guidelines | <https://clig.dev/> | A practical end-to-end guide to help, arguments, stdout and stderr, exit status, interactivity, signals, configuration, and humane errors. | Beginner | 1 hr 30 min |
+| Official documentation | clap derive tutorial | <https://docs.rs/clap/latest/clap/_derive/_tutorial/> | Progressive maintainer tutorial for Parser derives, arguments, subcommands, defaults, and validation in Rust CLIs. | Beginner | 35 min |
+| Official documentation | Working with Commands — Cobra | <https://cobra.dev/docs/how-to-guides/working-with-commands/> | Direct maintainer guidance for command trees, argument validation, RunE, error propagation, and exit behavior in Go CLIs. | Beginner | 30 min |
+| Official documentation | fatih/color package documentation | <https://pkg.go.dev/github.com/fatih/color> | API reference for ANSI styling in Go, including terminal detection and explicit no-color control. | Beginner | 20 min |
+| Reference | NO_COLOR | <https://no-color.org/> | Defines the cross-tool environment convention for disabling default ANSI color and clarifies precedence with user configuration. | Beginner | 10 min |
+| Official documentation | Color in crossterm::style | <https://docs.rs/crossterm/latest/crossterm/style/enum.Color.html> | Direct enum contract for RGB, indexed, named, and reset colors without relying on stale Q&A syntax. | Beginner | 10 min |
+| Official documentation | ratatui docs | <https://ratatui.rs/> | Current maintainer gateway to Ratatui tutorials, concepts, recipes, templates, and crate documentation. | Beginner | 15 min |
+| Official documentation | Tutorials — Ratatui | <https://ratatui.rs/tutorials/> | Progressive maintained applications that connect the event loop, model state, rendering, and error handling. | Beginner | 1 hr 30 min |
+| Official documentation | Bubble Tea | <https://github.com/charmbracelet/bubbletea> | Maintainer tutorial and examples for the Model, Update, View lifecycle and declarative terminal state in Go. | Beginner | 1 hr |
+| Official documentation | Rich documentation | <https://rich.readthedocs.io/en/latest/> | Canonical guide to console output, styles, tables, panels, progress, logging, and renderables. | Beginner | 45 min |
+| Official documentation | Markdown — Rich | <https://rich.readthedocs.io/en/latest/markdown.html> | Shows how to render structured Markdown in a terminal while retaining one output abstraction. | Beginner | 15 min |
+| Official documentation | Go Wiki: TableDrivenTests | <https://go.dev/wiki/TableDrivenTests> | Direct Go pattern for compact behavior matrices that suit parsers, command semantics, and CLI edge cases. | Beginner | 20 min |
+| Reference | `indicatif` — Rust API documentation | <https://docs.rs/indicatif/latest/indicatif/> | The crate reference documents progress bars, draw targets, iterators, `Read`/`Write` wrappers, multi-progress rendering, and non-TTY behavior for long data jobs. | Beginner | 45 minutes |
+| Reference | `comfy_table` — Rust API documentation | <https://docs.rs/comfy-table/latest/comfy_table/> | This implementation reference covers deterministic terminal tables, width constraints, wrapping, alignment, styling, and Unicode-aware layout for data-oriented CLIs. | Beginner | 30 minutes |
+| Official documentation | crossterm crate documentation | <https://docs.rs/crossterm/latest/crossterm/> | Canonical API reference for terminal modes, cursor control, style, events, and cross-platform commands. | Intermediate | 45 min |
+| Official documentation | crossterm GitHub — Crossterm.rs | <https://github.com/crossterm-rs/crossterm> | Maintainer source, examples, and changelog for checking real usage and API changes. | Intermediate | 30 min |
+| Official documentation | Raw Mode — Ratatui | <https://ratatui.rs/concepts/backends/raw-mode/> | Explains canonical versus raw input, signal implications, and the obligation to restore the terminal. | Intermediate | 20 min |
+| Official documentation | Tui with Terminal and EventHandler — Ratatui | <https://ratatui.rs/recipes/apps/terminal-and-event-handler/> | Maintainer recipe for startup, alternate screen, event loops, signals, async coordination, and cleanup on every exit path. | Intermediate | 50 min |
+| Official documentation | ratatui crate documentation | <https://docs.rs/ratatui/latest/ratatui/> | Current widget, buffer, backend, terminal, style, and layout API reference without a stale version pin. | Intermediate | 1 hr |
+| Official documentation | Ratatui maintainer examples | <https://github.com/ratatui/ratatui/tree/main/examples> | Compile-ready examples for widgets and interaction patterns when API docs alone are too abstract. | Intermediate | 45 min |
+| Official documentation | ratatui::layout | <https://docs.rs/ratatui/latest/ratatui/layout/index.html> | Direct reference for constraints, directions, flex behavior, and compile-checked area splitting. | Intermediate | 30 min |
+| Official documentation | TestBackend in ratatui::backend | <https://docs.rs/ratatui/latest/ratatui/backend/struct.TestBackend.html> | Shows deterministic in-memory terminal rendering for unit tests without a real TTY. | Intermediate | 25 min |
+| Official documentation | Testing with insta snapshots — Ratatui | <https://ratatui.rs/recipes/testing/snapshots/> | Maintainer recipe that combines TestBackend buffers with reviewable snapshot tests for whole-screen regressions. | Intermediate | 35 min |
+| Official documentation | Live Display — Rich | <https://rich.readthedocs.io/en/latest/live.html> | Explains controlled terminal-region refresh for progress, dashboards, and streaming responses. | Intermediate | 25 min |
+| Reference | tty — Terminal control functions | <https://docs.python.org/3/library/tty.html> | Python's standard helpers for raw and cbreak terminal modes, including the attributes returned for restoration. Pair them with try/finally cleanup and the lower-level termios contract. | Intermediate | 20 minutes |
+| Official documentation | Introduction to POSIX Utilities | <https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap01.html> | Durable standard-level reference for option syntax, operands, diagnostics, environment, standard streams, and exit behavior. | Advanced | 1 hr |
+| Reference | Unicode Standard Annex 11: East Asian Width | <https://www.unicode.org/reports/tr11/> | Primary reference for width properties and ambiguous-width behavior behind terminal-cell alignment bugs. | Advanced | 45 min |
+| Reference | pty(7) — Linux manual page | <https://www.man7.org/linux/man-pages/man7/pty.7.html> | Defines master and slave pseudoterminals, foreground process groups, signals, and why terminal panels are not ordinary pipes. | Advanced | 35 min |
+| Reference | termios — POSIX-style tty control | <https://docs.python.org/3/library/termios.html> | The standard Python interface for reading, changing, draining, and restoring POSIX terminal attributes. It is essential context for avoiding a terminal left in raw mode after errors or signals. | Advanced | 35 minutes |
+
+## GUI, Web, and Interactive Application Development
+
+Understand native immediate-mode GUIs, Qt applications, browser canvases, embedded frontends, HTTP services, WebSockets, and the state boundaries between them.
+
+**Useful prerequisites:** A language foundation and basic event-loop, HTTP, and state concepts.
+
+**Project connection:** Twenty-four repositories use GUI, web, or interactive interfaces, including egui/eframe, PyQt6, Leptos, Wails, Tauri, React, Canvas, Axum, NiceGUI, Flask, and WebSockets.
+
+**Suggested order:** Choose the smallest framework overview that matches the project, learn its state and lifecycle model, then study background work, network boundaries, rendering loops, accessibility, and testability.
+
+**Continue with:** [Architecture and Design Patterns](#architecture-and-design-patterns), [Security and Linux Operations](#security-and-linux-operations).
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Official documentation | egui crate documentation | <https://docs.rs/egui/latest/egui/> | Current API reference for immediate-mode widgets, layouts, input, textures, and custom painting. | Beginner | 1 hr |
+| Official documentation | eframe crate documentation | <https://docs.rs/eframe/latest/eframe/> | Current framework reference for native and web application setup, App updates, persistence, and window integration. | Beginner | 45 min |
+| Article | Why immediate mode — egui | <https://github.com/emilk/egui?tab=readme-ov-file#why-immediate-mode> | The maintainer's concise comparison of immediate and retained UI state clarifies egui's ownership model. | Beginner | 15 min |
+| Official documentation | PyQt6 documentation | <https://www.riverbankcomputing.com/static/Docs/PyQt6/> | Canonical binding reference for using Qt 6 classes, signals, slots, and modules from Python. | Beginner | 45 min |
+| Official documentation | Qt 6 QTextBrowser documentation | <https://doc.qt.io/qt-6/qtextbrowser.html> | Direct widget reference for navigable rich text, sources, links, history, and read-only document presentation. | Beginner | 20 min |
+| Official documentation | QApplication::setFont documentation | <https://doc.qt.io/qt-6/qapplication.html#setFont> | Direct reference for application-level font defaults and widget-class-specific overrides. | Beginner | 10 min |
+| Official documentation | Overview of multipage apps — Streamlit | <https://docs.streamlit.io/develop/concepts/multipage-apps/overview> | Current first-party guidance replaces the older “numeric pages directory” framing with both `st.navigation` and directory-based routing, including state and URL caveats. | Beginner | 30 minutes |
+| Official documentation | Plotly Express in Python | <https://plotly.com/python/plotly-express/> | The maintainer guide provides a concise high-level route from tidy data to interactive figures while documenting when to drop to graph objects for control. | Beginner | 1 hour |
+| Official documentation | embed package documentation | <https://pkg.go.dev/embed> | Shows how to package frontend assets into a Go binary and expose them through the io/fs abstraction. | Beginner | 25 min |
+| Official documentation | CanvasRenderingContext2D — MDN | <https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D> | Direct API reference for paths, shapes, text, transforms, state, compositing, images, and pixel operations. | Beginner | 45 min |
+| Official documentation | WebSocket — MDN | <https://developer.mozilla.org/en-US/docs/Web/API/WebSocket> | Browser API lifecycle for opening, sending, receiving, errors, close events, buffered data, and ready states. | Beginner | 30 min |
+| Official documentation | Managing State — React | <https://react.dev/learn/managing-state> | Maintainer learning path for deriving, locating, sharing, preserving, resetting, and scaling UI state. | Beginner | 1 hr |
+| Official documentation | NiceGUI Documentation | <https://nicegui.io/documentation/> | Current backend-first model, event-loop rules, lifecycle hooks, binding, tasks, and client/server state for Python web UIs. | Beginner | 1 hr |
+| Official documentation | W3C Web Accessibility Initiative | <https://www.w3.org/WAI/> | Standards-oriented starting point for accessible web interfaces, keyboard behavior, semantics, contrast, and testing resources. | Beginner | 30 min |
+| Official documentation | egui GitHub — emilk/egui | <https://github.com/emilk/egui> | Maintainer demos, examples, design notes, and release history for practical immediate-mode GUI work. | Intermediate | 40 min |
+| Official documentation | Painter in egui | <https://docs.rs/egui/latest/egui/struct.Painter.html> | Direct contract for custom shapes, text, clipping, layers, transforms, and low-level 2D drawing. | Intermediate | 30 min |
+| Official documentation | Qt 6 QThread documentation | <https://doc.qt.io/qt-6/qthread.html> | Primary reference for thread affinity, event loops, worker objects, queued signals, interruption, and teardown. | Intermediate | 45 min |
+| Official documentation | Qt 6 QPalette documentation | <https://doc.qt.io/qt-6/qpalette.html> | Accurately documents palette roles, groups, resolution, and platform/theme caveats without pretending to be a full dark-theme recipe. | Intermediate | 25 min |
+| Article | PyQt6 threading — QThreadPool worker pattern | <https://www.pythonguis.com/tutorials/multithreading-pyqt6-applications-qthreadpool/> | Practical complement to the Qt API docs for moving work off the UI thread and returning results with signals. | Intermediate | 45 min |
+| Official documentation | axum crate documentation | <https://docs.rs/axum/latest/axum/> | Current router, extractor, handler, response, middleware, and error-model reference for Rust web services. | Intermediate | 1 hr |
+| Official documentation | State in axum::extract | <https://docs.rs/axum/latest/axum/extract/struct.State.html> | Direct guidance for owned server state, cloning handles, subrouters, and choosing State over request extensions. | Intermediate | 30 min |
+| Official documentation | gorilla/websocket package documentation | <https://pkg.go.dev/github.com/gorilla/websocket> | Documents HTTP upgrade, framing, deadlines, close handling, and the one-reader/one-writer concurrency contract. | Intermediate | 45 min |
+| Article | Fix Your Timestep! | <https://gafferongames.com/post/fix_your_timestep/> | Primary derivation of fixed and semi-fixed update loops, stability, accumulated time, and the spiral-of-death trade-off. | Intermediate | 35 min |
+| Official documentation | Storage — NiceGUI | <https://nicegui.io/documentation/storage> | Distinguishes tab, client, browser, user, and general state by location, lifetime, persistence, and security requirements. | Intermediate | 30 min |
+| Official documentation | Introduction — The Leptos Book | <https://book.leptos.dev/> | Maintainer book from fine-grained reactivity through routing, global state, client rendering, server rendering, and hydration. | Intermediate | 2 hr |
+| Official documentation | How does it work? — Wails | <https://wails.io/docs/howdoesitwork/> | Explains Go-to-JavaScript bindings, generated types, lifecycle callbacks, embedded assets, and the webview boundary. | Intermediate | 45 min |
+| Official documentation | Process Model — Electron | <https://www.electronjs.org/docs/latest/tutorial/process-model> | Defines main, renderer, preload, and utility process responsibilities plus safe IPC exposure through context isolation. | Intermediate | 45 min |
+| Reference | RFC 6455: The WebSocket Protocol | <https://www.rfc-editor.org/info/rfc6455/> | Normative handshake, framing, fragmentation, close, masking, origin, and security reference behind browser and server libraries. | Advanced | 1 hr 30 min |
+| Official documentation | Security — Electron | <https://www.electronjs.org/docs/latest/tutorial/security> | Maintainer checklist for sandboxing, context isolation, navigation, permissions, CSP, sender validation, and untrusted content. | Advanced | 1 hr |
+| Official documentation | Security — xterm.js | <https://xtermjs.org/docs/guides/security/> | Threat model for browser terminals, untrusted terminal data, JavaScript access, links, WebSockets, privilege, and embedding. | Advanced | 45 min |
+| Official documentation | node-pty | <https://github.com/microsoft/node-pty> | Maintainer reference for spawning terminal processes, flow control, platform support, privilege inheritance, and server-side risk. | Advanced | 35 min |
+| Reference | Supported Terminal Sequences — xterm.js | <https://xtermjs.org/docs/api/vtfeatures/> | Concrete inventory of control, CSI, DCS, ESC, and OSC sequences for terminal emulation and compatibility testing. | Advanced | 1 hr |
+
+## Architecture and Design Patterns
+
+Separate durable domain behavior from CLI, TUI, GUI, network, storage, and provider adapters; make ownership, dependency direction, contracts, and failure boundaries explicit.
+
+**Useful prerequisites:** Experience building at least one small application and seeing change ripple through it.
+
+**Project connection:** Forty-nine repositories expose architecture themes such as headless shared cores, ports and adapters, state machines, provider abstractions, client/server systems, DAGs, plugins, and versioned machine contracts.
+
+**Suggested order:** Begin with separation of concerns and dependency direction, then study concrete application structures, state ownership, contracts, compatibility, distributed workflows, and plugin boundaries.
+
+**Continue with:** [Advanced and Cross-Cutting Topics](#advanced-and-cross-cutting-topics), [Error Handling and Reliability](#error-handling-and-reliability).
+
+### Project-derived concept notes
+
+- Conductor's append/replace handoff record and ordered review gates form a project-specific protocol across heterogeneous coding agents. Preserve actor, evidence, decision, validation result, and schema version as explicit fields; no general resource teaches this exact convention.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Article | Hexagonal architecture — the original 2005 article | <https://alistair.cockburn.us/hexagonal-architecture/> | Primary definition of ports and adapters, a UI-free application core, technology-specific adapters, and isolated regression testing. | Intermediate | 35 min |
+| Official documentation | Rust API Guidelines | <https://rust-lang.github.io/api-guidelines/> | Library-team checklist for naming, traits, conversions, errors, documentation, flexibility, safety, and dependable public crate APIs. | Intermediate | 1 hr |
+| Official documentation | Developing and publishing Go modules | <https://go.dev/doc/modules/developing> | Connects focused public APIs, compatibility commitments, versioning, discovery, local client tests, and module publication. | Intermediate | 40 min |
+| Official documentation | Multi-stage builds — Docker Docs | <https://docs.docker.com/build/building/multi-stage/> | Shows how to separate build and runtime concerns when packaging mixed-language binaries and frontends. | Intermediate | 30 min |
+| Official documentation | SemVer Compatibility — The Cargo Book | <https://doc.rust-lang.org/cargo/reference/semver.html> | Detailed classification of Rust public-API changes so library boundaries can evolve without accidental consumer breakage. | Advanced | 1 hr |
+| Official documentation | PyO3 user guide | <https://pyo3.rs/main/index.html> | Maintainer guide to the in-process alternative for Python/Rust integration, including extensions, embedding, the GIL, and packaging choices. | Advanced | 1 hr 30 min |
+| Official documentation | Architecture overview — Model Context Protocol | <https://modelcontextprotocol.io/docs/learn/architecture> | Current host-client-server model, data and transport layers, lifecycle, capabilities, and contract vocabulary for MCP systems. | Advanced | 45 min |
+
+## Error Handling and Reliability
+
+Represent failure precisely, preserve useful context, distinguish findings from execution failures, bound retries, and shut down cleanly across subprocess, network, file, and terminal boundaries.
+
+**Useful prerequisites:** Core language control flow and basic I/O.
+
+**Project connection:** Reliability concepts appeared in 67 repositories: typed Rust errors, Go wrapping and contexts, Python exceptions, Bash traps, provider fallbacks, process status, retry/backoff, partial failure, and atomic output.
+
+**Suggested order:** Learn the native error model first, then subprocess and cleanup behavior, timeouts and retry policy, graceful shutdown, partial failure, and user-facing diagnostics.
+
+**Continue with:** [Testing and Code Quality](#testing-and-code-quality), [Async Programming and Concurrency](#async-programming-and-concurrency).
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Book | Error Handling — The Rust Programming Language | <https://doc.rust-lang.org/book/ch09-00-error-handling.html> | The official chapter establishes recoverable `Result` handling, propagation with `?`, panic boundaries, and when failure belongs in a return type. | Beginner | 1–2 hours |
+| Official documentation | Errors and Exceptions — Python Tutorial | <https://docs.python.org/3/tutorial/errors.html> | The official tutorial covers exception matching, chaining, cleanup, user-defined exceptions, and narrow handling before learners jump into framework-specific patterns. | Beginner | 1 hour |
+| Reference | `thiserror` — Rust API documentation | <https://docs.rs/thiserror/latest/thiserror/> | Maintainer documentation shows how libraries expose typed error enums with derived `Display`, `source`, and `From` implementations while keeping the public API explicit. | Intermediate | 45 minutes |
+| Reference | `anyhow` — Rust API documentation | <https://docs.rs/anyhow/latest/anyhow/> | This complements `thiserror` for applications by documenting contextual error reports, source chains, backtraces, and the `Context` trait without conflating app and library error design. | Intermediate | 45 minutes |
+| Reference | Serde field attributes | <https://serde.rs/field-attrs.html#default> | The maintainer reference explains `default`, `rename`, `flatten`, custom serializers, and validation boundaries needed for tolerant but deliberate parsing of evolving tool output. | Intermediate | 30 minutes |
+| Blog | Working with Errors in Go 1.13 | <https://go.dev/blog/go1.13-errors> | The Go project explains wrapping plus `errors.Is`, `errors.As`, and `Unwrap`, including the API-compatibility consequences of exposing wrapped implementation errors. | Intermediate | 30 minutes |
+| Reference | `subprocess` — Subprocess management | <https://docs.python.org/3/library/subprocess.html> | The standard reference documents argument-safe process creation, timeouts, captured output, exit checking, and the security differences between argv execution and `shell=True`. | Intermediate | 1–2 hours |
+| Reference | std::process::Command | <https://doc.rust-lang.org/std/process/struct.Command.html> | Rust's standard argv-based subprocess builder, covering environment control, standard streams, working directories, spawning, output capture, and platform behavior. Passing arguments separately avoids an unnecessary shell parsing layer. | Intermediate | 35 minutes |
+| Article | Writing Safe Shell Scripts | <https://sipb.mit.edu/doc/safe-shell/> | MIT SIPB’s concise checklist adds practical habits around quoting, temporary files, cleanup, and command failure; it is retained only alongside the explicit `errexit` caveat reference below. | Intermediate | 20 minutes |
+| Reference | std::process::ExitStatus | <https://doc.rust-lang.org/std/process/struct.ExitStatus.html> | The standard termination-status API for success, codes, and platform-specific signal details. Security and operations tools should distinguish a completed check with findings from a process that failed to execute or finish. | Intermediate | 15 minutes |
+| Reference | BashFAQ/105 — Why does `set -e` behave unexpectedly? | <https://mywiki.wooledge.org/BashFAQ/105> | This focused community reference earns its place by documenting the exception-heavy semantics and portability traps of `errexit` that simplistic “strict mode” articles omit. | Advanced | 30 minutes |
+| Article | Timeouts, retries, and backoff with jitter | <https://builder.aws.com/content/3EumjoZascWd1oZiEgL8ORlv3qE/timeouts-retries-and-backoff-with-jitter> | Amazon’s primary engineering guidance connects timeout selection, bounded retries, exponential backoff, jitter, and retry multiplication across layers for resilient API clients. | Advanced | 35 minutes |
+
+## Testing and Code Quality
+
+Build confidence with unit, integration, property, fuzz, CLI, TUI, snapshot, concurrency, browser, and end-to-end tests, backed by formatting and static analysis.
+
+**Useful prerequisites:** The relevant language's functions, modules, and error model.
+
+**Project connection:** Testing or quality tooling appeared in 60 repositories and GitHub Actions in 48. Fixtures, temporary files, contract tests, snapshots, parsers, concurrency, and release gates are recurring needs.
+
+**Suggested order:** Start with native unit and integration tests, add table/parameterized cases, then properties and fuzzing at parsers, deterministic UI/CLI tests, concurrency controls, and CI release gates.
+
+**Continue with:** [Git, GitHub, Automation, and Developer Tooling](#git-github-automation-and-developer-tooling), [Advanced and Cross-Cutting Topics](#advanced-and-cross-cutting-topics).
+
+### Project-derived concept notes
+
+- Cross-stack agent, MCP, PTY, browser, and JavaScript workflows still lack one durable end-to-end testing curriculum. Keep project-owned fixtures that test cancellation, approval, stream finalization, malformed tool data, terminal restoration, and browser-origin boundaries together.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Book | Writing Automated Tests — The Rust Programming Language | <https://doc.rust-lang.org/book/ch11-00-testing.html> | The official chapter introduces assertions, expected panics, `Result`-returning tests, filtering, ignored tests, and the distinction between unit and integration tests. | Beginner | 1–2 hours |
+| Official documentation | ShellCheck | <https://www.shellcheck.net/> | The project’s rule catalog turns common quoting, globbing, pipeline, portability, and data-flow mistakes into actionable diagnostics and explanations. | Beginner | 45 minutes |
+| Official documentation | Tests — The Cargo Book | <https://doc.rust-lang.org/cargo/guide/tests.html> | Cargo’s guide explains the actual layout and execution of unit, integration, and documentation tests, complementing the language-level testing chapter with build-tool behavior. | Intermediate | 45 minutes |
+| Reference | `testing` — Go standard library | <https://pkg.go.dev/testing> | The canonical package reference covers tests, benchmarks, examples, subtests, cleanup, parallel execution, and native fuzz targets in the form the `go` tool actually discovers. | Intermediate | 1–2 hours |
+| Official documentation | Go Fuzzing | <https://go.dev/doc/security/fuzz/> | The Go team’s guide provides the end-to-end native fuzzing workflow, corpus handling, minimization, and regression promotion needed for parsers and protocol boundaries. | Intermediate | 1 hour |
+| Reference | `io.Writer` — Go standard library | <https://pkg.go.dev/io#Writer> | This tiny interface is a high-leverage design seam: accepting a writer instead of hard-coding stdout makes CLI output composable and directly testable. | Intermediate | 20 minutes |
+| Reference | `unittest` — Unit testing framework | <https://docs.python.org/3/library/unittest.html> | Python’s built-in framework reference covers fixtures, assertions, subtests, discovery, cleanup, mocking integration, and command-line execution with no third-party dependency. | Intermediate | 1–2 hours |
+| Official documentation | pytest documentation | <https://docs.pytest.org/en/stable/> | Maintainer documentation provides the practical Python testing path for plain assertions, fixtures, parametrization, temporary paths, monkeypatching, plugins, and test selection. | Intermediate | 3–4 hours |
+| Official documentation | Bats-core documentation | <https://bats-core.readthedocs.io/en/stable/> | Bats supplies a maintained TAP-producing harness for executable Bash and Unix CLI behavior, including setup, teardown, helpers, file-descriptor caveats, and CI use. | Intermediate | 2 hours |
+| Reference | `assert_cmd` — Rust API documentation | <https://docs.rs/assert_cmd/latest/assert_cmd/> | The crate reference supports black-box CLI assertions over exit status, stdout, stderr, environment, and cargo-built binaries for data-pipeline boundary tests. | Intermediate | 45 minutes |
+| Book | Testing — Command Line Applications in Rust | <https://rust-cli.github.io/book/tutorial/testing.html> | The Rust CLI working group's tutorial turns `assert_cmd`, predicates, temporary files, and fixture setup into an end-to-end testing workflow rather than isolated API calls. | Intermediate | 1 hour |
+| Official documentation | Proptest | <https://proptest-rs.github.io/proptest/intro.html> | The project’s guide adds generated inputs, shrinking, failure persistence, and state-machine testing for parsers and deterministic cores where example-based Rust tests leave gaps. | Advanced | 2–3 hours |
+| Official documentation | Hypothesis documentation | <https://hypothesis.readthedocs.io/en/latest/> | Hypothesis adds property-based generation, shrinking, reproducible failures, and stateful testing for round trips and parser invariants that hand-picked examples miss. | Advanced | 3–4 hours |
+
+## Async Programming and Concurrency
+
+Reason about futures, tasks, goroutines, threads, channels, queues, cancellation, synchronization, backpressure, and the cost of blocking work.
+
+**Useful prerequisites:** Strong command of one language's ownership or object model plus error propagation.
+
+**Project connection:** Twenty-five repositories explicitly map here and 21 use async or concurrency concepts, including streaming providers, parallel DAG steps, watchers, background UI work, servers, and bounded pipelines.
+
+**Suggested order:** Learn the runtime's task model, then cancellation and shutdown, shared state, bounded channels, blocking bridges, memory-order rules, and workload-specific concurrency tests.
+
+**Continue with:** [Performance and Resource Efficiency](#performance-and-resource-efficiency), [Error Handling and Reliability](#error-handling-and-reliability).
+
+### Project-derived concept notes
+
+- The Rust Async Book still marks some coverage incomplete. For runtime-neutral cancellation, fairness, structured task ownership, and shutdown semantics, pair it with the Tokio guides and record runtime-specific behavior in project tests.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Book | Asynchronous Programming in Rust | <https://rust-lang.github.io/async-book/> | The Rust project’s Async Book explains futures, `async`/`await`, executors, pinning, streams, and cancellation semantics beneath any one runtime; unfinished guide chapters are explicitly marked. | Intermediate | 5–7 hours |
+| Official documentation | Tokio Tutorial | <https://tokio.rs/tokio/tutorial> | Tokio’s maintained tutorial provides the practical runtime path through spawning, shared state, channels, I/O, framing, `select!`, streams, and graceful shutdown. | Intermediate | 5–7 hours |
+| Official documentation | Graceful Shutdown — Tokio | <https://tokio.rs/tokio/topics/shutdown> | This focused guide connects shutdown detection, cancellation tokens, and task tracking into a complete termination protocol instead of leaving background tasks orphaned. | Intermediate | 40 minutes |
+| Reference | `context` — Go standard library | <https://pkg.go.dev/context> | The standard contract for deadlines and cancellation across API boundaries explains propagation, `Done`, causes, and why contexts must not be stored casually in structs. | Intermediate | 1 hour |
+| Blog | Go Concurrency Patterns: Pipelines and cancellation | <https://go.dev/blog/pipelines> | The Go team develops fan-out, fan-in, channel closure, cancellation, and goroutine-leak prevention as one worked design rather than isolated syntax examples. | Intermediate | 45 minutes |
+| Reference | `os/signal.NotifyContext` — Go standard library | <https://pkg.go.dev/os/signal#NotifyContext> | `NotifyContext` turns SIGINT and SIGTERM into composable cancellation and makes graceful CLI shutdown easier to coordinate than hand-managed signal channels. | Intermediate | 20 minutes |
+| Reference | `threading` — Thread-based parallelism | <https://docs.python.org/3/library/threading.html> | The standard reference covers thread lifecycle, locks, conditions, events, semaphores, barriers, exception hooks, and the GIL limits that shape appropriate use. | Intermediate | 2–3 hours |
+| Reference | `queue` — Synchronized queue classes | <https://docs.python.org/3/library/queue.html> | Python’s queue reference supplies bounded producer-consumer coordination, task completion, priority queues, and modern shutdown semantics without hand-rolled locking. | Intermediate | 1 hour |
+| Reference | `tokio` — Rust API documentation | <https://docs.rs/tokio/latest/tokio/> | The versioned crate reference is the authoritative lookup for runtime configuration, task and synchronization primitives, time, signals, process management, and feature flags. | Advanced | Ongoing reference |
+| Official documentation | Bridging with sync code — Tokio | <https://tokio.rs/tokio/topics/bridging> | Tokio’s guidance shows when to own a runtime, use `spawn_blocking`, choose runtime flavors, and keep blocking work from stalling asynchronous executors. | Advanced | 35 minutes |
+| Reference | The Go Memory Model | <https://go.dev/ref/mem> | The normative happens-before rules clarify what channels, locks, atomics, and goroutine creation actually synchronize, and why race-free design is the baseline. | Advanced | 1–2 hours |
+| Official documentation | Coroutines and Tasks — Python `asyncio` | <https://docs.python.org/3/library/asyncio-task.html> | The official guide covers coroutine scheduling, task groups, cancellation, timeouts, shielding, cross-thread submission, and the failure behavior of structured concurrency. | Advanced | 2–3 hours |
+
+## Data, Storage, Search, and File Processing
+
+Model and validate JSON/YAML contracts, use SQLite safely, stream archives and compression, hash and classify content, traverse filesystems, extract metadata, and persist state deliberately.
+
+**Useful prerequisites:** Language I/O, errors, and basic data structures.
+
+**Project connection:** Sixty-one repositories process files or data; recurring families include JSON, YAML, SQLite/FTS5, archives, hashing, metadata, XDG paths, atomic replacement, file watching, and document builds.
+
+**Suggested order:** Start with formats and typed serialization, continue through SQLite transactions and search, then streaming files and archives, metadata and traversal, filesystem durability, locking, and reproducible document pipelines.
+
+**Continue with:** [Performance and Resource Efficiency](#performance-and-resource-efficiency), [Security and Linux Operations](#security-and-linux-operations).
+
+### Project-derived concept notes
+
+- Timeshift's exact snapshot discovery and retention behavior lacks a stable, detailed upstream teaching resource. Treat its on-disk layout and command output as a versioned external contract and verify behavior against fixtures before deleting snapshots.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Reference | `infer` — Rust API documentation | <https://docs.rs/infer/latest/infer/> | The implementation reference provides magic-byte detection and extension/MIME results while making clear that signatures cover a finite format set. | Beginner | 30 minutes |
+| Reference | `mime_guess` — Rust API documentation | <https://docs.rs/mime_guess/latest/mime_guess/> | This extension-based MIME lookup complements signature detection and explicitly exposes ambiguity and fallback behavior rather than promising authoritative content identification. | Beginner | 20 minutes |
+| Reference | `serde` — Rust API documentation | <https://docs.rs/serde/latest/serde/> | The versioned API reference is the ongoing implementation lookup for `Serialize`, `Deserialize`, derive support, data formats, and feature flags. | Intermediate | Ongoing reference |
+| Reference | `serde_json` — Rust API documentation | <https://docs.rs/serde_json/latest/serde_json/> | The canonical crate reference covers typed and untyped JSON, stream-oriented readers and writers, error classification, raw values, and arbitrary-precision options. | Intermediate | 1 hour |
+| Reference | `zstd` — Rust API documentation | <https://docs.rs/zstd/latest/zstd/> | Maintainer API documentation shows streaming encoders and decoders, dictionary use, compression levels, and the `Read`/`Write` adapters used in bounded-memory pipelines. | Intermediate | 1 hour |
+| Reference | `tar` — Rust API documentation | <https://docs.rs/tar/latest/tar/> | The crate reference documents streaming archive traversal and creation, path handling, headers, sparse files, and the security-sensitive choice not to extract blindly. | Intermediate | 1 hour |
+| Reference | `std::io` — Rust standard library | <https://doc.rust-lang.org/std/io/index.html> | The primary reference explains composable `Read`, `Write`, `BufRead`, cursors, adapters, error kinds, and copying for streaming pipelines. | Intermediate | 1–2 hours |
+| Reference | `BufReader` in `std::io` | <https://doc.rust-lang.org/std/io/struct.BufReader.html> | This focused reference teaches when buffering reduces small-read system calls, how capacity affects behavior, and when multiple wrappers can discard buffered data. | Intermediate | 30 minutes |
+| Reference | `rusqlite` — Rust API documentation | <https://docs.rs/rusqlite/latest/rusqlite/> | The maintained binding reference covers connections, prepared statements, transactions, backup, hooks, feature flags, and bundled SQLite/FTS5 builds. | Intermediate | 2 hours |
+| Official documentation | Transaction — SQLite | <https://www.sqlite.org/lang_transaction.html> | SQLite's transaction contract explains implicit versus explicit transactions, deferred/immediate/exclusive starts, upgrade failures, nesting limits, and commit behavior. | Intermediate | 45 minutes |
+| Official documentation | Uniform Resource Identifiers — SQLite | <https://www.sqlite.org/uri.html> | This reference documents `mode=ro`, immutable and shared-cache URI parameters, percent encoding, and the opt-in rules needed for deliberate read-only database access. | Intermediate | 30 minutes |
+| Official documentation | Query Planning — SQLite | <https://www.sqlite.org/queryplanner.html> | The official planner tutorial makes index selection, multi-column and covering indexes, sorting, and `ANALYZE` concrete enough to design measured search schemas. | Intermediate | 1–2 hours |
+| Reference | `blake3` — Rust API documentation | <https://docs.rs/blake3/latest/blake3/> | The crate reference covers incremental and memory-mapped hashing, keyed and derive-key modes, Rayon integration, output readers, and constant-time comparison concerns. | Intermediate | 1 hour |
+| Reference | `walkdir` — Rust API documentation | <https://docs.rs/walkdir/latest/walkdir/> | The traversal reference covers pruning, depth bounds, symlink following, same-filesystem limits, descriptor pressure, deterministic sorting, and per-entry errors. | Intermediate | 45 minutes |
+| Reference | `Metadata` in `std::fs` | <https://doc.rust-lang.org/std/fs/struct.Metadata.html> | The standard-library contract clarifies file type, length, timestamps, permissions, platform extensions, and why metadata observations can race subsequent operations. | Intermediate | 30 minutes |
+| Reference | `exif` — Rust API documentation | <https://docs.rs/kamadak-exif/latest/exif/> | The crate API explains EXIF/TIFF container parsing, tag lookup, field values, endian handling, and safe read-only metadata extraction from supported formats. | Intermediate | 1 hour |
+| Reference | `pdf_extract` — Rust API documentation | <https://docs.rs/pdf-extract/latest/pdf_extract/> | The crate reference documents pure-Rust PDF text extraction and its error surface; it is an implementation option, not a promise of layout-faithful or OCR output. | Intermediate | 30 minutes |
+| Reference | `calamine` — Rust API documentation | <https://docs.rs/calamine/latest/calamine/> | Maintainer documentation covers workbook discovery, sheet and cell iteration, formulas, date values, ranges, and supported spreadsheet containers. | Intermediate | 1 hour |
+| Reference | `quick_xml` — Rust API documentation | <https://docs.rs/quick-xml/latest/quick_xml/> | The streaming XML reference teaches event-based parsing, encoding, Serde integration, namespace handling, and bounded-memory extraction from XML-based office archives. | Intermediate | 1–2 hours |
+| Official documentation | fsnotify | <https://github.com/fsnotify/fsnotify> | Maintainer documentation describes cross-platform filesystem notifications, recursive-watch limitations, event behavior, buffering, and platform caveats needed before building debounce or coalescing logic. | Intermediate | 1 hour |
+| Reference | asciicast v2 | <https://docs.asciinema.org/manual/asciicast/v2/> | The official line-oriented JSON format specifies headers, timed output/input/marker events, environment fields, and streaming properties for terminal recording libraries. | Intermediate | 45 minutes |
+| Reference | Pandoc User's Guide | <https://pandoc.org/MANUAL.html> | The authoritative manual supports reproducible document conversion through explicit readers, writers, metadata, templates, filters, resource paths, and PDF-engine selection. | Intermediate | 2–3 hours |
+| Reference | `shutil.copy2` — Python standard library | <https://docs.python.org/3/library/shutil.html#shutil.copy2> | The standard contract explains content-plus-metadata copying, platform limitations, symlink behavior, and non-atomic failure modes for recovery-oriented copy tools. | Intermediate | 30 minutes |
+| Reference | RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format | <https://www.rfc-editor.org/info/rfc8259/> | The normative JSON grammar and interoperability rules settle edge cases around numbers, strings, duplicate names, encodings, and parser limits. | Advanced | 1 hour |
+| Reference | YAML Ain't Markup Language (YAML) version 1.2.2 | <https://yaml.org/spec/1.2.2/> | The language specification distinguishes YAML's representation, serialization, presentation, tag, anchor, and schema rules from library-specific behavior. | Advanced | 2–3 hours |
+| Reference | JSON Schema Specification | <https://json-schema.org/specification> | The official specification hub supports durable local data and tool contracts through validation vocabularies, reusable schemas, identifiers, and versioned dialects. | Advanced | 2–3 hours |
+| Reference | RFC 8878: Zstandard Compression and the `application/zstd` Media Type | <https://www.rfc-editor.org/info/rfc8878/> | The format specification is the durable source for frame structure, decoding limits, checksums, skippable frames, and interoperability beyond one crate. | Advanced | 2 hours |
+| Official documentation | Write-Ahead Logging — SQLite | <https://www.sqlite.org/wal.html> | The authoritative WAL guide explains reader/writer concurrency, checkpoints, durability trade-offs, read-only WAL requirements, and cases where rollback journals remain preferable. | Advanced | 1 hour |
+| Official documentation | SQLite FTS5 Extension | <https://www.sqlite.org/fts5.html> | The complete primary guide covers query syntax, tokenizers, prefix indexes, BM25, snippets, contentless/external-content designs, maintenance commands, and storage trade-offs. | Advanced | 3–4 hours |
+| Official documentation | Atomic Commit In SQLite | <https://www.sqlite.org/atomiccommit.html> | This design document connects journals, locking, flush ordering, sector assumptions, and failure recovery, making transaction durability a systems concept rather than a magic property. | Advanced | 2 hours |
+| Blog | Towards Inserting One Billion Rows in SQLite Under A Minute | <https://avi.im/blag/2021/fast-sqlite-inserts/> | This retained community benchmark adds a distinct measured lesson: transaction batching and prepared-statement reuse dominate, while unsafe PRAGMAs trade away durability and must not be copied into production blindly. | Advanced | 30 minutes |
+| Official documentation | BLAKE3 — official implementations and specification | <https://github.com/BLAKE3-team/BLAKE3> | The project repository links the specification, design paper, official implementations, test vectors, benchmarks, and security notes needed to evaluate content-addressing choices. | Advanced | 1–2 hours |
+| Official documentation | ExifTool by Phil Harvey | <https://exiftool.org/> | The maintainer site supplies broad RAW, image, video, PDF, and office metadata coverage plus application/API documentation that a narrow EXIF crate cannot. | Advanced | 2–3 hours |
+| Reference | `rename(2)` — Linux manual page | <https://man7.org/linux/man-pages/man2/rename.2.html> | The system-call contract explains atomic replacement, no-replace/exchange variants, cross-filesystem failure, NFS caveats, and why atomic visibility is not crash durability. | Advanced | 45 minutes |
+| Reference | `fsync(2)` — Linux manual page | <https://man7.org/linux/man-pages/man2/fsync.2.html> | The primary Linux reference distinguishes data and metadata flushing and states the often-missed requirement to sync the containing directory for durable name changes. | Advanced | 30 minutes |
+| Reference | `flock(2)` — Linux manual page | <https://man7.org/linux/man-pages/man2/flock.2.html> | The advisory-lock contract covers shared/exclusive/nonblocking locks, descriptor semantics, inheritance, and network-filesystem caveats for multi-process stores. | Advanced | 30 minutes |
+| Reference | `statvfs(3)` — Linux manual page | <https://man7.org/linux/man-pages/man3/statvfs.3.html> | The standards-oriented filesystem-statistics API explains block and inode capacity, available-space semantics, read-only flags, and portability limits for disk monitors. | Advanced | 30 minutes |
+
+## Performance and Resource Efficiency
+
+Measure before optimizing and connect profiling evidence to buffering, batching, allocation, database transactions, parallelism, zero-copy buffers, caching, backpressure, and resource limits.
+
+**Useful prerequisites:** A correct tested implementation plus familiarity with its I/O and concurrency model.
+
+**Project connection:** Twenty-nine repositories map to performance; seven use explicit resource controls. Large archives, search indexes, terminal rendering, image libraries, monitors, containers, and interactive loops all need bounded work.
+
+**Suggested order:** Profile first, build reproducible benchmarks, improve algorithm or batching choices, then consider parallelism, zero-copy techniques, caches, and host/container limits while rechecking correctness.
+
+**Continue with:** [Async Programming and Concurrency](#async-programming-and-concurrency), [Advanced and Cross-Cutting Topics](#advanced-and-cross-cutting-topics).
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Book | The Rust Performance Book | <https://nnethercote.github.io/perf-book/introduction.html> | This measurement-first guide moves from profiling to build configuration, allocation, hashing, I/O, code generation, and parallelism while warning against intuition-only optimization. | Intermediate | 5–7 hours |
+| Official documentation | Criterion.rs Documentation | <https://bheisler.github.io/criterion.rs/book/index.html> | The maintainer book teaches statistically informed microbenchmarks, warm-up and measurement settings, plots, baselines, regression detection, async timing, and profiler integration. | Intermediate | 2–3 hours |
+| Official documentation | Flamegraph for Rust projects | <https://github.com/flamegraph-rs/flamegraph> | The project documentation provides a practical sampling-profiler workflow and records platform prerequisites, debug-symbol needs, permissions, and interpretation limits. | Intermediate | 45 minutes |
+| Reference | `rayon` — Rust API documentation | <https://docs.rs/rayon/latest/rayon/> | The canonical reference covers parallel iterators, work stealing, custom thread pools, scoped tasks, fallible processing, ordering, and cases where parallel overhead outweighs work. | Intermediate | 1–2 hours |
+| Official documentation | Channels — Tokio Tutorial | <https://tokio.rs/tokio/tutorial/channels> | The worked bounded-channel design demonstrates backpressure, single-owner resource tasks, request/response handoff, and why unbounded producer growth is a resource bug. | Intermediate | 45 minutes |
+| Official documentation | `st.cache_data` — Streamlit | <https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data> | This focused implementation reference documents TTL, entry bounds, persistence, hashing, copying, invalidation, and the security implications of pickle-backed cached data. | Intermediate | 45 minutes |
+| Reference | `bytes` — Rust API documentation | <https://docs.rs/bytes/latest/bytes/> | The buffer API makes zero-copy trade-offs concrete through reference-counted slicing, `BytesMut`, cursor traits, shared allocation, and the distinction from fallible I/O operations. | Advanced | 1 hour |
+| Reference | RFC 9111: HTTP Caching | <https://www.rfc-editor.org/info/rfc9111/> | The current HTTP caching model defines freshness lifetime, age, validation, invalidation, and bounded use of stale responses. A local weather cache can adapt these concepts, but must still define its own file format, clock behavior, provider provenance, and stale-if-error limits. | Advanced | 2 hours |
+
+## Security and Linux Operations
+
+Operate Linux with least privilege and recovery paths: SSH, firewalls, Tailscale authorization, kernel tunables, secrets, containers, backups, scheduling, block devices, sanitization, and SMTP.
+
+**Useful prerequisites:** Comfort with Linux files, processes, networking, and a local recovery console or tested rollback method.
+
+**Project connection:** Sixty-two repositories map to security or Linux operations. Hardening, backups, networking, container boundaries, secret-safe automation, removable media, monitoring, and system services recur across the account.
+
+**Suggested order:** Begin with the distribution security baseline and least privilege; prove SSH/network recovery before firewall changes; study exact upstream manuals; then add backups and restore tests, container boundaries, scheduling, and destructive-media threat models.
+
+**Continue with:** [Git, GitHub, Automation, and Developer Tooling](#git-github-automation-and-developer-tooling), [Error Handling and Reliability](#error-handling-and-reliability).
+
+### Project-derived concept notes
+
+- Safe removable-media writing still deserves a project lab that combines signature verification, `lsblk` identity, mount checks, explicit destructive confirmation, post-write verification, interruption handling, and recovery from selecting the wrong target.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Official documentation | Firewall | <https://ubuntu.com/server/docs/how-to/security/firewalls/> | Ubuntu's current UFW guide explains rule ordering, application profiles, logging, and dry-run inspection. Keep an existing administrative session open and validate the replacement path before changing remote-access rules. | Beginner | 20 minutes |
+| Official documentation | Install Tailscale on Linux | <https://tailscale.com/docs/install/linux> | The maintained installation route for supported Linux distributions, including package setup, authentication, and service startup. It replaces versioned knowledge-base URLs that have moved. | Beginner | 10 minutes |
+| Reference | mountpoint(1) | <https://man7.org/linux/man-pages/man1/mountpoint.1.html> | The upstream-derived command contract for testing whether a directory is a mount point, following symlinks deliberately, and using exit status in scripts. A backup job should verify both the mount and the expected source device before writing. | Beginner | 15 minutes |
+| Reference | crontab guru | <https://crontab.guru/> | A focused interactive explainer for the common five-field cron expression. Use it to visualize a schedule, then confirm implementation-specific features and environment behavior in the crontab manual. | Beginner | 10 minutes |
+| Reference | Sign in with app passwords | <https://support.google.com/mail/answer/185833?hl=en> | Google's current requirements and limitations for app passwords, including two-step verification and cases where the option is unavailable. Prefer OAuth where supported and never place the credential in a repository. | Beginner | 10 minutes |
+| Official documentation | Security suggestions | <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> | A distribution-maintained security baseline covering updates, least privilege, firewalls, SSH, AppArmor, and operational trade-offs. Use it to build a threat-modelled checklist instead of copying an unreviewed hardening script. | Intermediate | 25 minutes |
+| Article | Linux server hardening and best practices | <https://linux-audit.com/linux-server-hardening-most-important-steps-to-secure-systems/> | A maintained community companion that organizes hardening as inventory, minimization, configuration, auditing, and verification rather than a bag of sysctl values. Use the upstream manuals for exact directives and validate each change against the host's workload. | Intermediate | 30 minutes |
+| Official documentation | Secure an Ubuntu server using Tailscale and UFW | <https://tailscale.com/docs/how-to/secure-ubuntu-server-with-ufw> | Shows a supported deny-by-default pattern that preserves management through Tailscale. It is especially useful for avoiding the common lockout caused by enabling UFW before proving the overlay-network path. | Intermediate | 20 minutes |
+| Reference | Tailscale CLI | <https://tailscale.com/docs/reference/tailscale-cli> | The complete command reference for connecting, inspecting, debugging, and changing a node. Check command effects here before scripting state-changing operations. | Intermediate | 30 minutes |
+| Official documentation | Access control | <https://tailscale.com/docs/features/access-control> | Explains Tailscale grants, ACL policy, groups, tags, users, and device identity as one authorization model. It is the starting point for replacing broad network trust with least-privilege connectivity. | Intermediate | 25 minutes |
+| Official documentation | Tailscale SSH | <https://tailscale.com/docs/reference/ssh-over-tailscale> | Documents how Tailscale SSH authentication and authorization differ from ordinary OpenSSH. It helps prevent accidentally assuming that network reachability alone grants shell access. | Intermediate | 25 minutes |
+| Reference | sysctl(8) | <https://man7.org/linux/man-pages/man8/sysctl.8.html> | Documents safe reading, writing, pattern matching, and system-wide loading of kernel parameters. Read current values first and stage changes so they can be reverted from a local console. | Intermediate | 20 minutes |
+| Reference | Secrets Management Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html> | A durable lifecycle guide for creation, storage, least privilege, rotation, auditing, CI/CD injection, leak detection, and incident response. It is a strong cross-tool baseline for API keys, SSH keys, SMTP credentials, and build secrets. | Intermediate | 50 minutes |
+| Reference | OS Command Injection Defense Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html> | Explains why structured process APIs, argument separation, allowlists, and input validation are safer than constructing shell strings. It directly supports CLIs that execute local or remote commands. | Intermediate | 25 minutes |
+| Official documentation | Docker Engine security | <https://docs.docker.com/engine/security/> | Covers the daemon trust boundary, Linux namespaces, control groups, capabilities, and the security implications of daemon access. It corrects the dangerous assumption that a container is automatically a strong sandbox. | Intermediate | 35 minutes |
+| Official documentation | Rootless mode | <https://docs.docker.com/engine/security/rootless/> | Shows how to run both the Docker daemon and containers inside a user namespace, with prerequisites and limitations. It is a practical least-privilege option for development and homelab workloads. | Intermediate | 25 minutes |
+| Official documentation | Build secrets | <https://docs.docker.com/build/building/secrets/> | Documents secret and SSH mounts that avoid persisting credentials in image layers or build arguments. Use it for authenticated dependency fetches and private builds. | Intermediate | 20 minutes |
+| Official documentation | Resource constraints | <https://docs.docker.com/engine/containers/resource_constraints/> | Explains memory, swap, CPU, and real-time limits and the host risk of leaving containers unbounded. It supports capacity planning for self-hosted CI and monitoring stacks. | Intermediate | 30 minutes |
+| Official documentation | Image verification | <https://documentation.ubuntu.com/security/software-integrity/image-verification/> | Explains signature-backed verification of Ubuntu images and why a bare checksum downloaded from the same compromised source is insufficient. Use it before any destructive removable-media write. | Intermediate | 20 minutes |
+| Reference | lsblk(8) | <https://man7.org/linux/man-pages/man8/lsblk.8.html> | The current util-linux reference for stable block-device inspection and machine-readable columns. Scripts should explicitly request fields and verify type, transport, mount state, and target identity before any write. | Intermediate | 25 minutes |
+| Reference | findmnt(8) | <https://man7.org/linux/man-pages/man8/findmnt.8.html> | Documents reliable queries against mount tables and /proc mount information, with explicit output columns and filters. It is safer for automation than parsing the human-oriented output of mount. | Intermediate | 25 minutes |
+| Reference | realpath(1) | <https://man7.org/linux/man-pages/man1/realpath.1.html> | Documents canonical and relative path resolution, missing components, symlink behavior, delimiters, and error status. It helps scheduled jobs avoid assumptions about their working directory, but it does not expand a shell tilde passed as a literal. | Intermediate | 20 minutes |
+| Official documentation | #StopRansomware Guide | <https://www.cisa.gov/stopransomware/ransomware-guide> | CISA's recovery guidance emphasizes offline encrypted backups and regular integrity and restore tests. It turns a file-copy routine into a verifiable recovery practice. | Intermediate | 25 minutes |
+| Reference | crontab(5) | <https://man7.org/linux/man-pages/man5/crontab.5.html> | Explains cron's restricted environment, time semantics, mail behavior, and command parsing. It helps make non-interactive jobs reproducible instead of testing whether a shell happens to be attached. | Intermediate | 25 minutes |
+| Reference | systemd.timer(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html> | The official timer-unit reference covers monotonic and calendar schedules, persistence, accuracy, dependencies, and randomized delay. Pair it with a service unit when you need logged, inspectable Linux scheduling. | Intermediate | 35 minutes |
+| Reference | at(1) | <https://manpages.ubuntu.com/manpages/noble/man1/at.1.html> | Documents one-shot at and batch jobs, queue inspection, deletion, environment capture, mail, permissions, and parsing. Generated jobs still require strict quoting and an explicit cancellation strategy. | Intermediate | 20 minutes |
+| Reference | msmtp manual | <https://marlam.de/msmtp/msmtp.html> | The upstream manual covers account selection, TLS verification, authentication, sendmail mode, passwordeval, logging, and exit codes. Use a secret helper with restrictive permissions rather than embedding credentials in configuration. | Intermediate | 45 minutes |
+| Reference | msmtp | <https://wiki.archlinux.org/title/Msmtp> | A high-quality community integration guide for system and user configuration, mail aliases, secret helpers, and common client setups. Cross-check option semantics against the upstream manual. | Intermediate | 25 minutes |
+| Reference | Grants syntax | <https://tailscale.com/docs/reference/syntax/grants> | The authoritative syntax and semantics for grants, including selectors and application capabilities. Pair it with policy tests and a rollback plan before deploying changes. | Advanced | 30 minutes |
+| Reference | sshd_config(5) | <https://man.openbsd.org/sshd_config.5> | The upstream OpenSSH server-configuration reference, including precedence, Match blocks, authentication controls, forwarding, and safe syntax validation. Test with sshd -t and keep a recovery session before reloading a remote daemon. | Advanced | 50 minutes |
+| Reference | sshd(8) | <https://man.openbsd.org/sshd.8> | The upstream daemon manual explains startup, authentication flow, authorized keys, privilege separation, signals, and exit behavior. It provides the context needed to reason about sshd_config rather than treating directives as magic switches. | Advanced | 45 minutes |
+| Official documentation | Linux kernel sysctl documentation | <https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html> | The kernel-maintained index for runtime tunables. Use it to confirm that a parameter exists on the running kernel and understand its subsystem before changing a copied hardening value. | Advanced | 35 minutes |
+| Reference | IP Sysctl | <https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html> | The authoritative meanings and defaults for IPv4 and IPv6 networking tunables, including per-interface all/default behavior. This is the primary source for evaluating network-hardening recommendations. | Advanced | 70 minutes |
+| Official documentation | Kernel Self-Protection | <https://www.kernel.org/doc/html/latest/security/self-protection.html> | Explains the kernel project's security design goals and the distinction between attack-surface reduction, exploit prevention, and hardening. It gives sysctl and build-time controls a threat-modelled context. | Advanced | 35 minutes |
+| Reference | kernel sysctl: modules_disabled | <https://www.kernel.org/doc/html/latest/admin-guide/sysctl/kernel.html> | The kernel-maintained semantics for module loading and other kernel namespace tunables. Setting modules_disabled is one-way until reboot, so verify every required driver and recovery path before using it. | Advanced | 25 minutes |
+| Reference | Operational state of a network interface | <https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net> | The kernel ABI definition for interface operstate, carrier, dormant, testing, and related sysfs attributes. It prevents monitoring tools from guessing status from filenames or display text. | Advanced | 20 minutes |
+| Reference | Security: kernel hardening | <https://wiki.archlinux.org/title/Security#Kernel_hardening> | An actively maintained community reference that connects kernel parameters, lockdown, module policy, and distribution configuration. Treat it as implementation context and confirm exact tunables in kernel documentation. | Advanced | 35 minutes |
+| Reference | sysctl.d(5) | <https://man7.org/linux/man-pages/man5/sysctl.d.5.html> | Explains persistent sysctl file precedence, naming, exclusions, and boot-time application. It is essential for avoiding settings that appear correct interactively but are overwritten at reboot. | Advanced | 25 minutes |
+| Reference | sudoers(5) | <https://man7.org/linux/man-pages/man5/sudoers.5.html> | The detailed sudo policy reference for command matching, tags, environment handling, logging, and include order. Validate edits with visudo and grant the smallest command surface required. | Advanced | 60 minutes |
+| Reference | podman(1) | <https://docs.podman.io/en/latest/markdown/podman.1.html> | The upstream Podman reference explains rootless user namespaces, storage, networking, remote clients, and important filesystem limitations. It is the right starting point for understanding what host data a monitoring container can actually observe. | Advanced | 55 minutes |
+| Official documentation | Guidelines for Media Sanitization: NIST SP 800-88 Rev. 2 | <https://csrc.nist.gov/pubs/sp/800/88/r2/final> | The current NIST guidance distinguishes clear, purge, and destroy methods and ties sanitization to media type and risk. It is the durable threat-model reference for why file overwrites cannot promise secure deletion on SSDs, copy-on-write filesystems, or remapped storage. | Advanced | 90 minutes |
+| Reference | systemd.exec(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html> | The authoritative service-execution contract for environment handling, credentials, working directories, identity, filesystem namespaces, sandboxing, resource access, and process termination. It is the right reference when a tool turns declarative configuration into child processes or service units. | Advanced | 75 minutes |
+| Reference | systemd.resource-control(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html> | The official cgroup-backed reference for limiting CPU, memory, I/O, tasks, and device access for services and slices. It supports capacity controls beyond container-specific flags. | Advanced | 60 minutes |
+
+## Git, GitHub, Automation, and Developer Tooling
+
+Use Git and hosting automation safely, manage credentials, build secure CI, mirror and back up repositories, operate Gitea/Woodpecker, package desktop integrations, manage dotfiles, and share VM files.
+
+**Useful prerequisites:** Basic commits, branches, shell commands, and filesystem permissions.
+
+**Project connection:** Sixty-eight repositories map here, with GitHub Actions in 48, packaging/deployment in 46, and Git/repository automation in 23. Gitea, GitHub CLI, XDG, Stow, libvirt, and release provenance are account-wide concerns.
+
+**Suggested order:** Learn remotes and authentication, then credential helpers and the Git model, GitHub CLI and Actions security, mirroring and restore, desktop/XDG and dotfile conventions, and virtualization integration.
+
+**Continue with:** [Security and Linux Operations](#security-and-linux-operations), [Testing and Code Quality](#testing-and-code-quality).
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Article | How to use rsync to sync local and remote directories | <https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories> | A clear worked introduction to source/destination trailing slashes, archive mode, SSH transport, progress, and deletion. Use dry-run first and consult the upstream manual for production filters and failure semantics. | Beginner | 30 minutes |
+| Official documentation | Integrating with the desktop | <https://developer.gnome.org/documentation/guidelines/maintainer/integrating.html> | GNOME's maintainer guide turns the desktop-entry specification into practical installation, icon, validation, and application-metadata steps. | Beginner | 15 minutes |
+| Reference | notify-send(1) | <https://manpages.debian.org/trixie/libnotify-bin/notify-send.1.en.html> | A maintained manual for command-line desktop notifications, including urgency, expiry, icons, categories, hints, replacement, and actions. Remember that cron and system services may not have a user's D-Bus session. | Beginner | 10 minutes |
+| Official documentation | About remote repositories | <https://docs.github.com/en/get-started/git-basics/about-remote-repositories> | Introduces remotes, fetch and push URLs, HTTPS versus SSH, and the security boundary between a local repository and a hosting service. | Beginner | 10 minutes |
+| Official documentation | Managing remote repositories | <https://docs.github.com/en/get-started/git-basics/managing-remote-repositories> | Provides supported commands for adding, inspecting, renaming, changing, and removing remotes, with troubleshooting for common configuration mistakes. | Beginner | 15 minutes |
+| Official documentation | Connecting to GitHub with SSH | <https://docs.github.com/en/authentication/connecting-to-github-with-ssh> | The canonical learning route for key generation, agent setup, account registration, connection testing, troubleshooting, and key lifecycle. It replaces duplicate third-party SSH recipes. | Beginner | 35 minutes |
+| Book | Pro Git | <https://git-scm.com/book/en/v2> | The freely available canonical Git book builds a durable mental model from everyday snapshots and branches through internals, protocols, hooks, and administration. | Beginner | 12–16 hours |
+| Reference | GitHub does dotfiles | <https://dotfiles.github.io/> | A durable community index of bootstrap patterns, bare repositories, symlink managers, templates, secret handling, and machine-specific configuration. Compare approaches here, then choose a reversible model with a documented recovery path. | Beginner | 25 minutes |
+| Reference | GitHub CLI manual | <https://cli.github.com/manual/gh> | The canonical command index for authentication, repositories, issues, pull requests, Actions, releases, extensions, and API access. | Beginner | 30 minutes |
+| Reference | gh repo create | <https://cli.github.com/manual/gh_repo_create> | The exact repository-creation flags for visibility, source pushes, remotes, templates, teams, and initialization. Review visibility and target owner before running it. | Beginner | 10 minutes |
+| Official documentation | GitHub CLI quickstart | <https://docs.github.com/en/github-cli/github-cli/quickstart> | A short task-oriented introduction to authentication, repository operations, issues, pull requests, and command discovery. | Beginner | 15 minutes |
+| Reference | XDG Base Directory Specification | <https://specifications.freedesktop.org/basedir/latest/> | The normative Linux desktop contract defines config, data, state, cache, runtime, and search directories, including absolute-path and security requirements. | Intermediate | 30 minutes |
+| Reference | rsync(1) | <https://rsync.samba.org/ftp/rsync/rsync.1.html> | The upstream, current rsync manual covers archive semantics, deletion, filters, partial transfers, remote shells, exit codes, and dry runs. Treat --delete and destination selection as destructive operations and prove restores separately. | Intermediate | 60 minutes |
+| Reference | Desktop Entry Specification | <https://specifications.freedesktop.org/desktop-entry/latest/> | The normative cross-desktop format for application launchers, actions, localization, field codes, validation, and security-sensitive execution fields. It replaces trial-and-error launcher recipes. | Intermediate | 40 minutes |
+| Reference | Desktop Application Autostart Specification | <https://specifications.freedesktop.org/autostart/latest/> | Defines how desktop-session autostart entries are discovered, enabled, disabled, and overridden. It is the durable basis for packaging background tray processes without surprising users. | Intermediate | 20 minutes |
+| Reference | GNU Stow manual | <https://www.gnu.org/software/stow/manual/stow.html> | The upstream manual explains package trees, targets, conflict handling, adoption, ignore lists, simulation, and restowing. It supports reversible symlink-based dotfile management. | Intermediate | 50 minutes |
+| Reference | ln invocation | <https://www.gnu.org/software/coreutils/manual/coreutils.html#ln-invocation> | The GNU reference for hard and symbolic links, replacement behavior, relative targets, backups, and portability. It exposes why ln -sf alone is not a complete idempotent reconciliation strategy. | Intermediate | 20 minutes |
+| Official documentation | Error: Permission denied (publickey) | <https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey> | A focused diagnostic flow for the most common GitHub SSH failure, including remote URL, identity, agent, and account checks. | Intermediate | 15 minutes |
+| Reference | gitcredentials | <https://git-scm.com/docs/gitcredentials.html> | The official credential-helper model for HTTPS authentication, including matching rules and secure-storage integrations. It helps avoid tokens in remote URLs, scripts, or plaintext files. | Intermediate | 30 minutes |
+| Official documentation | Mirror Repository | <https://docs.gitea.com/usage/repository/repo-mirror> | Gitea's supported pull and push mirror workflows, including authentication and explicit force-push risk. It provides a safer reference point for GitHub-to-Gitea synchronization. | Intermediate | 25 minutes |
+| Official documentation | Installation with Docker | <https://docs.gitea.com/installation/install-with-docker> | The maintained container deployment guide covers persistent volumes, permissions, databases, SSH ports, rootless images, upgrades, and secret generation. | Intermediate | 45 minutes |
+| Official documentation | Prometheus: Getting started | <https://prometheus.io/docs/prometheus/latest/getting_started/> | A durable introduction to scrape configuration, targets, queries, and expression browsing. Use it as the small verified starting point before expanding a monitoring stack's retention and resource footprint. | Intermediate | 35 minutes |
+| Official documentation | Security for GitHub Actions | <https://docs.github.com/en/actions/concepts/security> | An official map of workflow permissions, secrets, OIDC, runner trust, dependency pinning, attestations, and compromise response. It supports fail-closed automation instead of treating CI YAML as harmless metadata. | Intermediate | 35 minutes |
+| Reference | gh repo edit | <https://cli.github.com/manual/gh_repo_edit> | The exact flags for repository description, visibility, features, merge policy, default branch, archived state, and security settings. Visibility changes have broad consequences and require explicit confirmation. | Intermediate | 15 minutes |
+| Reference | gh pr create | <https://cli.github.com/manual/gh_pr_create> | The pull-request creation reference, including base/head selection, draft status, templates, body files, recovery, and fork behavior. | Intermediate | 15 minutes |
+| Official documentation | Sharing files with Virtiofs | <https://libvirt.org/kbase/virtiofs.html> | Libvirt's focused guide covers domain XML, shared-memory requirements, guest mounting, unprivileged mode, UID mapping, migration limits, and externally launched virtiofsd. It is more useful than obsolete QEMU virtiofsd documentation. | Advanced | 35 minutes |
+| Reference | Domain XML format: Filesystems | <https://libvirt.org/formatdomain.html#filesystems> | The authoritative libvirt schema for filesystem devices, driver options, access modes, ID mapping, and virtiofs configuration. Use it when generating or reviewing VM definitions. | Advanced | 40 minutes |
+| Official documentation | virtiofsd | <https://gitlab.com/virtio-fs/virtiofsd/-/blob/main/README.md> | The maintained Rust virtiofsd documentation covers invocation, sandboxing, privilege dropping, UID/GID mapping, read-only exports, limits, and QEMU wiring. It replaces the removed legacy daemon page in QEMU documentation. | Advanced | 40 minutes |
+| Reference | systemd.mount(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.mount.html> | The official mount-unit reference explains /etc/fstab generation, dependency rules, network mounts, automount interactions, and timeout behavior for managed shares. | Advanced | 35 minutes |
+| Reference | git-clone | <https://git-scm.com/docs/git-clone.html> | The authoritative semantics for normal, bare, and mirror clones, refspecs, partial clones, submodules, and object sharing. Read the --mirror and --shared warnings before automating backups or synchronization. | Advanced | 45 minutes |
+| Official documentation | Backup and Restore | <https://docs.gitea.com/usage/backup-and-restore> | Documents Gitea's database, repository, configuration, attachment, hook, Docker, and consistency requirements. A mirror is not a full service backup, so restore testing belongs beside mirroring. | Advanced | 35 minutes |
+| Reference | virt-xml(1) | <https://manpages.ubuntu.com/manpages/noble/man1/virt-xml.1.html> | The command reference for safely editing libvirt domain XML non-interactively, including print, update, add, remove, define, and confirmation behavior. Preview changes before applying them to a running or irreplaceable guest. | Advanced | 30 minutes |
+| Official documentation | Server configuration | <https://woodpecker-ci.org/docs/administration/configuration/server> | The current Woodpecker server reference covers forge OAuth, registration controls, databases, persistence, TLS, secrets, metrics, and resource limits for a self-hosted CI control plane. | Advanced | 60 minutes |
+| Official documentation | Artifact attestations | <https://docs.github.com/en/actions/concepts/security/artifact-attestations> | Explains signed build provenance and verification for binaries and container images. It is useful for proving that a release came from the expected workflow and commit. | Advanced | 25 minutes |
+| Reference | gh api | <https://cli.github.com/manual/gh_api> | Documents authenticated REST and GraphQL requests, pagination, typed fields, caching, templates, and previews for automation beyond dedicated gh subcommands. | Advanced | 35 minutes |
+
+## Local AI and Related Tools
+
+Integrate local and hosted models without confusing convenience with safety: understand model metadata and context limits, provider streams and tools, MCP architecture and authorization, evaluations, prompt injection, and agent extensions.
+
+**Useful prerequisites:** HTTP/JSON, async streams, secrets, and a clear statement of which data may leave the machine.
+
+**Project connection:** Twelve repositories map to local AI or agent tooling, including Ollama clients, multi-provider adapters, MCP servers, tool loops, skills, hooks, subagents, local bridges, and editorial workflows.
+
+**Suggested order:** Start with Ollama's API and model cards, learn context and streaming, compare primary provider contracts, then study MCP authorization, prompt/tool threat boundaries, evaluations, and executable agent extensions.
+
+**Continue with:** [Security and Linux Operations](#security-and-linux-operations), [Architecture and Design Patterns](#architecture-and-design-patterns).
+
+### Project-derived concept notes
+
+- Provider documentation cannot decide Tom's privacy policy. Each multi-provider project needs a local data-classification rule stating what must stay local, what may be sent to each provider, what gets logged, and how credentials and retained conversations are removed.
+- Secure localhost AI bridges still need a practical origin/CORS and approval lab covering malicious web pages, DNS rebinding, tool-result injection, cancellation, retries, and idempotent finalization.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Official documentation | Ollama API introduction | <https://docs.ollama.com/api/introduction> | Defines the local HTTP API base URL, request shape, model naming, versioning, and authentication differences between local and hosted access. | Beginner | 15 minutes |
+| Official documentation | Model Cards | <https://huggingface.co/docs/hub/en/model-cards> | Explains how to document intended use, limitations, datasets, evaluation, licensing, and bias for models. Read a model card before treating a local model as suitable for sensitive or tool-using work. | Beginner | 20 minutes |
+| Official documentation | Gemma documentation | <https://ai.google.dev/gemma/docs> | Google's maintained Gemma hub links current model families, deployment guides, responsible-use material, and technical documentation. It is more durable than a bookmark to an older Ollama model tag. | Beginner | 20 minutes |
+| Official documentation | Ollama Python library | <https://github.com/ollama/ollama-python> | The maintained Python client, typed request patterns, streaming iteration, custom clients, async support, and error examples. It complements the wire-level API without hiding local-model and context limits. | Intermediate | 30 minutes |
+| Official documentation | Ollama streaming | <https://docs.ollama.com/api/streaming> | Explains newline-delimited streaming, final response metadata, error handling, and when to disable streaming. It supports correct terminal and GUI token pipelines. | Intermediate | 15 minutes |
+| Official documentation | Ollama context length | <https://docs.ollama.com/context-length> | Shows how context limits change memory use and model behavior. It is essential for choosing bounded histories and avoiding unexplained slowdowns or out-of-memory failures. | Intermediate | 10 minutes |
+| Reference | Ollama Modelfile | <https://docs.ollama.com/modelfile> | The maintained reference for model bases, parameters, prompt templates, adapters, messages, and licensing metadata. It replaces model-specific bookmarks with a reusable customization model. | Intermediate | 30 minutes |
+| Official documentation | Responsible Generative AI Toolkit | <https://ai.google.dev/responsible/docs> | A practical official toolkit for safety policies, model cards, evaluation, and safeguards. It frames local deployment as an engineering responsibility rather than a privacy guarantee by itself. | Intermediate | 35 minutes |
+| Official documentation | Using tools | <https://developers.openai.com/api/docs/guides/tools> | The current OpenAI guide to built-in tools, function tools, tool choice, schemas, and tool-call handling. It supports typed provider adapters and explicit execution boundaries. | Intermediate | 35 minutes |
+| Official documentation | Streaming API responses | <https://developers.openai.com/api/docs/guides/streaming-responses> | Documents streaming event handling, finalization, partial output, and moderation implications. It is the primary contract for building correct OpenAI terminal and GUI streams. | Intermediate | 30 minutes |
+| Official documentation | Getting started with evaluations | <https://developers.openai.com/api/docs/guides/evaluation-getting-started> | A current route for defining criteria, datasets, graders, and repeatable evaluations. It is preferable to relying on subjective spot checks when changing prompts, tools, or agents. | Intermediate | 40 minutes |
+| Official documentation | How tool use works | <https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works> | Anthropic's current tool-contract guide covers definitions, tool decisions, result messages, parallel calls, streaming, and error responses for multi-provider adapters. | Intermediate | 35 minutes |
+| Official documentation | Create custom subagents | <https://code.claude.com/docs/en/sub-agents> | Explains agent isolation, descriptions, tools, permissions, model selection, persistent memory, hooks, and foreground versus background execution. | Intermediate | 30 minutes |
+| Official documentation | Extend Claude with skills | <https://code.claude.com/docs/en/slash-commands> | Documents reusable skills, discovery metadata, arguments, supporting files, tool restrictions, execution modes, and sharing. It supports maintainable agent packages instead of oversized global prompts. | Intermediate | 35 minutes |
+| Official documentation | Importing a model | <https://docs.ollama.com/import> | Documents supported model and adapter formats, quantization, conversion, and import workflows. It helps distinguish a compatible artifact from a model that merely has a similar name. | Advanced | 25 minutes |
+| Official documentation | MCP and connectors | <https://developers.openai.com/api/docs/guides/tools-connectors-mcp> | Explains remote MCP servers, connectors, approvals, authentication, data sharing, and prompt-injection risk in OpenAI integrations. | Advanced | 40 minutes |
+| Official documentation | MCP security best practices | <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices> | Covers confused-deputy risks, token handling, consent, least privilege, local-server compromise, session hijacking, and other MCP-specific threat boundaries. | Advanced | 45 minutes |
+| Official documentation | MCP authorization | <https://modelcontextprotocol.io/docs/tutorials/security/authorization> | Explains the protocol's authorization flow and implementation responsibilities. It helps keep provider tokens scoped to the intended server and user. | Advanced | 40 minutes |
+| Reference | MCP Security Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html> | An implementation-focused checklist for input validation, tool authorization, output handling, secret redaction, logging, network controls, and supply-chain risk around MCP servers. | Advanced | 35 minutes |
+| Reference | LLM Prompt Injection Prevention Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html> | A durable threat model and layered defenses for direct, indirect, multimodal, persistent, and tool-mediated prompt injection. Treat model output as untrusted input to every privileged action. | Advanced | 45 minutes |
+| Official documentation | Streaming Messages | <https://platform.claude.com/docs/en/build-with-claude/streaming> | The authoritative Anthropic event stream, including deltas, tool input, errors, recovery, and final usage. It enables correct cross-provider stream normalization. | Advanced | 35 minutes |
+| Official documentation | Hooks reference | <https://code.claude.com/docs/en/hooks> | The current lifecycle-hook reference for deterministic validation and automation around agent events. Hooks execute code, so review inputs, permissions, timeouts, and failure behavior as production interfaces. | Advanced | 45 minutes |
+
+## Advanced and Cross-Cutting Topics
+
+Study the contracts that span several layers: observability, provenance, protocol evolution, full-text and binary-code search, compatibility, terminal simulation, release safety, interactive visualization, and durable state.
+
+**Useful prerequisites:** Working experience in at least two earlier sections and a concrete project problem to anchor the material.
+
+**Project connection:** Fifty-three repositories map here. These resources support complex systems such as Linux-Ops-Suite, Git-Vista, workstate, teacher-thing, Zellij, agent workflows, search engines, and multi-interface applications.
+
+**Suggested order:** Choose one real cross-cutting problem, read its primary specification or design paper, write the local invariants and failure modes, and build focused tests before generalizing an abstraction.
+
+**Continue with:** [Architecture and Design Patterns](#architecture-and-design-patterns), [Performance and Resource Efficiency](#performance-and-resource-efficiency).
+
+### Project-derived concept notes
+
+- The Multi-Index Hashing paper is rigorous but not a complete implementation curriculum. teacher-thing should keep versioned golden vectors, exact-radius tests, bucket invariants, migration fixtures, and brute-force comparison tests as its educational specification.
+- Provenance, freshness, dropped-record accounting, and privacy-minimizing compiled state are covered in fragments across standards. workstate should retain a project-specific exercise that models stale, missing, failed, and unknown evidence independently.
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Official documentation | Observability primer — OpenTelemetry | <https://opentelemetry.io/docs/concepts/observability-primer/> | The project primer connects traces, metrics, logs, baggage, resources, context propagation, and correlation without tying observability to one backend. | Intermediate | 1–2 hours |
+| Official documentation | D3 by Observable | <https://d3js.org/> | The maintained D3 entry point links scales, shapes, selections, transitions, zoom, and force/graph modules for bespoke interactive data visualization. | Intermediate | 3–4 hours |
+| Reference | `tracing` — Rust API documentation | <https://docs.rs/tracing/latest/tracing/> | The instrumentation reference explains structured events, spans, causality, subscribers, filtering, async caveats, and low-overhead disabled callsites for observable systems. | Advanced | 2 hours |
+| Reference | PROV-Overview | <https://www.w3.org/TR/prov-overview/> | The W3C overview supplies a standard vocabulary for entities, activities, agents, derivations, and bundles when designing provenance-aware snapshots and compiled state. | Advanced | 1 hour |
+| Article | Fast Search in Hamming Space with Multi-Index Hashing | <https://norouzi.github.io/research/papers/multi_index_hashing.pdf> | The primary paper derives exact sub-linear search over binary codes and reports time and memory trade-offs, giving perceptual-hash systems a rigorous design baseline. | Advanced | 1–2 hours |
+| Reference | RequireJS API | <https://requirejs.org/docs/api.html> | The primary API reference documents AMD modules, dependency loading, configuration, optimization, and legacy compatibility needed to maintain older interactive visualizations. | Advanced | 1–2 hours |
+
+## Career and Certification Resources
+
+Translate hands-on practice into current, owner-published certification objectives without turning the learning path into an exam-dump directory.
+
+**Useful prerequisites:** Choose a target role first; certifications are evidence frameworks, not substitutes for projects and operational judgment.
+
+**Project connection:** The repository history includes A+ and Microsoft credential material, while the account's work also aligns with Linux administration, GitHub, and cloud fundamentals.
+
+**Suggested order:** Use an entry-level objective list as a gap analysis, practice every operational domain in a lab, then consider performance-based Linux or role-specific GitHub/cloud certifications.
+
+**Continue with:** [Security and Linux Operations](#security-and-linux-operations), [Git, GitHub, Automation, and Developer Tooling](#git-github-automation-and-developer-tooling).
+
+| Type | Title | URL | Why this is valuable | Difficulty | Estimated time |
+|---|---|---|---|---|---:|
+| Official documentation | CompTIA A+ | <https://www.comptia.org/en-us/certifications/a/> | The authoritative source for the current exam series, domains, prerequisites, delivery options, and renewal requirements. Always download objectives from the certification owner before choosing study material. | Beginner | 20 minutes |
+| Official documentation | Linux Essentials | <https://www.lpi.org/our-certifications/linux-essentials-overview/> | A vendor-neutral entry route covering Linux concepts, command-line basics, permissions, security, and open-source culture. The official objectives make it useful as a fundamentals checklist even without sitting the exam. | Beginner | 20 minutes |
+| Official documentation | About GitHub Certifications | <https://docs.github.com/en/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications> | The official map of GitHub Foundations and role-specific certifications, with direct links to current study guides and exam details. | Beginner | 15 minutes |
+| Official documentation | Microsoft Certified: Azure Fundamentals | <https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/> | The maintained certification page and objective route for cloud concepts, Azure architecture and services, and governance. Recheck the skills-measured date before scheduling because Microsoft updates objectives frequently. | Beginner | 20 minutes |
+| Official documentation | Linux Foundation Certified System Administrator | <https://training.linuxfoundation.org/certification/LFCS/> | The official performance-based Linux administration certification and current competency domains. It aligns well with hands-on service, storage, networking, user, and security work. | Intermediate | 25 minutes |
+| Official documentation | Red Hat Certified System Administrator exam EX200 | <https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam?section=Objectives> | The live RHCSA objectives for a practical enterprise-Linux exam. Check the stated RHEL version because objectives change as the platform advances. | Intermediate | 25 minutes |
+
+## Resources Removed, Replaced, Updated, or Consolidated
+
+Every non-`keep` decision from the 250-row original inventory appears below. `Update` keeps the teaching role but corrects its title or canonical URL; `Replace` selects a stronger resource; `Consolidate` removes overlap into one canonical destination; `Remove` has no direct replacement.
+
+| Original title | Original URL | Action | Reason | Replacement |
+|---|---|---|---|---|
+| About Remote Repositories | <https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories> | Update | GitHub moved the official page to its current Git basics route. | About remote repositories — <https://docs.github.com/en/get-started/git-basics/about-remote-repositories> |
+| Managing Remote Repositories | <https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories> | Update | GitHub moved the official task guide to its current Git basics route. | Managing remote repositories — <https://docs.github.com/en/get-started/git-basics/managing-remote-repositories> |
+| Push from Linux to GitHub using SSH Key | <https://www.geeksforgeeks.org/git/push-codes-from-linux-ubuntu-to-github-using-ssh-key/> | Consolidate | Duplicate third-party recipe; the official route covers key creation, registration, testing, and troubleshooting. | Connecting to GitHub with SSH — <https://docs.github.com/en/authentication/connecting-to-github-with-ssh> |
+| How to Use an SSH Key with GitHub | <https://www.ionos.com/digitalguide/websites/web-development/ssh-key-with-github/> | Consolidate | Duplicate commercial tutorial replaced by the maintained GitHub learning route. | Connecting to GitHub with SSH — <https://docs.github.com/en/authentication/connecting-to-github-with-ssh> |
+| Git SSH GitHub Push Tutorials | <https://www.youtube.com/results?search_query=git+ssh+github+push+tutorial> | Replace | Generic YouTube search results are unstable and do not identify a reviewed resource. | Connecting to GitHub with SSH — <https://docs.github.com/en/authentication/connecting-to-github-with-ssh> |
+| Use UFW to Lock Down a Server — Tailscale Docs | <https://tailscale.com/kb/1077/secure-server-ubuntu> | Update | Tailscale moved the versioned knowledge-base article to its current documentation URL. | Secure an Ubuntu server using Tailscale and UFW — <https://tailscale.com/docs/how-to/secure-ubuntu-server-with-ufw> |
+| UFW Community Help Wiki — Ubuntu | <https://help.ubuntu.com/community/UFW> | Replace | The community wiki is superseded by Ubuntu's maintained Server documentation. | Firewall — <https://ubuntu.com/server/docs/how-to/security/firewalls/> |
+| Set Up a Firewall with UFW on Ubuntu — DigitalOcean | <https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu> | Consolidate | Good introductory article, but redundant beside the current distribution-maintained guide. | Firewall — <https://ubuntu.com/server/docs/how-to/security/firewalls/> |
+| UFW Essentials: Common Firewall Rules — DigitalOcean | <https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands> | Consolidate | Command list is redundant; the official guide provides rule semantics and safety context. | Firewall — <https://ubuntu.com/server/docs/how-to/security/firewalls/> |
+| VPS Fortress with Tailscale and UFW — DEV Community | <https://dev.to/binsarjr/turn-your-vps-into-an-impenetrable-fortress-how-to-make-your-public-server-private-using-tailscale-and-ufw-3841> | Replace | Sensational community hardening post replaced by supported vendor guidance with lockout-aware sequencing. | Secure an Ubuntu server using Tailscale and UFW — <https://tailscale.com/docs/how-to/secure-ubuntu-server-with-ufw> |
+| Restrict SSH Access Using Tailscale and UFW | <https://supun.io/tailscale-ssh-restrict> | Consolidate | The official Tailscale guide covers the same access restriction pattern and stays current. | Secure an Ubuntu server using Tailscale and UFW — <https://tailscale.com/docs/how-to/secure-ubuntu-server-with-ufw> |
+| UFW Complete Guide — HackerSploit | <https://www.youtube.com/results?search_query=UFW+complete+guide+hackersploit+linux+firewall> | Replace | Generic YouTube search is not a stable reviewed resource. | Firewall — <https://ubuntu.com/server/docs/how-to/security/firewalls/> |
+| sysctl.conf Security Hardening — nixCraft | <https://www.cyberciti.biz/faq/linux-kernel-etcsysctl-conf-security-hardening/> | Replace | Community hardening recipe replaced by parameter definitions maintained with the kernel. | Linux kernel sysctl documentation — <https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html> |
+| Hardening the Linux Kernel with Sysctl — Reintech | <https://reintech.io/blog/hardening-linux-kernel-sysctl-debian-12> | Consolidate | Commercial tutorial is redundant beside the kernel project's threat-modelled guidance. | Kernel Self-Protection — <https://www.kernel.org/doc/html/latest/security/self-protection.html> |
+| Linux Hardening with Sysctl Settings — Linux Audit | <https://linux-audit.com/system-hardening/linux-hardening-with-sysctl/> | Consolidate | Useful community explanation consolidated into the authoritative networking tunable reference. | IP Sysctl — <https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html> |
+| Advanced Sysctl Security Techniques — CalCom | <https://calcomsoftware.com/sysctl-configuration-hardening/> | Replace | Vendor hardening list lacks the version and workload context supplied by kernel documentation. | Linux kernel sysctl documentation — <https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html> |
+| How-To-Secure-A-Linux-Server: sysctl Reference — GitHub | <https://github.com/imthenachoman/How-To-Secure-A-Linux-Server/blob/master/linux-kernel-sysctl-hardening.md> | Replace | Unreviewed repository checklist replaced by a kernel-maintained security design reference. | Kernel Self-Protection — <https://www.kernel.org/doc/html/latest/security/self-protection.html> |
+| Linux Kernel sysctl Hardening Tutorials | <https://www.youtube.com/results?search_query=linux+sysctl+kernel+hardening+security+tutorial> | Replace | Generic video search is unstable and cannot be quality-audited. | Linux kernel sysctl documentation — <https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html> |
+| sshd_config(5) — Linux Man Page | <https://man7.org/linux/man-pages/man5/sshd_config.5.html> | Update | Use the upstream OpenSSH manual rather than a downstream mirror. | sshd_config(5) — <https://man.openbsd.org/sshd_config.5> |
+| SSH Hardening Guides — ssh-audit.com | <https://www.sshaudit.com/hardening_guides.html> | Consolidate | Third-party hardening guidance is subordinate to upstream option semantics and validation requirements. | sshd_config(5) — <https://man.openbsd.org/sshd_config.5> |
+| Harden OpenSSH on Ubuntu — DigitalOcean | <https://www.digitalocean.com/community/tutorials/how-to-harden-openssh-on-ubuntu-20-04> | Replace | Ubuntu 20.04-specific tutorial is aging; upstream OpenSSH documentation is release-independent. | sshd_config(5) — <https://man.openbsd.org/sshd_config.5> |
+| SSH Hardening Best Practices — Linuxize | <https://linuxize.com/post/ssh-hardening-best-practices/> | Consolidate | Community checklist is redundant and risks copying directives without checking defaults or support. | sshd_config(5) — <https://man.openbsd.org/sshd_config.5> |
+| OpenSSH Security and Hardening — Linux Audit | <https://linux-audit.com/ssh/audit-and-harden-your-ssh-configuration/> | Consolidate | Retain the topic but use upstream daemon and configuration semantics as the durable source. | sshd(8) — <https://man.openbsd.org/sshd.8> |
+| Disable SSH Password Login on Linux — nixCraft | <https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/> | Consolidate | Single-setting recipe is covered by the complete upstream authentication reference. | sshd_config(5) — <https://man.openbsd.org/sshd_config.5> |
+| SSH Hardening sshd_config Tutorials | <https://www.youtube.com/results?search_query=ssh+hardening+sshd_config+linux+tutorial> | Replace | Generic video search is unstable; safe remote changes require exact current semantics. | sshd_config(5) — <https://man.openbsd.org/sshd_config.5> |
+| How to Use set and pipefail in Bash — How-To Geek | <https://www.howtogeek.com/782514/how-to-use-set-and-pipefail-in-bash-scripts-on-linux/> | Remove | Shallow strict-mode overview is redundant; the Bash manual and BashFAQ/105 cover the behavior and its exceptions more accurately. | — |
+| Safer Bash Scripts with set -euxo pipefail — vaneyckt.io | <https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/> | Remove | Community strict-mode walkthrough duplicates stronger selected sources and does not justify another treatment of the same flags. | — |
+| Make Bash Safe with set -euxo pipefail — LinuxTect | <https://linuxtect.com/make-bash-shell-safe-with-set-euxo-pipefail/> | Remove | SEO-style strict-mode article is redundant and presents a simpler reliability story than Bash semantics support. | — |
+| set -e -u -o -x pipefail Explained — GitHub Gist | <https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425> | Remove | Mutable gist duplicates the official manual, MIT checklist, and BashFAQ caveat reference without a distinct durable role. | — |
+| Bash Error Handling set -euo pipefail | <https://www.youtube.com/results?search_query=bash+scripting+set+euo+pipefail+error+handling> | Replace | Generic search results are not a resource; the replacement is a direct, manually reviewed explanation of `errexit` exceptions and portability traps. | BashFAQ/105 — Why does `set -e` behave unexpectedly? — <https://mywiki.wooledge.org/BashFAQ/105> |
+| tokio — Rust API Docs | <https://docs.rs/tokio> | Update | Use the live canonical docs.rs destination and a title that identifies the versioned crate reference. | `tokio` — Rust API documentation — <https://docs.rs/tokio/latest/tokio/> |
+| Async and Await — Rust Async Book | <https://rust-lang.github.io/async-book/part-guide/async-await.html> | Update | The root book is the durable entry point and covers futures, executors, pinning, streams, cancellation, and explicitly marked unfinished material. | Asynchronous Programming in Rust — <https://rust-lang.github.io/async-book/> |
+| Making HTTP Requests in Rust with reqwest — LogRocket | <https://blog.logrocket.com/making-http-requests-rust-reqwest/> | Replace | Replace a dated third-party tutorial with current maintainer API documentation for client reuse, timeouts, streaming, and async versus blocking clients. | `reqwest` — Rust API documentation — <https://docs.rs/reqwest/latest/reqwest/> |
+| Practical Guide to Async Rust and Tokio — Medium | <https://medium.com/@OlegKubrakov/practical-guide-to-async-rust-and-tokio-99e818c11965> | Replace | The original returned an ambiguous 403 and was manually identified as a broad community article; first-party guidance supplies a clearer distinct treatment of runtimes and blocking work. | Bridging with sync code — Tokio — <https://tokio.rs/tokio/topics/bridging> |
+| Async/await and Multi-thread Tokio Runtime — Rust Forum | <https://users.rust-lang.org/t/async-await-and-multi-thread-tokio-runtime/110107> | Remove | Narrow troubleshooting thread is context-dependent and redundant with Tokio runtime, task, and bridging documentation. | — |
+| Rust Tokio Async Programming Tutorials | <https://www.youtube.com/results?search_query=rust+tokio+async+await+programming+tutorial> | Replace | Generic search results are not stable; the direct first-party replacement fills the important cancellation and task-tracking gap. | Graceful Shutdown — Tokio — <https://tokio.rs/tokio/topics/shutdown> |
+| Tailscale Quickstart — Tailscale Docs | <https://tailscale.com/kb/1017/install> | Consolidate | Old quickstart URL overlaps the maintained Linux installation page. | Install Tailscale on Linux — <https://tailscale.com/docs/install/linux> |
+| How to Use Tailscale: Step-by-Step for Beginners — LearnLinux.tv | <https://www.learnlinux.tv/how-to-use-tailscale-step-by-step-setup-guide-for-beginners/> | Consolidate | Community walkthrough is redundant beside official installation and access-control documentation. | Install Tailscale on Linux — <https://tailscale.com/docs/install/linux> |
+| Setting Up Tailscale on Ubuntu — Pi My Life Up | <https://pimylifeup.com/ubuntu-tailscale/> | Consolidate | Third-party Ubuntu setup duplicates the maintained vendor guide. | Install Tailscale on Linux — <https://tailscale.com/docs/install/linux> |
+| Tailscale — ArchWiki | <https://wiki.archlinux.org/title/Tailscale> | Consolidate | The ArchWiki page is useful but unnecessary in the curated path once vendor setup and authorization docs are present. | Access control — <https://tailscale.com/docs/features/access-control> |
+| Tailscale Setup Linux Tutorials | <https://www.youtube.com/results?search_query=tailscale+setup+linux+tutorial+beginners> | Replace | Generic video search is not a stable, individually reviewed resource. | Install Tailscale on Linux — <https://tailscale.com/docs/install/linux> |
+| Linux Server Hardening Best Practices — Netwrix | <https://netwrix.com/en/resources/guides/linux-hardening-security-best-practices/> | Replace | Commercial checklist replaced by distribution-maintained guidance. | Security suggestions — <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> |
+| 40 Linux Server Hardening Tips — nixCraft | <https://www.cyberciti.biz/tips/linux-security.html> | Replace | Large tips list encourages decontextualized changes; official guidance explains layered controls. | Security suggestions — <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> |
+| Linux System Hardening: Top 10 Tips — TuxCare | <https://tuxcare.com/blog/linux-hardening/> | Replace | Commercial overview replaced by the current Ubuntu security baseline. | Security suggestions — <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> |
+| How-To-Secure-A-Linux-Server — GitHub | <https://github.com/imthenachoman/How-To-Secure-A-Linux-Server> | Replace | Unreviewed hardening repository replaced by maintained distribution and upstream manuals. | Security suggestions — <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> |
+| The Practical Linux Hardening Guide — GitHub | <https://github.com/trimstray/the-practical-linux-hardening-guide> | Replace | Unmaintained checklist-style repository is not a safe long-term operational guide. | Security suggestions — <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> |
+| Linux Server Security Hardening 2025 | <https://www.youtube.com/results?search_query=linux+server+security+hardening+tutorial+2025> | Replace | Year-stamped generic video search is already stale and not auditable. | Security suggestions — <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> |
+| Free Study Guide for CompTIA A+ Core Series (Updated 2026) | <https://uniontestprep.com/comptia-a-core-series-exam/study-guide> | Consolidate | Third-party exam-prep site is less durable than the certification owner's current objectives. | CompTIA A+ — <https://www.comptia.org/en-us/certifications/a/> |
+| Microsoft Credentials — All Certifications | <https://learn.microsoft.com/en-us/credentials/> | Replace | Generic credential catalog replaced by one relevant, current beginner learning objective. | Microsoft Certified: Azure Fundamentals — <https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/> |
+| MCT Renewal and Reinstatement — Microsoft Learn | <https://learn.microsoft.com/en-us/credentials/certifications/mct-renewal-reinstatement> | Remove | MCT trainer renewal is unrelated to the repository's learner-oriented technical path. | — |
+| Giving Inmates a Second Chance as Prison Call Center Agents — TechTarget | <https://www.techtarget.com/searchcustomerexperience/feature/Giving-inmates-a-second-chance-as-prison-call-center-agents> | Remove | Prison call-center employment feature is unrelated to the technical learning path. | — |
+| CompTIA A+ Study Tips for Working Professionals | <https://prepsaret.com/comptia/comptia-a-study-tips-for-working-professionals> | Remove | Low-authority exam-tips page adds no durable content beyond official objectives and established study routes. | — |
+| crossterm — Rust API Docs | <https://docs.rs/crossterm> | Update | Use the direct canonical latest-version API page instead of a redirecting crate landing URL. | crossterm crate documentation — <https://docs.rs/crossterm/latest/crossterm/> |
+| Building a Terminal UI in Rust with crossterm — Ratatui Guide | <https://ratatui.rs/concepts/backends/crossterm/> | Replace | The original is 404; the current maintainer concept page directly explains raw-mode behavior and restoration responsibilities. | Raw Mode \| Ratatui — <https://ratatui.rs/concepts/backends/raw-mode/> |
+| Rust Terminal Animation with crossterm — LogRocket | <https://blog.logrocket.com/rust-and-tui-building-a-command-line-interface/> | Replace | Replace a redirected third-party tutorial with a current maintainer recipe covering setup, event loops, signals, and terminal cleanup. | Tui with Terminal and EventHandler \| Ratatui — <https://ratatui.rs/recipes/apps/terminal-and-event-handler/> |
+| crossterm Color::Rgb Syntax — Rust Users Forum | <https://users.rust-lang.org/t/crossterm-color-rgb/92777> | Replace | The forum URL is 404; the canonical enum reference directly documents Color::Rgb and the other variants. | Color in crossterm::style — <https://docs.rs/crossterm/latest/crossterm/style/enum.Color.html> |
+| clap — Command Line Argument Parser for Rust | <https://docs.rs/clap> | Update | The direct derive tutorial teaches Parser, arguments, subcommands, and validation more effectively than the redirecting crate root. | clap derive tutorial — <https://docs.rs/clap/latest/clap/_derive/_tutorial/> |
+| egui — Immediate Mode GUI for Rust | <https://docs.rs/egui> | Update | Use the canonical latest-version API URL rather than a redirecting crate landing URL. | egui crate documentation — <https://docs.rs/egui/latest/egui/> |
+| eframe — egui App Framework | <https://docs.rs/eframe> | Update | Use the canonical latest-version API URL rather than a redirecting crate landing URL. | eframe crate documentation — <https://docs.rs/eframe/latest/eframe/> |
+| Writing a GUI app in Rust with egui — LogRocket | <https://blog.logrocket.com/build-desktop-app-rust-egui/> | Consolidate | The tutorial is 404 and its setup role is already covered by the current official eframe documentation. | eframe crate documentation — <https://docs.rs/eframe/latest/eframe/> |
+| egui Painter and 2D Drawing — egui Discussions | <https://github.com/emilk/egui/discussions/categories/q-a> | Replace | A generic discussion category requires searching; the direct Painter API page provides the actual drawing contract. | Painter in egui — <https://docs.rs/egui/latest/egui/struct.Painter.html> |
+| serde — Rust Serialization Framework | <https://docs.rs/serde> | Update | Use the canonical live rustdoc destination and identify this as the ongoing API reference rather than the learning guide. | `serde` — Rust API documentation — <https://docs.rs/serde/latest/serde/> |
+| serde_json — Rust API Docs | <https://docs.rs/serde_json> | Update | Use the canonical live rustdoc destination, which covers typed values, streams, errors, readers, and writers. | `serde_json` — Rust API documentation — <https://docs.rs/serde_json/latest/serde_json/> |
+| Working with JSON in Rust — LogRocket | <https://blog.logrocket.com/json-and-rust-why-serde_json-is-the-top-choice/> | Remove | The broad third-party tutorial duplicates the current Serde Guide and crate references without a distinct durable teaching role. | — |
+| Deserializing JSON in Rust — Zero to Production | <https://www.lpalmieri.com/posts/serde-in-rust/> | Consolidate | The original returns 404 and its derive-and-field-handling role is covered more completely by the maintained Serde Guide. | Serde Guide — <https://serde.rs/> |
+| rsync Man Page — linux.die.net | <https://linux.die.net/man/1/rsync> | Update | Replace the stale third-party mirror with the current upstream rsync manual. | rsync(1) — <https://rsync.samba.org/ftp/rsync/rsync.1.html> |
+| How to Use notify-send on Linux — LinuxHandbook | <https://linuxhandbook.com/notify-send/> | Replace | Original page is dead; maintained package manual documents current options. | notify-send(1) — <https://manpages.debian.org/trixie/libnotify-bin/notify-send.1.en.html> |
+| Cron-Safe Bash Scripts — Bash Hackers Wiki | <https://bash.cyberciti.biz/guide/Main_Page> | Replace | General Bash wiki homepage did not specifically teach reliable scheduled-job semantics. | crontab(5) — <https://man7.org/linux/man-pages/man5/crontab.5.html> |
+| Detect If Script Is Running in Cron — Stack Overflow | <https://stackoverflow.com/questions/3214935/detect-if-script-is-running-in-cron> | Replace | Q&A workaround replaced by an inspectable scheduler with explicit service context and logs. | systemd.timer(5) — <https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html> |
+| Using findmnt to Find Real Mountpoints — nixCraft | <https://www.cyberciti.biz/tips/howto-find-linux-mount-point.html> | Replace | Community article replaced by the maintained upstream-derived command reference. | findmnt(8) — <https://man7.org/linux/man-pages/man8/findmnt.8.html> |
+| Desktop Entry Specification — freedesktop.org | <https://specifications.freedesktop.org/desktop-entry-spec/latest/> | Update | Freedesktop reorganized specification URLs; use the current canonical path. | Desktop Entry Specification — <https://specifications.freedesktop.org/desktop-entry/latest/> |
+| Creating Application Launchers on Linux — MakeUseOf | <https://www.makeuseof.com/how-to-create-desktop-entry-file-linux/> | Replace | Original article is dead and lower authority than the normative specification. | Desktop Entry Specification — <https://specifications.freedesktop.org/desktop-entry/latest/> |
+| XDG Base Directory Spec — ArchWiki | <https://wiki.archlinux.org/title/XDG_Base_Directory> | Update | Replace a community summary with the current normative specification. | XDG Base Directory Specification — <https://specifications.freedesktop.org/basedir/latest/> |
+| .desktop File Not Showing in Menu — Ask Ubuntu | <https://askubuntu.com/questions/306748/how-do-i-add-application-to-app-menu> | Replace | Dead Q&A page replaced by maintained desktop integration and validation guidance. | Integrating with the desktop — <https://developer.gnome.org/documentation/guidelines/maintainer/integrating.html> |
+| ratatui 0.26 crate | <https://docs.rs/ratatui/0.26.3> | Update | Remove the stale 0.26 version pin so the resource teaches the supported API. | ratatui crate documentation — <https://docs.rs/ratatui/latest/ratatui/> |
+| sysinfo crate | <https://docs.rs/sysinfo/0.30> | Update | Remove the stale 0.30 version pin and use the canonical latest-version API reference. | sysinfo crate documentation — <https://docs.rs/sysinfo/latest/sysinfo/> |
+| ratatui GitHub examples | <https://github.com/ratatui/ratatui/tree/main/examples> | Update | Retitle the resource accurately as official maintainer examples rather than a blog. | Ratatui maintainer examples — <https://github.com/ratatui/ratatui/tree/main/examples> |
+| Axum 0.7 Docs | <https://docs.rs/axum/0.7/> | Update | Remove the stale 0.7 version pin and use the canonical current API reference. | axum crate documentation — <https://docs.rs/axum/latest/axum/> |
+| ratatui Book | <https://ratatui.rs/introduction/> | Consolidate | The original is 404 and duplicates the teaching role of the live Ratatui tutorials at LD-0091. | Tutorials \| Ratatui — <https://ratatui.rs/tutorials/> |
+| sysinfo 0.30 Docs | <https://docs.rs/sysinfo/0.30/> | Consolidate | This duplicates LD-0090; keep one canonical current sysinfo reference. | sysinfo crate documentation — <https://docs.rs/sysinfo/latest/sysinfo/> |
+| crossterm Docs | <https://docs.rs/crossterm/> | Consolidate | This duplicates LD-0060; keep one canonical current crossterm reference. | crossterm crate documentation — <https://docs.rs/crossterm/latest/crossterm/> |
+| Tokio spawn_blocking guide | <https://tokio.rs/tokio/topics/bridging> | Update | The URL is healthy, but the official Tokio guide should be accurately titled and typed rather than labeled a blog. | Bridging with sync code \| Tokio — <https://tokio.rs/tokio/topics/bridging> |
+| sysctl.d man page | <https://www.man7.org/linux/man-pages/man5/sysctl.d.5.html> | Update | Use the canonical non-www man7 URL represented in the curated path. | sysctl.d(5) — <https://man7.org/linux/man-pages/man5/sysctl.d.5.html> |
+| UFW man page | <https://manpages.ubuntu.com/manpages/focal/man8/ufw.8.html> | Update | Version-pinned Focal manpage replaced by current maintained Ubuntu firewall documentation. | Firewall — <https://ubuntu.com/server/docs/how-to/security/firewalls/> |
+| Tailscale docs — Linux installation | <https://tailscale.com/kb/1031/install-linux> | Update | Old knowledge-base URL moved to current Tailscale documentation. | Install Tailscale on Linux — <https://tailscale.com/docs/install/linux> |
+| Linux Hardening Guide — madaidans-insecurities | <https://madaidans-insecurities.github.io/guides/linux-hardening.html> | Remove | Opinionated hardening list is not sufficiently workload-aware for a copy-safe learning path; authoritative sources replace its useful topics. | — |
+| UFW — community help | <https://help.ubuntu.com/community/UFW> | Consolidate | Duplicate community UFW page consolidated into current Ubuntu Server documentation. | Firewall — <https://ubuntu.com/server/docs/how-to/security/firewalls/> |
+| net.ipv4.conf.all vs .default — what's the difference | <https://serverfault.com/questions/431593/difference-between-sysctl-net-ipv4-conf-all-and-default> | Consolidate | The original Server Fault URL now redirects to an unrelated iptables question; the kernel reference documents current all/default and per-interface semantics. | IP Sysctl — <https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html> |
+| Tailscale + UFW — locking down with Tailscale | <https://tailscale.com/kb/1077/secure-server-ubuntu-18-04> | Update | Old Tailscale knowledge-base URL moved to the current documentation route. | Secure an Ubuntu server using Tailscale and UFW — <https://tailscale.com/docs/how-to/secure-ubuntu-server-with-ufw> |
+| Ollama — GitHub | <https://github.com/ollama/ollama> | Update | Project homepage replaced by the maintained task-specific documentation entry point. | Ollama API introduction — <https://docs.ollama.com/api/introduction> |
+| Ollama REST API reference | <https://github.com/ollama/ollama/blob/main/docs/api.md> | Update | API documentation moved from the GitHub repository to the official docs site. | Ollama API introduction — <https://docs.ollama.com/api/introduction> |
+| Phi-3 Mini on Ollama | <https://ollama.com/library/phi3> | Replace | Model-specific Phi-3 bookmark will age; model-card literacy transfers across current local models. | Model Cards — <https://huggingface.co/docs/hub/en/model-cards> |
+| Running LLMs locally with Ollama | <https://ollama.com/blog> | Replace | Generic product blog replaced by a durable operational guide to the main local inference constraint. | Ollama context length — <https://docs.ollama.com/context-length> |
+| Gemma 2B model card | <https://ollama.com/library/gemma> | Replace | Old Gemma 2B model tag replaced by Google's maintained current family documentation. | Gemma documentation — <https://ai.google.dev/gemma/docs> |
+| Qt6 QPalette / Fusion dark theme | <https://doc.qt.io/qt-6/qpalette.html> | Update | The page documents QPalette but not a complete Fusion-theme recipe; retitle it to match its actual scope. | Qt 6 QPalette documentation — <https://doc.qt.io/qt-6/qpalette.html> |
+| QApplication.setFont() cascade | <https://doc.qt.io/qt-6/qapplication.html#setFont> | Update | The direct official anchor is healthy; use an accurate API-reference title rather than labeling it a blog. | QApplication::setFont documentation — <https://doc.qt.io/qt-6/qapplication.html#setFont> |
+| Axum web framework | <https://docs.rs/axum/latest/axum/> | Consolidate | This is the same canonical Axum resource selected for LD-0093; retain a single entry. | axum crate documentation — <https://docs.rs/axum/latest/axum/> |
+| Python subprocess vs localhost HTTP for Rust sidecars | <https://pythonspeed.com/articles/faster-python-subprocess/> | Replace | The original is 404 and overstates an architectural comparison; the Python standard-library reference directly documents process, stream, timeout, and exit-code contracts. | subprocess — Subprocess management — <https://docs.python.org/3/library/subprocess.html> |
+| Running PyQt6 GUI in Docker with X11 | <https://wiki.ros.org/docker/Tutorials/GUI> | Remove | The ROS-specific xhost recipe is environment-dependent and broadens local X-server access; it is not a durable general PyQt6 deployment lesson. | — |
+| Go flag package | <https://pkg.go.dev/flag> | Consolidate | Consolidate this small package lookup into LD-0137’s updated standard-library index; targeted references remain only where they teach a cross-cutting design concept. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| Go time.Duration | <https://pkg.go.dev/time#Duration> | Consolidate | Consolidate the `time` lookup into LD-0137’s updated standard-library index to avoid a long run of tiny API fragments. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| os/signal — Notify | <https://pkg.go.dev/os/signal#Notify> | Update | `NotifyContext` is the modern composable path from SIGINT or SIGTERM to cancellation and avoids hand-managed signal channels. | `os/signal.NotifyContext` — Go standard library — <https://pkg.go.dev/os/signal#NotifyContext> |
+| ANSI escape codes — cursor & colour | <https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797> | Remove | Mutable ANSI gist is outside the core-language sections and should not displace primary terminal standards or framework guidance in the application-development batch. | — |
+| encoding/json package | <https://pkg.go.dev/encoding/json> | Consolidate | Consolidate this package lookup into LD-0137’s updated maintained standard-library index. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| os.ReadFile / os.WriteFile | <https://pkg.go.dev/os#ReadFile> | Update | Promote this row to the canonical maintained standard-library index that absorbs the adjacent one-function package links. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| os.UserHomeDir | <https://pkg.go.dev/os#UserHomeDir> | Consolidate | Same normalized `os` documentation as LD-0137; consolidate into that row’s broader standard-library destination. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| strconv.Atoi | <https://pkg.go.dev/strconv#Atoi> | Consolidate | Consolidate this one-function lookup into LD-0137’s standard-library index. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| sort.Slice | <https://pkg.go.dev/sort#Slice> | Consolidate | Consolidate this one-function lookup into LD-0137’s standard-library index, which also stays current as generic slice APIs evolve. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| Go struct tags explained | <https://www.digitalocean.com/community/tutorials/how-to-use-struct-tags-in-go> | Consolidate | The official `encoding/json` reference reachable through the selected standard-library index covers the relevant tag semantics without retaining a redundant third-party primer. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| time.Time.Format reference | <https://pkg.go.dev/time#Time.Format> | Consolidate | Same normalized `time` documentation as LD-0132; consolidate both into LD-0137’s standard-library index. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| Standard Go project layout | <https://github.com/golang-standards/project-layout> | Replace | The community repository is not an official standard and encourages unnecessary directories; replace it with deliberately scoped guidance from the Go project. | Organizing a Go module — <https://go.dev/doc/modules/layout> |
+| internal/ packages (Go spec) | <https://pkg.go.dev/cmd/go#hdr-Internal_Directories> | Consolidate | The selected official module-layout guide explains `internal` in context, so a separate command-reference fragment is unnecessary in the learning path. | Organizing a Go module — <https://go.dev/doc/modules/layout> |
+| flag.Value interface | <https://pkg.go.dev/flag#Value> | Consolidate | Same normalized `flag` documentation as LD-0131; consolidate into LD-0137’s standard-library index. | Standard library — Go Packages — <https://pkg.go.dev/std> |
+| Go channels explained | <https://go.dev/tour/concurrency/2> | Update | Correct the misleading Blog label through the candidate metadata and use the tour’s stable contents page, which includes the full goroutine and channel sequence. | A Tour of Go — <https://go.dev/tour/list> |
+| Separation of concerns in Go | <https://threedots.tech/post/introducing-clean-architecture-in-go/> | Remove | The URL is dead and the broad clean-architecture treatment belongs in the architecture batch, not as evidence for Go’s core layout or concurrency model. | — |
+| WebSocket protocol explained | <https://developer.mozilla.org/en-US/docs/Web/API/WebSocket> | Update | The page documents the browser WebSocket API, not the wire protocol; correct the title and teaching claim. | WebSocket \| MDN — <https://developer.mozilla.org/en-US/docs/Web/API/WebSocket> |
+| rsync man page | <https://linux.die.net/man/1/rsync> | Consolidate | Consolidate the stale third-party mirror into the current upstream rsync manual selected for the earlier duplicate. | rsync(1) — <https://rsync.samba.org/ftp/rsync/rsync.1.html> |
+| Bash set -euo pipefail | <https://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin> | Update | Promote the official manual root so quoting, pipelines, traps, cleanup, and option interactions remain available instead of presenting `set -euo pipefail` as a complete safety model. | Bash Reference Manual — <https://www.gnu.org/software/bash/manual/bash.html> |
+| Safe crontab editing pattern | <https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor> | Remove | Crowd-sourced append pipeline is not idempotent by itself and is weaker than an operations note that explicitly handles duplicate jobs, empty crontabs, and atomic replacement. | — |
+| mountpoint man page | <https://linux.die.net/man/1/mountpoint> | Update | Use the maintained manual-page rendering and a precise title for the backup-drive guard command. | `mountpoint(1)` — Linux manual page — <https://man7.org/linux/man-pages/man1/mountpoint.1.html> |
+| rich library docs | <https://rich.readthedocs.io/en/stable/> | Update | Use the maintained latest-documentation route selected for Rich rather than retaining a second normalized version path. | Rich documentation — <https://rich.readthedocs.io/en/latest/> |
+| rich.live.Live | <https://rich.readthedocs.io/en/stable/live.html> | Update | Use the maintained latest-documentation route for the focused Live lifecycle guide. | Live Display — Rich — <https://rich.readthedocs.io/en/latest/live.html> |
+| rich.text.Text | <https://rich.readthedocs.io/en/stable/text.html> | Consolidate | The root Rich documentation provides Text navigation; retain one focused Live page but avoid another low-level class row. | Rich documentation — <https://rich.readthedocs.io/en/latest/> |
+| Matrix digital rain in Python | <https://realpython.com/python-rich/> | Consolidate | The original produced an ambiguous 403 and manual review confirmed a broad Rich overview; the reachable maintainer documentation is more current and authoritative. | Rich documentation — <https://rich.readthedocs.io/en/latest/> |
+| zstd crate — docs.rs | <https://docs.rs/zstd> | Update | Use the canonical live rustdoc destination for streaming encoders, decoders, dictionaries, and feature flags. | `zstd` — Rust API documentation — <https://docs.rs/zstd/latest/zstd/> |
+| tar crate — docs.rs | <https://docs.rs/tar> | Update | Use the canonical live rustdoc destination and retain the distinct streaming archive implementation role. | `tar` — Rust API documentation — <https://docs.rs/tar/latest/tar/> |
+| rusqlite — bundled + FTS5 | <https://docs.rs/rusqlite> | Update | Use the canonical live rustdoc destination; the reason text now covers the full binding rather than implying one build feature is the resource. | `rusqlite` — Rust API documentation — <https://docs.rs/rusqlite/latest/rusqlite/> |
+| indicatif — wrap_read / ProgressBar | <https://docs.rs/indicatif> | Update | Use the canonical rustdoc root, which preserves `wrap_read` while also covering draw targets, iterators, multi-progress, and non-TTY behavior. | `indicatif` — Rust API documentation — <https://docs.rs/indicatif/latest/indicatif/> |
+| comfy-table — dynamic tables | <https://docs.rs/comfy-table> | Update | Use the canonical rustdoc destination and a title matching the actual crate/module name. | `comfy_table` — Rust API documentation — <https://docs.rs/comfy-table/latest/comfy_table/> |
+| SQLite FTS5 contentless tables | <https://www.sqlite.org/fts5.html#contentless_tables> | Consolidate | The selected FTS5 page already contains the contentless, external-content, ranking, tokenizer, and maintenance sections; a second fragment row would duplicate one resource. | SQLite FTS5 Extension — <https://www.sqlite.org/fts5.html> |
+| SQLite bulk insert performance (transactions) | <https://avi.im/blag/2021/fast-sqlite-inserts/> | Update | Retain this measured community benchmark under its exact title because it distinctly demonstrates transaction batching and prepared-statement reuse, with explicit warnings that its unsafe PRAGMAs sacrifice durability. | Towards Inserting One Billion Rows in SQLite Under A Minute — <https://avi.im/blag/2021/fast-sqlite-inserts/> |
+| blake3 crate — docs.rs | <https://docs.rs/blake3> | Update | Use the canonical rustdoc destination for incremental, parallel, mapped-file, keyed, and derive-key hashing APIs. | `blake3` — Rust API documentation — <https://docs.rs/blake3/latest/blake3/> |
+| walkdir crate — docs.rs | <https://docs.rs/walkdir> | Update | Use the canonical rustdoc destination for pruning, links, same-filesystem traversal, descriptor limits, sorting, and entry errors. | `walkdir` — Rust API documentation — <https://docs.rs/walkdir/latest/walkdir/> |
+| infer crate — docs.rs | <https://docs.rs/infer> | Update | Use the canonical rustdoc destination and retain its distinct magic-byte detection role. | `infer` — Rust API documentation — <https://docs.rs/infer/latest/infer/> |
+| mime_guess crate — docs.rs | <https://docs.rs/mime_guess> | Update | Use the canonical rustdoc destination and frame extension lookup as a fallible complement to content signatures. | `mime_guess` — Rust API documentation — <https://docs.rs/mime_guess/latest/mime_guess/> |
+| kamadak-exif crate — docs.rs | <https://docs.rs/kamadak-exif> | Update | Use the actual rustdoc crate/module title and canonical destination for supported EXIF/TIFF parsing. | `exif` — Rust API documentation — <https://docs.rs/kamadak-exif/latest/exif/> |
+| pdf-extract crate — docs.rs | <https://docs.rs/pdf-extract> | Update | Use the canonical rustdoc destination and avoid implying that text extraction provides OCR or layout fidelity. | `pdf_extract` — Rust API documentation — <https://docs.rs/pdf-extract/latest/pdf_extract/> |
+| calamine crate — docs.rs | <https://docs.rs/calamine> | Update | Use the canonical rustdoc destination for workbook, sheet, range, cell, formula, and date handling. | `calamine` — Rust API documentation — <https://docs.rs/calamine/latest/calamine/> |
+| quick-xml crate — docs.rs | <https://docs.rs/quick-xml> | Update | Use the canonical rustdoc destination for streaming XML events, encoding, namespaces, and Serde support. | `quick_xml` — Rust API documentation — <https://docs.rs/quick-xml/latest/quick_xml/> |
+| rayon crate — docs.rs | <https://docs.rs/rayon> | Update | Use the canonical rustdoc destination and retain the implementation reference alongside measurement-first performance guidance. | `rayon` — Rust API documentation — <https://docs.rs/rayon/latest/rayon/> |
+| indicatif crate — docs.rs | <https://docs.rs/indicatif> | Consolidate | Exact duplicate of LD-0175; consolidate into that earlier indicatif entry and use its canonical rustdoc destination. | `indicatif` — Rust API documentation — <https://docs.rs/indicatif/latest/indicatif/> |
+| assert_cmd crate — docs.rs | <https://docs.rs/assert_cmd> | Update | Use the canonical rustdoc destination for black-box CLI status, output, environment, and cargo-binary assertions. | `assert_cmd` — Rust API documentation — <https://docs.rs/assert_cmd/latest/assert_cmd/> |
+| BLAKE3 — much faster than MD5/SHA | <https://github.com/BLAKE3-team/BLAKE3> | Update | Correct the mislabeled Blog and marketing-like title; the official repository's value is its specification, design paper, implementations, vectors, benchmarks, and security notes. | BLAKE3 — official implementations and specification — <https://github.com/BLAKE3-team/BLAKE3> |
+| Two-phase scan pattern for deleted file detection | <https://www.sqlite.org/lang_update.html> | Replace | The generic UPDATE syntax page does not teach the claimed mark-absent/walk/mark-present application pattern; replace it with the authoritative transaction-boundary reference and capture the two-phase scan as a project-specific note. | Transaction — SQLite — <https://www.sqlite.org/lang_transaction.html> |
+| humanize Python library | <https://python-humanize.readthedocs.io/> | Update | Use the current canonical documentation host and keep human-facing presentation explicitly separate from stored machine values. | humanize — <https://humanize.readthedocs.io/en/latest/> |
+| subprocess.run — Python docs | <https://docs.python.org/3/library/subprocess.html#subprocess.run> | Consolidate | The canonical Python subprocess reference is already curated in the error-handling and architecture batches; avoid a third duplicate fragment row. | `subprocess` — Subprocess management — <https://docs.python.org/3/library/subprocess.html> |
+| XDG Base Directory Specification | <https://specifications.freedesktop.org/basedir-spec/latest/> | Update | Use the specification's current canonical URL; it defines config, data, state, cache, runtime, and search directories. | XDG Base Directory Specification — <https://specifications.freedesktop.org/basedir/latest/> |
+| dirs crate — docs.rs | <https://docs.rs/dirs> | Update | Use the canonical rustdoc destination for cross-platform home, config, data, cache, state, and executable paths. | `dirs` — Rust API documentation — <https://docs.rs/dirs/latest/dirs/> |
+| QEMU virtiofs docs | <https://qemu.readthedocs.io/en/latest/tools/virtiofsd.html> | Replace | QEMU removed its legacy virtiofsd; use the maintained Rust implementation documentation. | virtiofsd — <https://gitlab.com/virtio-fs/virtiofsd/-/blob/main/README.md> |
+| Arch Wiki — virtiofs | <https://wiki.archlinux.org/title/Virtio#Mounting_a_host_directory> | Consolidate | Old ArchWiki anchor is unstable; libvirt maintains a focused setup and limitations guide. | Sharing files with Virtiofs — <https://libvirt.org/kbase/virtiofs.html> |
+| systemd.mount — virtiofs fstab options | <https://systemd.io/MOUNT_REQUIREMENTS/> | Update | Generic mount requirements page replaced by the exact official mount-unit reference. | systemd.mount(5) — <https://www.freedesktop.org/software/systemd/man/latest/systemd.mount.html> |
+| ~/.local/bin — XDG user executables | <https://specifications.freedesktop.org/basedir-spec/latest/> | Update | Freedesktop reorganized the specification URL; use the current canonical route. | XDG Base Directory Specification — <https://specifications.freedesktop.org/basedir/latest/> |
+| Managing dotfiles with symlinks (no frameworks) | <https://alexpearce.me/2016/02/managing-dotfiles/> | Consolidate | Aging personal blog is redundant beside the maintained upstream symlink manager manual. | GNU Stow manual — <https://www.gnu.org/software/stow/manual/stow.html> |
+| github.com/spf13/cobra — CLI framework | <https://pkg.go.dev/github.com/spf13/cobra> | Update | The maintainer how-to gives a clearer direct path through command structure, arguments, RunE, and errors than the generated package index. | Working with Commands \| Cobra — <https://cobra.dev/docs/how-to-guides/working-with-commands/> |
+| Go project layout — Standard Go Project Layout | <https://github.com/golang-standards/project-layout> | Consolidate | The misleading community “standard layout” is replaced by the Go team's deliberately modest module-organization guidance. | Organizing a Go module — <https://go.dev/doc/modules/layout> |
+| Go testing package — table-driven tests | <https://go.dev/doc/faq#testing> | Replace | The FAQ anchor does not teach table-driven tests; the direct Go wiki page provides the actual pattern and examples. | Go Wiki: TableDrivenTests — <https://go.dev/wiki/TableDrivenTests> |
+| Cobra — RunE vs Run | <https://pkg.go.dev/github.com/spf13/cobra#Command> | Consolidate | The current official command guide selected for LD-0214 directly explains RunE and error propagation, so a second Cobra entry is redundant. | Working with Commands \| Cobra — <https://cobra.dev/docs/how-to-guides/working-with-commands/> |
+| Ollama API docs | <https://github.com/ollama/ollama/blob/main/docs/api.md> | Update | The API documentation moved from the GitHub repository into Ollama's maintained documentation site. | Ollama API introduction — <https://docs.ollama.com/api/introduction> |
+| ratatui — Rust TUI framework | <https://ratatui.rs/> | Consolidate | This is the same Ratatui maintainer site selected for LD-0088; retain one entry. | ratatui docs — <https://ratatui.rs/> |
+| crossterm — terminal backend | <https://docs.rs/crossterm/latest/crossterm/> | Consolidate | This is the same canonical Crossterm API selected for LD-0060; retain one entry. | crossterm crate documentation — <https://docs.rs/crossterm/latest/crossterm/> |
+| std::process::Command | <https://doc.rust-lang.org/std/process/struct.Command.html> | Consolidate | Exact duplicate of LD-0110; consolidate into the earlier Rust process API entry to avoid maintaining the same URL twice. | std::process::Command — Rust docs — <https://doc.rust-lang.org/std/process/struct.Command.html> |
+| thiserror | <https://docs.rs/thiserror> | Update | Use the canonical live docs.rs destination and identify its role as the typed library-error derive reference. | `thiserror` — Rust API documentation — <https://docs.rs/thiserror/latest/thiserror/> |
+| thiserror vs anyhow | <https://www.shuttle.rs/blog/2023/10/04/error-handling-rust> | Replace | The article now resolves to a 404; maintainer documentation preserves the complementary application-error role with context chains and backtrace behavior. | `anyhow` — Rust API documentation — <https://docs.rs/anyhow/latest/anyhow/> |
+| GitHub CLI manual | <https://cli.github.com/manual/> | Update | Use the canonical manual root and stable gh command index. | GitHub CLI manual — <https://cli.github.com/manual/gh> |
+| Create an app password | <https://support.google.com/accounts/answer/185833> | Update | The Google Accounts URL now returns 404; Gmail Help carries the current official app-password guidance. | Sign in with app passwords — <https://support.google.com/mail/answer/185833?hl=en> |
+| Using passwordeval for secrets | <https://www.cyberciti.biz/faq/linux-unix-bsd-msmtp-gmail/> | Consolidate | Community recipe is redundant; upstream documents passwordeval while OWASP covers secret lifecycle and leakage risk. | msmtp manual — <https://marlam.de/msmtp/msmtp.html> |
+
+## Resources Added
+
+These final resources were not present among the original inventory's 243 exact URLs (234 after normalization). Each was selected to replace a weak teaching role, provide a stronger primary source, or cover a concept found during the 102-repository review.
+
+| Title | URL | Destination section | Why selected |
+|---|---|---|---|
+| The Rust Programming Language | <https://doc.rust-lang.org/book/> | Core Language Fundamentals | The canonical first path through ownership, borrowing, traits, iterators, modules, file I/O, and Cargo; it supplies the conceptual spine that API references assume. |
+| Rust By Example | <https://doc.rust-lang.org/rust-by-example/> | Core Language Fundamentals | Runnable examples reinforce Rust syntax, ownership, modules, traits, iterators, error handling, and standard-library use after each corresponding Book chapter. |
+| A Tour of Go | <https://go.dev/tour/list> | Core Language Fundamentals | The Go team’s interactive sequence introduces packages, methods, interfaces, generics, goroutines, and channels before the denser specification and package references. |
+| The Python Tutorial | <https://docs.python.org/3/tutorial/index.html> | Core Language Fundamentals | Python’s own tutorial covers data structures, control flow, modules, classes, exceptions, generators, and standard-library orientation with fewer version-drift risks than third-party primers. |
+| Organizing a Go module | <https://go.dev/doc/modules/layout> | Core Language Fundamentals | Official, intentionally modest layout guidance replaces the misleading community “standard layout” and explains root packages, commands, and `internal` without prescribing unused folders. |
+| Standard library — Go Packages | <https://pkg.go.dev/std> | Core Language Fundamentals | One maintained index replaces a cluster of tiny links while preserving direct access to `flag`, `time`, `os`, `encoding/json`, `strconv`, `sort`, and the rest of the versioned standard library. |
+| Python Tutorial — Generators | <https://docs.python.org/3/tutorial/classes.html#generators> | Core Language Fundamentals | The focused generator section explains `yield`, saved execution state, and generator expressions, filling a concept that broad Python introductions often mention only briefly. |
+| `typing` — Support for type hints | <https://docs.python.org/3/library/typing.html> | Core Language Fundamentals | The standard-library reference documents protocols, generics, type aliases, narrowing, and gradual typing used to make Python tools maintainable without implying runtime enforcement. |
+| Packaging Python Projects | <https://packaging.python.org/en/latest/tutorials/packaging-projects/> | Core Language Fundamentals | The PyPA tutorial provides the current `pyproject.toml`, build, and publication path and avoids obsolete `setup.py`-first packaging advice. |
+| The Rust Reference | <https://doc.rust-lang.org/reference/> | Core Language Fundamentals | The primary language reference resolves exact questions about expressions, types, lifetimes, traits, and edition behavior without pretending to be an introductory tutorial. |
+| The Go Programming Language Specification | <https://go.dev/ref/spec> | Core Language Fundamentals | The current normative reference defines Go syntax, types, interfaces, method sets, generics, and concurrency semantics when tutorial shorthand is insufficient. |
+| The Python Language Reference | <https://docs.python.org/3/reference/index.html> | Core Language Fundamentals | The authoritative grammar and data-model reference is the right destination for precise questions about execution, expressions, imports, coroutines, and language semantics. |
+| POSIX.1-2024 Shell Command Language | <https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html> | Core Language Fundamentals | The current POSIX shell specification separates portable `sh` semantics from Bash extensions, especially for quoting, expansion, pipelines, redirection, and exit status. |
+| humanize | <https://humanize.readthedocs.io/en/latest/> | Libraries and Frameworks Used in Tom's Projects | The project reference provides tested size, number, time, and date presentation helpers while keeping human-facing formatting separate from stored machine values. |
+| sysinfo crate documentation | <https://docs.rs/sysinfo/latest/sysinfo/> | Libraries and Frameworks Used in Tom's Projects | Current API reference for refreshing and reading system, process, disk, network, CPU, and memory information. |
+| Command Line Interface Guidelines | <https://clig.dev/> | CLI and TUI Development | A practical end-to-end guide to help, arguments, stdout and stderr, exit status, interactivity, signals, configuration, and humane errors. |
+| clap derive tutorial | <https://docs.rs/clap/latest/clap/_derive/_tutorial/> | CLI and TUI Development | Progressive maintainer tutorial for Parser derives, arguments, subcommands, defaults, and validation in Rust CLIs. |
+| Working with Commands — Cobra | <https://cobra.dev/docs/how-to-guides/working-with-commands/> | CLI and TUI Development | Direct maintainer guidance for command trees, argument validation, RunE, error propagation, and exit behavior in Go CLIs. |
+| Color in crossterm::style | <https://docs.rs/crossterm/latest/crossterm/style/enum.Color.html> | CLI and TUI Development | Direct enum contract for RGB, indexed, named, and reset colors without relying on stale Q&A syntax. |
+| Bubble Tea | <https://github.com/charmbracelet/bubbletea> | CLI and TUI Development | Maintainer tutorial and examples for the Model, Update, View lifecycle and declarative terminal state in Go. |
+| Go Wiki: TableDrivenTests | <https://go.dev/wiki/TableDrivenTests> | CLI and TUI Development | Direct Go pattern for compact behavior matrices that suit parsers, command semantics, and CLI edge cases. |
+| `indicatif` — Rust API documentation | <https://docs.rs/indicatif/latest/indicatif/> | CLI and TUI Development | The crate reference documents progress bars, draw targets, iterators, `Read`/`Write` wrappers, multi-progress rendering, and non-TTY behavior for long data jobs. |
+| `comfy_table` — Rust API documentation | <https://docs.rs/comfy-table/latest/comfy_table/> | CLI and TUI Development | This implementation reference covers deterministic terminal tables, width constraints, wrapping, alignment, styling, and Unicode-aware layout for data-oriented CLIs. |
+| Raw Mode — Ratatui | <https://ratatui.rs/concepts/backends/raw-mode/> | CLI and TUI Development | Explains canonical versus raw input, signal implications, and the obligation to restore the terminal. |
+| Tui with Terminal and EventHandler — Ratatui | <https://ratatui.rs/recipes/apps/terminal-and-event-handler/> | CLI and TUI Development | Maintainer recipe for startup, alternate screen, event loops, signals, async coordination, and cleanup on every exit path. |
+| ratatui crate documentation | <https://docs.rs/ratatui/latest/ratatui/> | CLI and TUI Development | Current widget, buffer, backend, terminal, style, and layout API reference without a stale version pin. |
+| Testing with insta snapshots — Ratatui | <https://ratatui.rs/recipes/testing/snapshots/> | CLI and TUI Development | Maintainer recipe that combines TestBackend buffers with reviewable snapshot tests for whole-screen regressions. |
+| Introduction to POSIX Utilities | <https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap01.html> | CLI and TUI Development | Durable standard-level reference for option syntax, operands, diagnostics, environment, standard streams, and exit behavior. |
+| Unicode Standard Annex 11: East Asian Width | <https://www.unicode.org/reports/tr11/> | CLI and TUI Development | Primary reference for width properties and ambiguous-width behavior behind terminal-cell alignment bugs. |
+| pty(7) — Linux manual page | <https://www.man7.org/linux/man-pages/man7/pty.7.html> | CLI and TUI Development | Defines master and slave pseudoterminals, foreground process groups, signals, and why terminal panels are not ordinary pipes. |
+| egui crate documentation | <https://docs.rs/egui/latest/egui/> | GUI, Web, and Interactive Application Development | Current API reference for immediate-mode widgets, layouts, input, textures, and custom painting. |
+| eframe crate documentation | <https://docs.rs/eframe/latest/eframe/> | GUI, Web, and Interactive Application Development | Current framework reference for native and web application setup, App updates, persistence, and window integration. |
+| Managing State — React | <https://react.dev/learn/managing-state> | GUI, Web, and Interactive Application Development | Maintainer learning path for deriving, locating, sharing, preserving, resetting, and scaling UI state. |
+| NiceGUI Documentation | <https://nicegui.io/documentation/> | GUI, Web, and Interactive Application Development | Current backend-first model, event-loop rules, lifecycle hooks, binding, tasks, and client/server state for Python web UIs. |
+| W3C Web Accessibility Initiative | <https://www.w3.org/WAI/> | GUI, Web, and Interactive Application Development | Standards-oriented starting point for accessible web interfaces, keyboard behavior, semantics, contrast, and testing resources. |
+| Painter in egui | <https://docs.rs/egui/latest/egui/struct.Painter.html> | GUI, Web, and Interactive Application Development | Direct contract for custom shapes, text, clipping, layers, transforms, and low-level 2D drawing. |
+| State in axum::extract | <https://docs.rs/axum/latest/axum/extract/struct.State.html> | GUI, Web, and Interactive Application Development | Direct guidance for owned server state, cloning handles, subrouters, and choosing State over request extensions. |
+| Storage — NiceGUI | <https://nicegui.io/documentation/storage> | GUI, Web, and Interactive Application Development | Distinguishes tab, client, browser, user, and general state by location, lifetime, persistence, and security requirements. |
+| Introduction — The Leptos Book | <https://book.leptos.dev/> | GUI, Web, and Interactive Application Development | Maintainer book from fine-grained reactivity through routing, global state, client rendering, server rendering, and hydration. |
+| How does it work? — Wails | <https://wails.io/docs/howdoesitwork/> | GUI, Web, and Interactive Application Development | Explains Go-to-JavaScript bindings, generated types, lifecycle callbacks, embedded assets, and the webview boundary. |
+| Process Model — Electron | <https://www.electronjs.org/docs/latest/tutorial/process-model> | GUI, Web, and Interactive Application Development | Defines main, renderer, preload, and utility process responsibilities plus safe IPC exposure through context isolation. |
+| RFC 6455: The WebSocket Protocol | <https://www.rfc-editor.org/info/rfc6455/> | GUI, Web, and Interactive Application Development | Normative handshake, framing, fragmentation, close, masking, origin, and security reference behind browser and server libraries. |
+| Security — Electron | <https://www.electronjs.org/docs/latest/tutorial/security> | GUI, Web, and Interactive Application Development | Maintainer checklist for sandboxing, context isolation, navigation, permissions, CSP, sender validation, and untrusted content. |
+| Security — xterm.js | <https://xtermjs.org/docs/guides/security/> | GUI, Web, and Interactive Application Development | Threat model for browser terminals, untrusted terminal data, JavaScript access, links, WebSockets, privilege, and embedding. |
+| node-pty | <https://github.com/microsoft/node-pty> | GUI, Web, and Interactive Application Development | Maintainer reference for spawning terminal processes, flow control, platform support, privilege inheritance, and server-side risk. |
+| Supported Terminal Sequences — xterm.js | <https://xtermjs.org/docs/api/vtfeatures/> | GUI, Web, and Interactive Application Development | Concrete inventory of control, CSI, DCS, ESC, and OSC sequences for terminal emulation and compatibility testing. |
+| Developing and publishing Go modules | <https://go.dev/doc/modules/developing> | Architecture and Design Patterns | Connects focused public APIs, compatibility commitments, versioning, discovery, local client tests, and module publication. |
+| SemVer Compatibility — The Cargo Book | <https://doc.rust-lang.org/cargo/reference/semver.html> | Architecture and Design Patterns | Detailed classification of Rust public-API changes so library boundaries can evolve without accidental consumer breakage. |
+| PyO3 user guide | <https://pyo3.rs/main/index.html> | Architecture and Design Patterns | Maintainer guide to the in-process alternative for Python/Rust integration, including extensions, embedding, the GIL, and packaging choices. |
+| Architecture overview — Model Context Protocol | <https://modelcontextprotocol.io/docs/learn/architecture> | Architecture and Design Patterns | Current host-client-server model, data and transport layers, lifecycle, capabilities, and contract vocabulary for MCP systems. |
+| Errors and Exceptions — Python Tutorial | <https://docs.python.org/3/tutorial/errors.html> | Error Handling and Reliability | The official tutorial covers exception matching, chaining, cleanup, user-defined exceptions, and narrow handling before learners jump into framework-specific patterns. |
+| `thiserror` — Rust API documentation | <https://docs.rs/thiserror/latest/thiserror/> | Error Handling and Reliability | Maintainer documentation shows how libraries expose typed error enums with derived `Display`, `source`, and `From` implementations while keeping the public API explicit. |
+| `anyhow` — Rust API documentation | <https://docs.rs/anyhow/latest/anyhow/> | Error Handling and Reliability | This complements `thiserror` for applications by documenting contextual error reports, source chains, backtraces, and the `Context` trait without conflating app and library error design. |
+| Working with Errors in Go 1.13 | <https://go.dev/blog/go1.13-errors> | Error Handling and Reliability | The Go project explains wrapping plus `errors.Is`, `errors.As`, and `Unwrap`, including the API-compatibility consequences of exposing wrapped implementation errors. |
+| BashFAQ/105 — Why does `set -e` behave unexpectedly? | <https://mywiki.wooledge.org/BashFAQ/105> | Error Handling and Reliability | This focused community reference earns its place by documenting the exception-heavy semantics and portability traps of `errexit` that simplistic “strict mode” articles omit. |
+| Timeouts, retries, and backoff with jitter | <https://builder.aws.com/content/3EumjoZascWd1oZiEgL8ORlv3qE/timeouts-retries-and-backoff-with-jitter> | Error Handling and Reliability | Amazon’s primary engineering guidance connects timeout selection, bounded retries, exponential backoff, jitter, and retry multiplication across layers for resilient API clients. |
+| Writing Automated Tests — The Rust Programming Language | <https://doc.rust-lang.org/book/ch11-00-testing.html> | Testing and Code Quality | The official chapter introduces assertions, expected panics, `Result`-returning tests, filtering, ignored tests, and the distinction between unit and integration tests. |
+| ShellCheck | <https://www.shellcheck.net/> | Testing and Code Quality | The project’s rule catalog turns common quoting, globbing, pipeline, portability, and data-flow mistakes into actionable diagnostics and explanations. |
+| Tests — The Cargo Book | <https://doc.rust-lang.org/cargo/guide/tests.html> | Testing and Code Quality | Cargo’s guide explains the actual layout and execution of unit, integration, and documentation tests, complementing the language-level testing chapter with build-tool behavior. |
+| `testing` — Go standard library | <https://pkg.go.dev/testing> | Testing and Code Quality | The canonical package reference covers tests, benchmarks, examples, subtests, cleanup, parallel execution, and native fuzz targets in the form the `go` tool actually discovers. |
+| Go Fuzzing | <https://go.dev/doc/security/fuzz/> | Testing and Code Quality | The Go team’s guide provides the end-to-end native fuzzing workflow, corpus handling, minimization, and regression promotion needed for parsers and protocol boundaries. |
+| `unittest` — Unit testing framework | <https://docs.python.org/3/library/unittest.html> | Testing and Code Quality | Python’s built-in framework reference covers fixtures, assertions, subtests, discovery, cleanup, mocking integration, and command-line execution with no third-party dependency. |
+| pytest documentation | <https://docs.pytest.org/en/stable/> | Testing and Code Quality | Maintainer documentation provides the practical Python testing path for plain assertions, fixtures, parametrization, temporary paths, monkeypatching, plugins, and test selection. |
+| Bats-core documentation | <https://bats-core.readthedocs.io/en/stable/> | Testing and Code Quality | Bats supplies a maintained TAP-producing harness for executable Bash and Unix CLI behavior, including setup, teardown, helpers, file-descriptor caveats, and CI use. |
+| `assert_cmd` — Rust API documentation | <https://docs.rs/assert_cmd/latest/assert_cmd/> | Testing and Code Quality | The crate reference supports black-box CLI assertions over exit status, stdout, stderr, environment, and cargo-built binaries for data-pipeline boundary tests. |
+| Proptest | <https://proptest-rs.github.io/proptest/intro.html> | Testing and Code Quality | The project’s guide adds generated inputs, shrinking, failure persistence, and state-machine testing for parsers and deterministic cores where example-based Rust tests leave gaps. |
+| Hypothesis documentation | <https://hypothesis.readthedocs.io/en/latest/> | Testing and Code Quality | Hypothesis adds property-based generation, shrinking, reproducible failures, and stateful testing for round trips and parser invariants that hand-picked examples miss. |
+| Asynchronous Programming in Rust | <https://rust-lang.github.io/async-book/> | Async Programming and Concurrency | The Rust project’s Async Book explains futures, `async`/`await`, executors, pinning, streams, and cancellation semantics beneath any one runtime; unfinished guide chapters are explicitly marked. |
+| Graceful Shutdown — Tokio | <https://tokio.rs/tokio/topics/shutdown> | Async Programming and Concurrency | This focused guide connects shutdown detection, cancellation tokens, and task tracking into a complete termination protocol instead of leaving background tasks orphaned. |
+| Go Concurrency Patterns: Pipelines and cancellation | <https://go.dev/blog/pipelines> | Async Programming and Concurrency | The Go team develops fan-out, fan-in, channel closure, cancellation, and goroutine-leak prevention as one worked design rather than isolated syntax examples. |
+| `tokio` — Rust API documentation | <https://docs.rs/tokio/latest/tokio/> | Async Programming and Concurrency | The versioned crate reference is the authoritative lookup for runtime configuration, task and synchronization primitives, time, signals, process management, and feature flags. |
+| The Go Memory Model | <https://go.dev/ref/mem> | Async Programming and Concurrency | The normative happens-before rules clarify what channels, locks, atomics, and goroutine creation actually synchronize, and why race-free design is the baseline. |
+| Coroutines and Tasks — Python `asyncio` | <https://docs.python.org/3/library/asyncio-task.html> | Async Programming and Concurrency | The official guide covers coroutine scheduling, task groups, cancellation, timeouts, shielding, cross-thread submission, and the failure behavior of structured concurrency. |
+| `infer` — Rust API documentation | <https://docs.rs/infer/latest/infer/> | Data, Storage, Search, and File Processing | The implementation reference provides magic-byte detection and extension/MIME results while making clear that signatures cover a finite format set. |
+| `mime_guess` — Rust API documentation | <https://docs.rs/mime_guess/latest/mime_guess/> | Data, Storage, Search, and File Processing | This extension-based MIME lookup complements signature detection and explicitly exposes ambiguity and fallback behavior rather than promising authoritative content identification. |
+| `serde` — Rust API documentation | <https://docs.rs/serde/latest/serde/> | Data, Storage, Search, and File Processing | The versioned API reference is the ongoing implementation lookup for `Serialize`, `Deserialize`, derive support, data formats, and feature flags. |
+| `serde_json` — Rust API documentation | <https://docs.rs/serde_json/latest/serde_json/> | Data, Storage, Search, and File Processing | The canonical crate reference covers typed and untyped JSON, stream-oriented readers and writers, error classification, raw values, and arbitrary-precision options. |
+| `zstd` — Rust API documentation | <https://docs.rs/zstd/latest/zstd/> | Data, Storage, Search, and File Processing | Maintainer API documentation shows streaming encoders and decoders, dictionary use, compression levels, and the `Read`/`Write` adapters used in bounded-memory pipelines. |
+| `tar` — Rust API documentation | <https://docs.rs/tar/latest/tar/> | Data, Storage, Search, and File Processing | The crate reference documents streaming archive traversal and creation, path handling, headers, sparse files, and the security-sensitive choice not to extract blindly. |
+| `BufReader` in `std::io` | <https://doc.rust-lang.org/std/io/struct.BufReader.html> | Data, Storage, Search, and File Processing | This focused reference teaches when buffering reduces small-read system calls, how capacity affects behavior, and when multiple wrappers can discard buffered data. |
+| `rusqlite` — Rust API documentation | <https://docs.rs/rusqlite/latest/rusqlite/> | Data, Storage, Search, and File Processing | The maintained binding reference covers connections, prepared statements, transactions, backup, hooks, feature flags, and bundled SQLite/FTS5 builds. |
+| Transaction — SQLite | <https://www.sqlite.org/lang_transaction.html> | Data, Storage, Search, and File Processing | SQLite's transaction contract explains implicit versus explicit transactions, deferred/immediate/exclusive starts, upgrade failures, nesting limits, and commit behavior. |
+| Query Planning — SQLite | <https://www.sqlite.org/queryplanner.html> | Data, Storage, Search, and File Processing | The official planner tutorial makes index selection, multi-column and covering indexes, sorting, and `ANALYZE` concrete enough to design measured search schemas. |
+| `blake3` — Rust API documentation | <https://docs.rs/blake3/latest/blake3/> | Data, Storage, Search, and File Processing | The crate reference covers incremental and memory-mapped hashing, keyed and derive-key modes, Rayon integration, output readers, and constant-time comparison concerns. |
+| `walkdir` — Rust API documentation | <https://docs.rs/walkdir/latest/walkdir/> | Data, Storage, Search, and File Processing | The traversal reference covers pruning, depth bounds, symlink following, same-filesystem limits, descriptor pressure, deterministic sorting, and per-entry errors. |
+| `Metadata` in `std::fs` | <https://doc.rust-lang.org/std/fs/struct.Metadata.html> | Data, Storage, Search, and File Processing | The standard-library contract clarifies file type, length, timestamps, permissions, platform extensions, and why metadata observations can race subsequent operations. |
+| `exif` — Rust API documentation | <https://docs.rs/kamadak-exif/latest/exif/> | Data, Storage, Search, and File Processing | The crate API explains EXIF/TIFF container parsing, tag lookup, field values, endian handling, and safe read-only metadata extraction from supported formats. |
+| `pdf_extract` — Rust API documentation | <https://docs.rs/pdf-extract/latest/pdf_extract/> | Data, Storage, Search, and File Processing | The crate reference documents pure-Rust PDF text extraction and its error surface; it is an implementation option, not a promise of layout-faithful or OCR output. |
+| `calamine` — Rust API documentation | <https://docs.rs/calamine/latest/calamine/> | Data, Storage, Search, and File Processing | Maintainer documentation covers workbook discovery, sheet and cell iteration, formulas, date values, ranges, and supported spreadsheet containers. |
+| `quick_xml` — Rust API documentation | <https://docs.rs/quick-xml/latest/quick_xml/> | Data, Storage, Search, and File Processing | The streaming XML reference teaches event-based parsing, encoding, Serde integration, namespace handling, and bounded-memory extraction from XML-based office archives. |
+| fsnotify | <https://github.com/fsnotify/fsnotify> | Data, Storage, Search, and File Processing | Maintainer documentation describes cross-platform filesystem notifications, recursive-watch limitations, event behavior, buffering, and platform caveats needed before building debounce or coalescing logic. |
+| asciicast v2 | <https://docs.asciinema.org/manual/asciicast/v2/> | Data, Storage, Search, and File Processing | The official line-oriented JSON format specifies headers, timed output/input/marker events, environment fields, and streaming properties for terminal recording libraries. |
+| Pandoc User's Guide | <https://pandoc.org/MANUAL.html> | Data, Storage, Search, and File Processing | The authoritative manual supports reproducible document conversion through explicit readers, writers, metadata, templates, filters, resource paths, and PDF-engine selection. |
+| `shutil.copy2` — Python standard library | <https://docs.python.org/3/library/shutil.html#shutil.copy2> | Data, Storage, Search, and File Processing | The standard contract explains content-plus-metadata copying, platform limitations, symlink behavior, and non-atomic failure modes for recovery-oriented copy tools. |
+| RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format | <https://www.rfc-editor.org/info/rfc8259/> | Data, Storage, Search, and File Processing | The normative JSON grammar and interoperability rules settle edge cases around numbers, strings, duplicate names, encodings, and parser limits. |
+| YAML Ain't Markup Language (YAML) version 1.2.2 | <https://yaml.org/spec/1.2.2/> | Data, Storage, Search, and File Processing | The language specification distinguishes YAML's representation, serialization, presentation, tag, anchor, and schema rules from library-specific behavior. |
+| JSON Schema Specification | <https://json-schema.org/specification> | Data, Storage, Search, and File Processing | The official specification hub supports durable local data and tool contracts through validation vocabularies, reusable schemas, identifiers, and versioned dialects. |
+| RFC 8878: Zstandard Compression and the `application/zstd` Media Type | <https://www.rfc-editor.org/info/rfc8878/> | Data, Storage, Search, and File Processing | The format specification is the durable source for frame structure, decoding limits, checksums, skippable frames, and interoperability beyond one crate. |
+| Atomic Commit In SQLite | <https://www.sqlite.org/atomiccommit.html> | Data, Storage, Search, and File Processing | This design document connects journals, locking, flush ordering, sector assumptions, and failure recovery, making transaction durability a systems concept rather than a magic property. |
+| ExifTool by Phil Harvey | <https://exiftool.org/> | Data, Storage, Search, and File Processing | The maintainer site supplies broad RAW, image, video, PDF, and office metadata coverage plus application/API documentation that a narrow EXIF crate cannot. |
+| `rename(2)` — Linux manual page | <https://man7.org/linux/man-pages/man2/rename.2.html> | Data, Storage, Search, and File Processing | The system-call contract explains atomic replacement, no-replace/exchange variants, cross-filesystem failure, NFS caveats, and why atomic visibility is not crash durability. |
+| `fsync(2)` — Linux manual page | <https://man7.org/linux/man-pages/man2/fsync.2.html> | Data, Storage, Search, and File Processing | The primary Linux reference distinguishes data and metadata flushing and states the often-missed requirement to sync the containing directory for durable name changes. |
+| `flock(2)` — Linux manual page | <https://man7.org/linux/man-pages/man2/flock.2.html> | Data, Storage, Search, and File Processing | The advisory-lock contract covers shared/exclusive/nonblocking locks, descriptor semantics, inheritance, and network-filesystem caveats for multi-process stores. |
+| `statvfs(3)` — Linux manual page | <https://man7.org/linux/man-pages/man3/statvfs.3.html> | Data, Storage, Search, and File Processing | The standards-oriented filesystem-statistics API explains block and inode capacity, available-space semantics, read-only flags, and portability limits for disk monitors. |
+| The Rust Performance Book | <https://nnethercote.github.io/perf-book/introduction.html> | Performance and Resource Efficiency | This measurement-first guide moves from profiling to build configuration, allocation, hashing, I/O, code generation, and parallelism while warning against intuition-only optimization. |
+| Criterion.rs Documentation | <https://bheisler.github.io/criterion.rs/book/index.html> | Performance and Resource Efficiency | The maintainer book teaches statistically informed microbenchmarks, warm-up and measurement settings, plots, baselines, regression detection, async timing, and profiler integration. |
+| Flamegraph for Rust projects | <https://github.com/flamegraph-rs/flamegraph> | Performance and Resource Efficiency | The project documentation provides a practical sampling-profiler workflow and records platform prerequisites, debug-symbol needs, permissions, and interpretation limits. |
+| `rayon` — Rust API documentation | <https://docs.rs/rayon/latest/rayon/> | Performance and Resource Efficiency | The canonical reference covers parallel iterators, work stealing, custom thread pools, scoped tasks, fallible processing, ordering, and cases where parallel overhead outweighs work. |
+| Channels — Tokio Tutorial | <https://tokio.rs/tokio/tutorial/channels> | Performance and Resource Efficiency | The worked bounded-channel design demonstrates backpressure, single-owner resource tasks, request/response handoff, and why unbounded producer growth is a resource bug. |
+| `bytes` — Rust API documentation | <https://docs.rs/bytes/latest/bytes/> | Performance and Resource Efficiency | The buffer API makes zero-copy trade-offs concrete through reference-counted slicing, `BytesMut`, cursor traits, shared allocation, and the distinction from fallible I/O operations. |
+| RFC 9111: HTTP Caching | <https://www.rfc-editor.org/info/rfc9111/> | Performance and Resource Efficiency | The current HTTP caching model defines freshness lifetime, age, validation, invalidation, and bounded use of stale responses. A local weather cache can adapt these concepts, but must still define its own file format, clock behavior, provider provenance, and stale-if-error limits. |
+| Firewall | <https://ubuntu.com/server/docs/how-to/security/firewalls/> | Security and Linux Operations | Ubuntu's current UFW guide explains rule ordering, application profiles, logging, and dry-run inspection. Keep an existing administrative session open and validate the replacement path before changing remote-access rules. |
+| mountpoint(1) | <https://man7.org/linux/man-pages/man1/mountpoint.1.html> | Security and Linux Operations | The upstream-derived command contract for testing whether a directory is a mount point, following symlinks deliberately, and using exit status in scripts. A backup job should verify both the mount and the expected source device before writing. |
+| Sign in with app passwords | <https://support.google.com/mail/answer/185833?hl=en> | Security and Linux Operations | Google's current requirements and limitations for app passwords, including two-step verification and cases where the option is unavailable. Prefer OAuth where supported and never place the credential in a repository. |
+| Security suggestions | <https://ubuntu.com/server/docs/explanation/security/security_suggestions/> | Security and Linux Operations | A distribution-maintained security baseline covering updates, least privilege, firewalls, SSH, AppArmor, and operational trade-offs. Use it to build a threat-modelled checklist instead of copying an unreviewed hardening script. |
+| Secure an Ubuntu server using Tailscale and UFW | <https://tailscale.com/docs/how-to/secure-ubuntu-server-with-ufw> | Security and Linux Operations | Shows a supported deny-by-default pattern that preserves management through Tailscale. It is especially useful for avoiding the common lockout caused by enabling UFW before proving the overlay-network path. |
+| Access control | <https://tailscale.com/docs/features/access-control> | Security and Linux Operations | Explains Tailscale grants, ACL policy, groups, tags, users, and device identity as one authorization model. It is the starting point for replacing broad network trust with least-privilege connectivity. |
+| Tailscale SSH | <https://tailscale.com/docs/reference/ssh-over-tailscale> | Security and Linux Operations | Documents how Tailscale SSH authentication and authorization differ from ordinary OpenSSH. It helps prevent accidentally assuming that network reachability alone grants shell access. |
+| Secrets Management Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html> | Security and Linux Operations | A durable lifecycle guide for creation, storage, least privilege, rotation, auditing, CI/CD injection, leak detection, and incident response. It is a strong cross-tool baseline for API keys, SSH keys, SMTP credentials, and build secrets. |
+| OS Command Injection Defense Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html> | Security and Linux Operations | Explains why structured process APIs, argument separation, allowlists, and input validation are safer than constructing shell strings. It directly supports CLIs that execute local or remote commands. |
+| Docker Engine security | <https://docs.docker.com/engine/security/> | Security and Linux Operations | Covers the daemon trust boundary, Linux namespaces, control groups, capabilities, and the security implications of daemon access. It corrects the dangerous assumption that a container is automatically a strong sandbox. |
+| Rootless mode | <https://docs.docker.com/engine/security/rootless/> | Security and Linux Operations | Shows how to run both the Docker daemon and containers inside a user namespace, with prerequisites and limitations. It is a practical least-privilege option for development and homelab workloads. |
+| Build secrets | <https://docs.docker.com/build/building/secrets/> | Security and Linux Operations | Documents secret and SSH mounts that avoid persisting credentials in image layers or build arguments. Use it for authenticated dependency fetches and private builds. |
+| Resource constraints | <https://docs.docker.com/engine/containers/resource_constraints/> | Security and Linux Operations | Explains memory, swap, CPU, and real-time limits and the host risk of leaving containers unbounded. It supports capacity planning for self-hosted CI and monitoring stacks. |
+| Image verification | <https://documentation.ubuntu.com/security/software-integrity/image-verification/> | Security and Linux Operations | Explains signature-backed verification of Ubuntu images and why a bare checksum downloaded from the same compromised source is insufficient. Use it before any destructive removable-media write. |
+| lsblk(8) | <https://man7.org/linux/man-pages/man8/lsblk.8.html> | Security and Linux Operations | The current util-linux reference for stable block-device inspection and machine-readable columns. Scripts should explicitly request fields and verify type, transport, mount state, and target identity before any write. |
+| findmnt(8) | <https://man7.org/linux/man-pages/man8/findmnt.8.html> | Security and Linux Operations | Documents reliable queries against mount tables and /proc mount information, with explicit output columns and filters. It is safer for automation than parsing the human-oriented output of mount. |
+| #StopRansomware Guide | <https://www.cisa.gov/stopransomware/ransomware-guide> | Security and Linux Operations | CISA's recovery guidance emphasizes offline encrypted backups and regular integrity and restore tests. It turns a file-copy routine into a verifiable recovery practice. |
+| crontab(5) | <https://man7.org/linux/man-pages/man5/crontab.5.html> | Security and Linux Operations | Explains cron's restricted environment, time semantics, mail behavior, and command parsing. It helps make non-interactive jobs reproducible instead of testing whether a shell happens to be attached. |
+| systemd.timer(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html> | Security and Linux Operations | The official timer-unit reference covers monotonic and calendar schedules, persistence, accuracy, dependencies, and randomized delay. Pair it with a service unit when you need logged, inspectable Linux scheduling. |
+| at(1) | <https://manpages.ubuntu.com/manpages/noble/man1/at.1.html> | Security and Linux Operations | Documents one-shot at and batch jobs, queue inspection, deletion, environment capture, mail, permissions, and parsing. Generated jobs still require strict quoting and an explicit cancellation strategy. |
+| Grants syntax | <https://tailscale.com/docs/reference/syntax/grants> | Security and Linux Operations | The authoritative syntax and semantics for grants, including selectors and application capabilities. Pair it with policy tests and a rollback plan before deploying changes. |
+| sshd_config(5) | <https://man.openbsd.org/sshd_config.5> | Security and Linux Operations | The upstream OpenSSH server-configuration reference, including precedence, Match blocks, authentication controls, forwarding, and safe syntax validation. Test with sshd -t and keep a recovery session before reloading a remote daemon. |
+| sshd(8) | <https://man.openbsd.org/sshd.8> | Security and Linux Operations | The upstream daemon manual explains startup, authentication flow, authorized keys, privilege separation, signals, and exit behavior. It provides the context needed to reason about sshd_config rather than treating directives as magic switches. |
+| Linux kernel sysctl documentation | <https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html> | Security and Linux Operations | The kernel-maintained index for runtime tunables. Use it to confirm that a parameter exists on the running kernel and understand its subsystem before changing a copied hardening value. |
+| IP Sysctl | <https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html> | Security and Linux Operations | The authoritative meanings and defaults for IPv4 and IPv6 networking tunables, including per-interface all/default behavior. This is the primary source for evaluating network-hardening recommendations. |
+| Kernel Self-Protection | <https://www.kernel.org/doc/html/latest/security/self-protection.html> | Security and Linux Operations | Explains the kernel project's security design goals and the distinction between attack-surface reduction, exploit prevention, and hardening. It gives sysctl and build-time controls a threat-modelled context. |
+| sysctl.d(5) | <https://man7.org/linux/man-pages/man5/sysctl.d.5.html> | Security and Linux Operations | Explains persistent sysctl file precedence, naming, exclusions, and boot-time application. It is essential for avoiding settings that appear correct interactively but are overwritten at reboot. |
+| sudoers(5) | <https://man7.org/linux/man-pages/man5/sudoers.5.html> | Security and Linux Operations | The detailed sudo policy reference for command matching, tags, environment handling, logging, and include order. Validate edits with visudo and grant the smallest command surface required. |
+| podman(1) | <https://docs.podman.io/en/latest/markdown/podman.1.html> | Security and Linux Operations | The upstream Podman reference explains rootless user namespaces, storage, networking, remote clients, and important filesystem limitations. It is the right starting point for understanding what host data a monitoring container can actually observe. |
+| Guidelines for Media Sanitization: NIST SP 800-88 Rev. 2 | <https://csrc.nist.gov/pubs/sp/800/88/r2/final> | Security and Linux Operations | The current NIST guidance distinguishes clear, purge, and destroy methods and ties sanitization to media type and risk. It is the durable threat-model reference for why file overwrites cannot promise secure deletion on SSDs, copy-on-write filesystems, or remapped storage. |
+| systemd.exec(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html> | Security and Linux Operations | The authoritative service-execution contract for environment handling, credentials, working directories, identity, filesystem namespaces, sandboxing, resource access, and process termination. It is the right reference when a tool turns declarative configuration into child processes or service units. |
+| systemd.resource-control(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html> | Security and Linux Operations | The official cgroup-backed reference for limiting CPU, memory, I/O, tasks, and device access for services and slices. It supports capacity controls beyond container-specific flags. |
+| notify-send(1) | <https://manpages.debian.org/trixie/libnotify-bin/notify-send.1.en.html> | Git, GitHub, Automation, and Developer Tooling | A maintained manual for command-line desktop notifications, including urgency, expiry, icons, categories, hints, replacement, and actions. Remember that cron and system services may not have a user's D-Bus session. |
+| About remote repositories | <https://docs.github.com/en/get-started/git-basics/about-remote-repositories> | Git, GitHub, Automation, and Developer Tooling | Introduces remotes, fetch and push URLs, HTTPS versus SSH, and the security boundary between a local repository and a hosting service. |
+| Managing remote repositories | <https://docs.github.com/en/get-started/git-basics/managing-remote-repositories> | Git, GitHub, Automation, and Developer Tooling | Provides supported commands for adding, inspecting, renaming, changing, and removing remotes, with troubleshooting for common configuration mistakes. |
+| Connecting to GitHub with SSH | <https://docs.github.com/en/authentication/connecting-to-github-with-ssh> | Git, GitHub, Automation, and Developer Tooling | The canonical learning route for key generation, agent setup, account registration, connection testing, troubleshooting, and key lifecycle. It replaces duplicate third-party SSH recipes. |
+| Pro Git | <https://git-scm.com/book/en/v2> | Git, GitHub, Automation, and Developer Tooling | The freely available canonical Git book builds a durable mental model from everyday snapshots and branches through internals, protocols, hooks, and administration. |
+| GitHub CLI manual | <https://cli.github.com/manual/gh> | Git, GitHub, Automation, and Developer Tooling | The canonical command index for authentication, repositories, issues, pull requests, Actions, releases, extensions, and API access. |
+| XDG Base Directory Specification | <https://specifications.freedesktop.org/basedir/latest/> | Git, GitHub, Automation, and Developer Tooling | The normative Linux desktop contract defines config, data, state, cache, runtime, and search directories, including absolute-path and security requirements. |
+| rsync(1) | <https://rsync.samba.org/ftp/rsync/rsync.1.html> | Git, GitHub, Automation, and Developer Tooling | The upstream, current rsync manual covers archive semantics, deletion, filters, partial transfers, remote shells, exit codes, and dry runs. Treat --delete and destination selection as destructive operations and prove restores separately. |
+| Desktop Entry Specification | <https://specifications.freedesktop.org/desktop-entry/latest/> | Git, GitHub, Automation, and Developer Tooling | The normative cross-desktop format for application launchers, actions, localization, field codes, validation, and security-sensitive execution fields. It replaces trial-and-error launcher recipes. |
+| Desktop Application Autostart Specification | <https://specifications.freedesktop.org/autostart/latest/> | Git, GitHub, Automation, and Developer Tooling | Defines how desktop-session autostart entries are discovered, enabled, disabled, and overridden. It is the durable basis for packaging background tray processes without surprising users. |
+| gitcredentials | <https://git-scm.com/docs/gitcredentials.html> | Git, GitHub, Automation, and Developer Tooling | The official credential-helper model for HTTPS authentication, including matching rules and secure-storage integrations. It helps avoid tokens in remote URLs, scripts, or plaintext files. |
+| Mirror Repository | <https://docs.gitea.com/usage/repository/repo-mirror> | Git, GitHub, Automation, and Developer Tooling | Gitea's supported pull and push mirror workflows, including authentication and explicit force-push risk. It provides a safer reference point for GitHub-to-Gitea synchronization. |
+| Installation with Docker | <https://docs.gitea.com/installation/install-with-docker> | Git, GitHub, Automation, and Developer Tooling | The maintained container deployment guide covers persistent volumes, permissions, databases, SSH ports, rootless images, upgrades, and secret generation. |
+| Prometheus: Getting started | <https://prometheus.io/docs/prometheus/latest/getting_started/> | Git, GitHub, Automation, and Developer Tooling | A durable introduction to scrape configuration, targets, queries, and expression browsing. Use it as the small verified starting point before expanding a monitoring stack's retention and resource footprint. |
+| Security for GitHub Actions | <https://docs.github.com/en/actions/concepts/security> | Git, GitHub, Automation, and Developer Tooling | An official map of workflow permissions, secrets, OIDC, runner trust, dependency pinning, attestations, and compromise response. It supports fail-closed automation instead of treating CI YAML as harmless metadata. |
+| gh pr create | <https://cli.github.com/manual/gh_pr_create> | Git, GitHub, Automation, and Developer Tooling | The pull-request creation reference, including base/head selection, draft status, templates, body files, recovery, and fork behavior. |
+| Sharing files with Virtiofs | <https://libvirt.org/kbase/virtiofs.html> | Git, GitHub, Automation, and Developer Tooling | Libvirt's focused guide covers domain XML, shared-memory requirements, guest mounting, unprivileged mode, UID mapping, migration limits, and externally launched virtiofsd. It is more useful than obsolete QEMU virtiofsd documentation. |
+| virtiofsd | <https://gitlab.com/virtio-fs/virtiofsd/-/blob/main/README.md> | Git, GitHub, Automation, and Developer Tooling | The maintained Rust virtiofsd documentation covers invocation, sandboxing, privilege dropping, UID/GID mapping, read-only exports, limits, and QEMU wiring. It replaces the removed legacy daemon page in QEMU documentation. |
+| systemd.mount(5) | <https://www.freedesktop.org/software/systemd/man/latest/systemd.mount.html> | Git, GitHub, Automation, and Developer Tooling | The official mount-unit reference explains /etc/fstab generation, dependency rules, network mounts, automount interactions, and timeout behavior for managed shares. |
+| git-clone | <https://git-scm.com/docs/git-clone.html> | Git, GitHub, Automation, and Developer Tooling | The authoritative semantics for normal, bare, and mirror clones, refspecs, partial clones, submodules, and object sharing. Read the --mirror and --shared warnings before automating backups or synchronization. |
+| Backup and Restore | <https://docs.gitea.com/usage/backup-and-restore> | Git, GitHub, Automation, and Developer Tooling | Documents Gitea's database, repository, configuration, attachment, hook, Docker, and consistency requirements. A mirror is not a full service backup, so restore testing belongs beside mirroring. |
+| Server configuration | <https://woodpecker-ci.org/docs/administration/configuration/server> | Git, GitHub, Automation, and Developer Tooling | The current Woodpecker server reference covers forge OAuth, registration controls, databases, persistence, TLS, secrets, metrics, and resource limits for a self-hosted CI control plane. |
+| Artifact attestations | <https://docs.github.com/en/actions/concepts/security/artifact-attestations> | Git, GitHub, Automation, and Developer Tooling | Explains signed build provenance and verification for binaries and container images. It is useful for proving that a release came from the expected workflow and commit. |
+| gh api | <https://cli.github.com/manual/gh_api> | Git, GitHub, Automation, and Developer Tooling | Documents authenticated REST and GraphQL requests, pagination, typed fields, caching, templates, and previews for automation beyond dedicated gh subcommands. |
+| Ollama API introduction | <https://docs.ollama.com/api/introduction> | Local AI and Related Tools | Defines the local HTTP API base URL, request shape, model naming, versioning, and authentication differences between local and hosted access. |
+| Model Cards | <https://huggingface.co/docs/hub/en/model-cards> | Local AI and Related Tools | Explains how to document intended use, limitations, datasets, evaluation, licensing, and bias for models. Read a model card before treating a local model as suitable for sensitive or tool-using work. |
+| Gemma documentation | <https://ai.google.dev/gemma/docs> | Local AI and Related Tools | Google's maintained Gemma hub links current model families, deployment guides, responsible-use material, and technical documentation. It is more durable than a bookmark to an older Ollama model tag. |
+| Ollama streaming | <https://docs.ollama.com/api/streaming> | Local AI and Related Tools | Explains newline-delimited streaming, final response metadata, error handling, and when to disable streaming. It supports correct terminal and GUI token pipelines. |
+| Ollama context length | <https://docs.ollama.com/context-length> | Local AI and Related Tools | Shows how context limits change memory use and model behavior. It is essential for choosing bounded histories and avoiding unexplained slowdowns or out-of-memory failures. |
+| Ollama Modelfile | <https://docs.ollama.com/modelfile> | Local AI and Related Tools | The maintained reference for model bases, parameters, prompt templates, adapters, messages, and licensing metadata. It replaces model-specific bookmarks with a reusable customization model. |
+| Responsible Generative AI Toolkit | <https://ai.google.dev/responsible/docs> | Local AI and Related Tools | A practical official toolkit for safety policies, model cards, evaluation, and safeguards. It frames local deployment as an engineering responsibility rather than a privacy guarantee by itself. |
+| Using tools | <https://developers.openai.com/api/docs/guides/tools> | Local AI and Related Tools | The current OpenAI guide to built-in tools, function tools, tool choice, schemas, and tool-call handling. It supports typed provider adapters and explicit execution boundaries. |
+| Streaming API responses | <https://developers.openai.com/api/docs/guides/streaming-responses> | Local AI and Related Tools | Documents streaming event handling, finalization, partial output, and moderation implications. It is the primary contract for building correct OpenAI terminal and GUI streams. |
+| Getting started with evaluations | <https://developers.openai.com/api/docs/guides/evaluation-getting-started> | Local AI and Related Tools | A current route for defining criteria, datasets, graders, and repeatable evaluations. It is preferable to relying on subjective spot checks when changing prompts, tools, or agents. |
+| How tool use works | <https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works> | Local AI and Related Tools | Anthropic's current tool-contract guide covers definitions, tool decisions, result messages, parallel calls, streaming, and error responses for multi-provider adapters. |
+| Create custom subagents | <https://code.claude.com/docs/en/sub-agents> | Local AI and Related Tools | Explains agent isolation, descriptions, tools, permissions, model selection, persistent memory, hooks, and foreground versus background execution. |
+| Extend Claude with skills | <https://code.claude.com/docs/en/slash-commands> | Local AI and Related Tools | Documents reusable skills, discovery metadata, arguments, supporting files, tool restrictions, execution modes, and sharing. It supports maintainable agent packages instead of oversized global prompts. |
+| Importing a model | <https://docs.ollama.com/import> | Local AI and Related Tools | Documents supported model and adapter formats, quantization, conversion, and import workflows. It helps distinguish a compatible artifact from a model that merely has a similar name. |
+| MCP and connectors | <https://developers.openai.com/api/docs/guides/tools-connectors-mcp> | Local AI and Related Tools | Explains remote MCP servers, connectors, approvals, authentication, data sharing, and prompt-injection risk in OpenAI integrations. |
+| MCP security best practices | <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices> | Local AI and Related Tools | Covers confused-deputy risks, token handling, consent, least privilege, local-server compromise, session hijacking, and other MCP-specific threat boundaries. |
+| MCP authorization | <https://modelcontextprotocol.io/docs/tutorials/security/authorization> | Local AI and Related Tools | Explains the protocol's authorization flow and implementation responsibilities. It helps keep provider tokens scoped to the intended server and user. |
+| MCP Security Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html> | Local AI and Related Tools | An implementation-focused checklist for input validation, tool authorization, output handling, secret redaction, logging, network controls, and supply-chain risk around MCP servers. |
+| LLM Prompt Injection Prevention Cheat Sheet | <https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html> | Local AI and Related Tools | A durable threat model and layered defenses for direct, indirect, multimodal, persistent, and tool-mediated prompt injection. Treat model output as untrusted input to every privileged action. |
+| Streaming Messages | <https://platform.claude.com/docs/en/build-with-claude/streaming> | Local AI and Related Tools | The authoritative Anthropic event stream, including deltas, tool input, errors, recovery, and final usage. It enables correct cross-provider stream normalization. |
+| Hooks reference | <https://code.claude.com/docs/en/hooks> | Local AI and Related Tools | The current lifecycle-hook reference for deterministic validation and automation around agent events. Hooks execute code, so review inputs, permissions, timeouts, and failure behavior as production interfaces. |
+| Observability primer — OpenTelemetry | <https://opentelemetry.io/docs/concepts/observability-primer/> | Advanced and Cross-Cutting Topics | The project primer connects traces, metrics, logs, baggage, resources, context propagation, and correlation without tying observability to one backend. |
+| D3 by Observable | <https://d3js.org/> | Advanced and Cross-Cutting Topics | The maintained D3 entry point links scales, shapes, selections, transitions, zoom, and force/graph modules for bespoke interactive data visualization. |
+| `tracing` — Rust API documentation | <https://docs.rs/tracing/latest/tracing/> | Advanced and Cross-Cutting Topics | The instrumentation reference explains structured events, spans, causality, subscribers, filtering, async caveats, and low-overhead disabled callsites for observable systems. |
+| PROV-Overview | <https://www.w3.org/TR/prov-overview/> | Advanced and Cross-Cutting Topics | The W3C overview supplies a standard vocabulary for entities, activities, agents, derivations, and bundles when designing provenance-aware snapshots and compiled state. |
+| Fast Search in Hamming Space with Multi-Index Hashing | <https://norouzi.github.io/research/papers/multi_index_hashing.pdf> | Advanced and Cross-Cutting Topics | The primary paper derives exact sub-linear search over binary codes and reports time and memory trade-offs, giving perceptual-hash systems a rigorous design baseline. |
+| RequireJS API | <https://requirejs.org/docs/api.html> | Advanced and Cross-Cutting Topics | The primary API reference documents AMD modules, dependency loading, configuration, optimization, and legacy compatibility needed to maintain older interactive visualizations. |
+| Linux Essentials | <https://www.lpi.org/our-certifications/linux-essentials-overview/> | Career and Certification Resources | A vendor-neutral entry route covering Linux concepts, command-line basics, permissions, security, and open-source culture. The official objectives make it useful as a fundamentals checklist even without sitting the exam. |
+| About GitHub Certifications | <https://docs.github.com/en/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications> | Career and Certification Resources | The official map of GitHub Foundations and role-specific certifications, with direct links to current study guides and exam details. |
+| Microsoft Certified: Azure Fundamentals | <https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/> | Career and Certification Resources | The maintained certification page and objective route for cloud concepts, Azure architecture and services, and governance. Recheck the skills-measured date before scheduling because Microsoft updates objectives frequently. |
+| Linux Foundation Certified System Administrator | <https://training.linuxfoundation.org/certification/LFCS/> | Career and Certification Resources | The official performance-based Linux administration certification and current competency domains. It aligns well with hands-on service, storage, networking, user, and security work. |
+| Red Hat Certified System Administrator exam EX200 | <https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam?section=Objectives> | Career and Certification Resources | The live RHCSA objectives for a practical enterprise-Linux exam. Check the stated RHEL version because objectives change as the platform advances. |
+
+## Future Educational Gaps
+
+The audit does not use a weak bookmark merely to make every topic look complete. The following concepts still deserve stronger, durable teaching material; matching concept notes appear in their learning-path sections.
+
+| Gap | Why better material is still needed | Where the current path helps |
+|---|---|---|
+| Full-screen TUI accessibility | Existing resources separately cover color, Unicode width, terminal behavior, and web accessibility, but not a repeatable screen-reader and resize test curriculum across TUIs. | CLI and TUI Development; Testing and Code Quality |
+| Windows ConPTY lifecycle | POSIX PTYs are documented well; Windows resize, signal, process-tree, and teardown behavior still needs an equally durable hands-on lab. | CLI and TUI Development; Error Handling and Reliability |
+| Cross-agent handoff records | Conductor's append/replace record and review gates are a local heterogeneous-agent protocol rather than an established standard. | Architecture and Design Patterns; Testing and Code Quality |
+| Cross-stack agent and MCP testing | No single source combines tool approval, cancellation, malformed streams, PTYs, browser origins, retries, and terminal restoration in one test methodology. | Local AI and Related Tools; Testing and Code Quality |
+| Timeshift discovery and retention | Stable upstream material does not currently explain the exact on-disk and command contracts well enough for deletion automation. | Data, Storage, Search, and File Processing; Security and Linux Operations |
+| Safe removable-media lab | Authoritative references cover signatures, block identity, mounts, and I/O separately; learners still need one recovery-aware destructive-write exercise. | Security and Linux Operations |
+| Provider privacy classification | API documentation changes and cannot decide which local data Tom permits each provider to receive or retain. | Local AI and Related Tools; Security and Linux Operations |
+| Secure localhost AI bridges | Material on MCP and prompt injection exists, but a practical browser-origin, DNS-rebinding, approval, cancellation, and idempotency lab is still fragmented. | Local AI and Related Tools |
+| Multi-Index Hashing implementation tests | The primary paper gives the algorithm, not a versioned Rust migration and golden-vector curriculum for perceptual-hash indexes. | Advanced and Cross-Cutting Topics; Testing and Code Quality |
+| Provenance and freshness state models | Standards define provenance vocabulary, but partial failure, staleness, loss accounting, privacy allowlists, and compiled snapshots still need a project-grounded exercise. | Advanced and Cross-Cutting Topics; Data, Storage, Search, and File Processing |
+
+## Audit Notes
+
+- **Audit date:** 2026-07-18.
+- **Original inventory:** 250 rows, 243 exact unique URLs, and 234 unique URLs after normalization.
+- **Final curated path:** 294 resource rows and 294 unique normalized URLs.
+- **Original decisions:** keep 84; update 63; replace 41; consolidate 48; remove 14.
+- **New normalized URLs:** 199.
+- **Authenticated repository inventory:** 102 total; 71 private; 31 public; 8 forks; 1 archived; 1 confirmed empty.
+- **Repository concept disposition:** 50 repositories required at least one added resource; 1 required a project-specific missing-concept note; 30 were covered by the curated set; 21 introduced no distinct new concept.
+- **Original reachability audit:** 177 healthy, 43 redirected, 13 ambiguous, and 17 dead rows after bounded HEAD/GET probing. Reachability alone never determined retention.
+- **Final automated URL probe:** ambiguous 3, dead 2, healthy 289. No automated non-2xx result was accepted or rejected without content review.
+- **Manual confirmations:** NO_COLOR was live despite curl DNS failure; Wails was live behind HTTP 403; Linux Audit was live behind HTTP 406; CISA's #StopRansomware Guide was live behind HTTP 403; Google's Gmail app-password help loaded in the browser despite curl returning HTTP 404.
+- **Canonicalization:** redirect targets were adopted when they represented the same current resource. An old Server Fault sysctl URL was rejected after it redirected to an unrelated iptables question.
+- **Duplicate integration:** 10 cross-fragment occurrences were consolidated so each normalized URL appears once in its strongest primary section.
+- **Verification method:** direct HTTPS URLs, bounded curl redirects and timeouts, GET fallback for HEAD failures, title/content review, manual browser inspection for ambiguous responses, exact table parsing, normalized duplicate detection, and reconciliation against the immutable 250-row decision ledger.
+- **Scope limitation:** private repository source is not reproduced here. [repository-concepts.md](repository-concepts.md) records only repository metadata, technologies, high-level concepts, evidence categories, and learning-path mappings.
